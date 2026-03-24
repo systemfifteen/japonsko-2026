@@ -1090,7 +1090,7 @@ function catLabel(cat) {
 document.getElementById('placeFilters').addEventListener('click', e => {
   const btn = e.target.closest('.filter-btn');
   if (!btn) return;
-  document.querySelectorAll('#placeFilters .filter-btn.forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#placeFilters .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderPlaces(btn.dataset.filter);
 });
