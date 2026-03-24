@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japonsko — Apríl/Máj 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1714;
+  --paper: #f5f0e8;
+  --paper2: #ede8dc;
+  --red: #c0392b;
+  --gold: #b8860b;
+  --muted: #6b6560;
+  --border: #d4cfc4;
+  --white: #fdfaf5;
+  --cat-kaviarne: #7c5c3e;
+  --cat-jedlo: #8b3a2f;
+  --cat-nakupy: #3a5f7c;
+  --cat-aktivity: #3a6b4a;
+  --cat-pamiatkya: #5a3a7c;
+  --cat-hotel: #5a5a5a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 48px 32px 40px;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: '日本';
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 180px;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.header-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+header h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.header-meta {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: rgba(245,240,232,0.6);
+}
+.header-meta span { display: flex; align-items: center; gap: 6px; }
+
+/* ── NAV TABS ── */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+nav::-webkit-scrollbar { display: none; }
+.nav-inner {
+  display: flex;
+  min-width: max-content;
+  padding: 0 16px;
+}
+.tab-btn {
+  padding: 14px 20px;
+  border: none;
+  background: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.tab-btn:hover { color: var(--ink); }
+.tab-btn.active { color: var(--ink); border-bottom-color: var(--red); }
+
+/* ── MAIN LAYOUT ── */
+main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
+.section { display: none; }
+.section.active { display: block; }
+
+/* ── ITINERARY ── */
+.phase-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.phase-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.phase-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.phase-nights {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.day-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0 16px;
+  margin-bottom: 2px;
+  position: relative;
+}
+.day-card::before {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 42px;
+  bottom: -2px;
+  width: 1px;
+  background: var(--border);
+}
+.day-card:last-child::before { display: none; }
+
+.day-num {
+  text-align: center;
+  padding-top: 12px;
+}
+.day-num .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--paper2);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.day-num .date {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 3px;
+  display: block;
+}
+
+.day-content {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 6px;
+}
+.day-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.day-location {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+.day-desc { font-size: 13px; color: #3a3530; line-height: 1.6; }
+.day-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 10px;
+}
+.tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--paper2);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.tag.highlight { background: #f9f0d8; border-color: #d4a843; color: #7a5c00; }
+.tag.new { background: #f0f4f9; border-color: #a0b8d4; color: #2a4a6a; }
+.tag.repeat { background: #f4f0f9; border-color: #b4a0d4; color: #3a2a6a; }
+
+/* travel day */
+.day-card.travel .day-num .num {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.day-card.travel .day-content {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.day-card.travel .day-desc { color: rgba(245,240,232,0.7); }
+.day-card.travel .day-location { color: var(--gold); }
+.day-card.travel .day-title { color: var(--paper); }
+
+/* ── PLACES ── */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all .15s;
+  color: var(--muted);
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+.place-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  border-left: 3px solid var(--border);
+  transition: transform .1s, box-shadow .1s;
+}
+.place-card:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.place-cat {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.place-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+.place-zone {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.place-note {
+  font-size: 12px;
+  color: #4a4540;
+  line-height: 1.5;
+}
+.place-rating {
+  font-size: 11px;
+  color: var(--gold);
+  margin-top: 8px;
+}
+
+/* category colors */
+.cat-kaviarne { border-left-color: var(--cat-kaviarne); }
+.cat-kaviarne .place-cat { color: var(--cat-kaviarne); }
+.cat-jedlo { border-left-color: var(--cat-jedlo); }
+.cat-jedlo .place-cat { color: var(--cat-jedlo); }
+.cat-nakupy { border-left-color: var(--cat-nakupy); }
+.cat-nakupy .place-cat { color: var(--cat-nakupy); }
+.cat-aktivity { border-left-color: var(--cat-aktivity); }
+.cat-aktivity .place-cat { color: var(--cat-aktivity); }
+.cat-pamiatkya { border-left-color: var(--cat-pamiatkya); }
+.cat-pamiatkya .place-cat { color: var(--cat-pamiatkya); }
+.cat-hotel { border-left-color: var(--cat-hotel); }
+.cat-hotel .place-cat { color: var(--cat-hotel); }
+
+/* ── CHECKLIST ── */
+.checklist-section { margin-bottom: 28px; }
+.checklist-section h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .1s;
+  border: 1px solid transparent;
+}
+.check-item:hover { background: var(--white); border-color: var(--border); }
+.check-item.done { opacity: 0.45; }
+.check-item.done .check-label { text-decoration: line-through; }
+.check-box {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s;
+  background: var(--white);
+}
+.check-item.done .check-box {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.check-item.done .check-box::after {
+  content: '';
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid var(--paper);
+  border-bottom: 2px solid var(--paper);
+  transform: rotate(-45deg) translateY(-1px);
+}
+.check-label { font-size: 13px; flex: 1; }
+.check-note { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.priority-high { border-left: 2px solid var(--red); padding-left: 10px; }
+
+/* ── TIPS ── */
+.tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.tip-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+.tip-icon { font-size: 22px; margin-bottom: 8px; }
+.tip-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.tip-text { font-size: 12px; color: #4a4540; line-height: 1.6; }
+
+/* ── PROGRESS BAR ── */
+.progress-bar {
+  background: var(--paper2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.progress-track {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--ink);
+  border-radius: 3px;
+  transition: width .3s;
+}
+.progress-label { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+/* ── SECTION INTRO ── */
+.section-intro {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.section-intro::after {
+  content: attr(data-kanji);
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Shippori Mincho', serif;
+  font-size: 64px;
+  opacity: 0.06;
+  pointer-events: none;
+}
+.section-intro p { font-size: 13px; color: rgba(245,240,232,0.7); max-width: 600px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  header { padding: 32px 16px; }
+  .day-card { grid-template-columns: 44px 1fr; gap: 0 10px; }
+  .day-card::before { left: 21px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-label">Cestovný sprievodca</div>
+  <h1>Japonsko<br>Apríl — Máj 2026</h1>
+  <div class="header-meta">
+    <span>✈ 20. apríl – 11. máj</span>
+    <span>◎ 22 dní</span>
+    <span>↔ Narita → Narita</span>
+    <span>♨ Nozawa Onsen</span>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="tab-btn active" onclick="showTab('itinerary')">Itinerár</button>
+    <button class="tab-btn" onclick="showTab('places')">Miesta</button>
+    <button class="tab-btn" onclick="showTab('checklist')">Checklist</button>
+    <button class="tab-btn" onclick="showTab('tips')">Tipy</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════
+     TAB 1 — ITINERÁR
+═══════════════════════════════════════ -->
+<div id="tab-itinerary" class="section active">
+
+  <!-- FÁZA 1: TOKIO -->
+  <div class="phase-header">
+    <span class="phase-label">Fáza 1</span>
+    <span class="phase-title">Tokio — západ</span>
+    <span class="phase-nights">5 nocí · lyf Shibuya</span>
+  </div>
+
+  <div class="day-card travel">
+    <div class="day-num">
+      <div class="num">✈</div>
+      <span class="date">20.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Prílet · Narita</div>
+      <div class="day-title">Deň nula — prílet</div>
+      <div class="day-desc">Narita Express → Shibuya (~60 min). Check-in, vyložiť veci. Večer len krátka prechádzka — Shibuya Crossing, Miyashita Park, večera v okolí hotela. Nič náročné — telo si myslí že je 3:00 ráno.</div>
+      <div class="day-tags">
+        <span class="tag" style="background:#2a1a0a;color:#d4a843;border-color:#6b4c1a">⚠ Jetlag: SK→JP = −7h. Prvé 2–3 dni: únava poobede, skoré budenie. Plánuj ráno aktívne, poobede ľahšie.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">1</div>
+      <span class="date">21.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Shibuya · Harajuku · Omotesando</div>
+      <div class="day-title">Pomalý štart — jetlag deň</div>
+      <div class="day-desc">Nechaj telo zobudiť sa prirodzene (pravdepodobne skoro). Raňajky v Little Nap Coffee Stand. Ľahká prechádzka — Cat Street → Omotesando → Onitsuka Tiger flagship. Obed v PIZZA SLICE CAT STREET. Popoludní Shibuya Sky ak energia dovolí (západ slnka — rezervovať vopred!), inak Miyashita Park a relax. Večera udon v Yamashita.</div>
+      <div class="day-tags">
+        <span class="tag highlight">★ Shibuya Sky pri západe</span>
+        <span class="tag">káva</span><span class="tag">ľahký deň</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">2</div>
+      <span class="date">22.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Shinjuku</div>
+      <div class="day-title">Shinjuku — nákupy a nočný život</div>
+      <div class="day-desc">KOMEHYO second hand (3 pobočky). Keio Department Store — podzemné jedlo. Godzilla Road na fotku. Večer Golden Gai alebo Kabukicho tower observation deck.</div>
+      <div class="day-tags">
+        <span class="tag">second hand</span><span class="tag">fotky</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">3</div>
+      <span class="date">23.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Mitaka · Akihabara · Ueno</div>
+      <div class="day-title">Ghibli Museum + Akihabara</div>
+      <div class="day-desc">Ráno: Ghibli Museum v Mitake — rezervácia nutná! Lístky cez Lawson alebo zahraničné portály, predávajú sa mesiac vopred na konkrétny čas. Muzeum je malé, intímne, bez veľkých davov (vstup po časových slotoch). Obed v Mitake alebo na ceste. Popoludní: Akihabara — elektronika, retro hry, Map Camera. Yanaka ak zostane energia.</div>
+      <div class="day-tags">
+        <span class="tag highlight">★ Ghibli — rezervovať HNEĎ</span>
+        <span class="tag repeat">↻ bol si tu</span>
+        <span class="tag">retro tech</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">4</div>
+      <span class="date">24.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Asakusa · Skytree · Ueno</div>
+      <div class="day-title">Skytree + historický východ Tokia</div>
+      <div class="day-desc">Ráno: Senso-ji v Asakuse (pred 9:00 kým nie sú davy). Tokyo Skytree — 634m, druhá najvyššia stavba sveta, výhľad na celé Tokio vrátane Fuji za jasného počasia. Obed v Asakuse. Popoludní: Ueno Park a Národné múzeum (jedno z najlepších v Ázii). Späť cez Yanaka uličky.</div>
+      <div class="day-tags">
+        <span class="tag new">✦ Skytree — nové oproti 2013</span>
+        <span class="tag">múzeum</span><span class="tag">výhľad</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">5</div>
+      <span class="date">25.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Toyosu · Odaiba</div>
+      <div class="day-title">teamLab Planets + voľné popoludnie</div>
+      <div class="day-desc">Dopoludnia: teamLab Planets Toyosu (rezervácia nutná mesiace vopred — najmä Golden Week!). Jeden z najunikátnejších zážitkov v Japonsku, počítaj 2–3 hodiny. Potom: voľné popoludnie — Odaiba výhľad na Tokyo Bay, prechádzka, kaviareň. Žiadny ďalší program. Večer: Ginza alebo relax pred presunmi.</div>
+      <div class="day-tags">
+        <span class="tag highlight">★ Must — rezervovať HNEĎ</span>
+        <span class="tag new">✦ nové</span><span class="tag">umenie</span>
+        <span class="tag" style="background:#0a2a1a;color:#5dbf8a;border-color:#1a6b3a">☁ voľné popoludnie</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">6</div>
+      <span class="date">26.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Harajuku · Yoyogi · Aoyama</div>
+      <div class="day-title">Dizajn, móda, parky</div>
+      <div class="day-desc">Yoyogi Park ráno (pekné v apríli). BEAMS Japan, HUMAN MADE, MOMOTARO Jeans Aoyama. Obed v Camelback (tamago sandwich). Popoludní Nezu Shrine (menej turistov ako Meiji). Deus Ex Machina kaviareň na záver.</div>
+      <div class="day-tags">
+        <span class="tag new">✦ Nezu Shrine</span>
+        <span class="tag">japonská móda</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FÁZA 2: NOZAWA ONSEN -->
+  <div class="phase-header">
+    <span class="phase-label">Fáza 2</span>
+    <span class="phase-title">Nozawa Onsen</span>
+    <span class="phase-nights">2 noci · u netre</span>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">7</div>
+      <span class="date">27.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Tokio → Nagano → Nozawa Onsen</div>
+      <div class="day-title">Presun do hôr</div>
+      <div class="day-desc">Shinkansen Tokio → Nagano (~90 min). Autobus alebo taxi do Nozawa Onsen (~60 min). Tradičná lyžiarska dedinka — v apríli pokojná, krásne onsen kúpele (zadarmo, verejné). Večera u netre.</div>
+      <div class="day-tags">
+        <span class="tag highlight">★ Návšteva netre</span>
+        <span class="tag">onsen</span><span class="tag">príroda</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">8</div>
+      <span class="date">28.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Nozawa Onsen</div>
+      <div class="day-title">Deň v dedine — žiadny plán</div>
+      <div class="day-desc">Ráno onsen (Ogama — hlavný verejný kúpeľ). Prechádzky po dedine, miestne obchody, oyaki (plnené buchty — lokálna špecialita). Popoludní voľno s netrou. Večer ďalší onsen. Toto je zámerne voľný deň — žiadny program, žiadne pamiatky.</div>
+      <div class="day-tags">
+        <span class="tag">onsen</span><span class="tag">nenáročná turistika</span>
+        <span class="tag" style="background:#0a2a1a;color:#5dbf8a;border-color:#1a6b3a">☁ voľný deň</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FÁZA 3: KANAZAWA -->
+  <div class="phase-header">
+    <span class="phase-label">Fáza 3</span>
+    <span class="phase-title">Kanazawa — prekvapenie</span>
+    <span class="phase-nights">2 noci</span>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">9</div>
+      <span class="date">29.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Nozawa → Kanazawa</div>
+      <div class="day-title">Kanazawa — malé Kyoto bez turistov</div>
+      <div class="day-desc">Kanazawa je jedno z najlepšie zachovaných historických miest Japonska. Trasa vlakmi cez Nagano/Toyama. Pozor: 29. apríl = začiatok Golden Week, niektoré vlaky plné — rezervovať miesta! Odpoludnia: Kenroku-en záhrada (jedna z troch najkrajších v Japonsku) + Kanazawa hrad.</div>
+      <div class="day-tags">
+        <span class="tag new">✦ nové — nebol si tu</span>
+        <span class="tag highlight">★ skryté klenoty</span>
+        <span class="tag" style="background:#2a1a0a;color:#d4a843;border-color:#6b4c1a">⚠ Golden Week začína</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">10</div>
+      <span class="date">30.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Kanazawa</div>
+      <div class="day-title">21st Century Museum of Contemporary Art</div>
+      <div class="day-desc">Dopoludnia: 21st Century Museum — jedno z najlepších múzeí moderného umenia v Japonsku (bazén Leandro Erlica!). Higashi Chaya — zlaté čajovne. Obed: fresh sushi na Omicho markete (druhý najväčší fish market v Japonsku). Popoludní Ninja-dera chrám.</div>
+      <div class="day-tags">
+        <span class="tag new">✦ nové</span>
+        <span class="tag">umenie</span><span class="tag">múzeum</span><span class="tag highlight">★ TOP</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FÁZA 4: KYOTO -->
+  <div class="phase-header">
+    <span class="phase-label">Fáza 4</span>
+    <span class="phase-title">Kyoto · Nara</span>
+    <span class="phase-nights">4 noci</span>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">11</div>
+      <span class="date">1.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Kanazawa → Kyoto</div>
+      <div class="day-title">Kyoto — príchod a Fushimi Inari</div>
+      <div class="day-desc">Thunderbird express Kanazawa→Osaka→Kyoto. Check-in. Popoludní Gion prechádzka (večer krajšia). Fushimi Inari pri záchode slnka — menej ľudí. Dnes stačí len toto — Golden Week, Kyoto bude preplnené.</div>
+      <div class="day-tags">
+        <span class="tag repeat">↻ ako v 2013</span>
+        <span class="tag" style="background:#2a1a0a;color:#d4a843;border-color:#6b4c1a">⚠ Golden Week — davy</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">11</div>
+      <span class="date">1.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Kyoto</div>
+      <div class="day-title">Chrámy a záhrady</div>
+      <div class="day-desc">Arashiyama ráno (bambusový háj skoro ráno — bez turistov!). Tenryu-ji záhrada. Obed v oblasti. Popoludní: Kinkaku-ji (zlatý pavilón), Ryoan-ji (kamenná záhrada). Dusk walk Philosopher's Path.</div>
+      <div class="day-tags">
+        <span class="tag repeat">↻ klasika</span><span class="tag">príroda</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">12</div>
+      <span class="date">2.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Nara (výlet z Kyota)</div>
+      <div class="day-title">Nara — jelene a Daibutsu</div>
+      <div class="day-desc">Rýchlovlak Kyoto→Nara (45 min). Nara Park — jelene. Tōdai-ji s obrovskou budhovou sochou. Obed v lokálnej reštaurácii (raňajky boli skvele v 2013 — nájdi znova kaviareň pri stanici). Späť do Kyota na večeru.</div>
+      <div class="day-tags">
+        <span class="tag repeat">↻ znova — stojí za to</span>
+        <span class="tag highlight">★ Daibutsu</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">13</div>
+      <span class="date">3.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Kyoto</div>
+      <div class="day-title">Nishiki market + Nijo Castle</div>
+      <div class="day-desc">Nishiki market — "kuchyňa Kjóta". Nijo Castle (skrípajúce podlahy — bezpečnostný systém šógunátu!). Popoludní voľno alebo Kyoto National Museum. Večera v Pontocho alley.</div>
+      <div class="day-tags">
+        <span class="tag new">✦ Nijo Castle</span><span class="tag">jedlo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FÁZA 5: OSAKA + HIROSHIMA -->
+  <div class="phase-header">
+    <span class="phase-label">Fáza 5</span>
+    <span class="phase-title">Osaka · Hiroshima · Miyajima</span>
+    <span class="phase-nights">3 noci</span>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">14</div>
+      <span class="date">4.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Osaka</div>
+      <div class="day-title">Osaka — jedlo a chaos</div>
+      <div class="day-desc">Kyoto→Osaka (15 min). Dotonbori — takoyaki, okonomiyaki, ramen. Kuromon market. Popoludní Osaka Castle. Večer: Amerika-mura alebo Shinsekai (stará Osaka). Ubytovanie v Osake.</div>
+      <div class="day-tags">
+        <span class="tag repeat">↻ klasika</span><span class="tag">jedlo</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">15</div>
+      <span class="date">5.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Hiroshima · Miyajima</div>
+      <div class="day-title">Hiroshima — pamäť a Tori</div>
+      <div class="day-desc">Shinkansen Osaka→Hiroshima. Peace Memorial Park + Museum (silný zážitok). Obed: hiroshimský okonomiyaki! Odpoludnia loďka na Miyajima — Itsukushima Tori, jelene. Lanovka na horu Misen (výhľad). Späť do Hirošimy.</div>
+      <div class="day-tags">
+        <span class="tag repeat">↻ znova — jednoznačne</span>
+        <span class="tag highlight">★ Okonomiyaki!</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">16</div>
+      <span class="date">6.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Hiroshima → Tokio</div>
+      <div class="day-title">Presun späť na východ</div>
+      <div class="day-desc">Ráno voľno v Hiroshime (Hiroshima hrad ak neurobený). Shinkansen Hiroshima→Tokio (cca 4h). Check-in ART HOTELS SHIBUYA na záver cesty.</div>
+      <div class="day-tags">
+        <span class="tag">presun</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FÁZA 6: TOKIO záver -->
+  <div class="phase-header">
+    <span class="phase-label">Fáza 6</span>
+    <span class="phase-title">Tokio — záver a dekompresia</span>
+    <span class="phase-nights">5 nocí · ART Hotels Shibuya</span>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">17</div>
+      <span class="date">7.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Tokio — voľný dekompresinný deň</div>
+      <div class="day-title">Dekompresia po cestovaní</div>
+      <div class="day-desc">Po Hiroshima→Tokio presune (4h vlakom) nič nenárokuj. Toto je zámerný voľný deň — kaviareň, obľúbená reštika, Yoyogi Park ak chceš vzduch. Zo skúsenosti: po 2,5 týždni cestovania ťa vypne na pol deň. Tu je na to priestor.</div>
+      <div class="day-tags">
+        <span class="tag" style="background:#0a2a1a;color:#5dbf8a;border-color:#1a6b3a">☁ zámerný voľný deň</span>
+        <span class="tag">dekompresia</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">18</div>
+      <span class="date">8.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Azabudai · Roppongi</div>
+      <div class="day-title">teamLab Borderless + Mori Art Museum</div>
+      <div class="day-desc">teamLab Borderless v novom Azabudai Hills komplexe (od 2024) — rezervovať vopred. Ak chceš oba teamLab zážitky, toto je druhý. Mori Art Museum na 53. poschodí Roppongi Hills — súčasné umenie + výhľad na Tokio.</div>
+      <div class="day-tags">
+        <span class="tag">umenie</span><span class="tag new">✦ nové miesto</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">19</div>
+      <span class="date">9.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Koenji · Shimokitazawa</div>
+      <div class="day-title">Alternatívne Tokio</div>
+      <div class="day-desc">Shimokitazawa — tokijský "Williamsburg": second hand, indie kaviarne, live music. MOMOTARO Jeans Koenji (ak chceš džínsy). Obed v lokálnej reštaurácii. Popoludní Nakameguro canal (krásne aj bez čerešní).</div>
+      <div class="day-tags">
+        <span class="tag new">✦ nové</span><span class="tag">second hand</span><span class="tag">atmosféra</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">20</div>
+      <span class="date">10.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Tokio — voľný deň</div>
+      <div class="day-title">Záverečný nákupný deň + Hie Shrine</div>
+      <div class="day-desc">Voľno na posledné nákupy (Shibuya, Harajuku). Hie Shrine — pokojný shinto chrám. Blue Bott Coffee na záverečnú filter kávu. Večera v obľúbenej reštike. Balenie.</div>
+      <div class="day-tags">
+        <span class="tag">voľno</span><span class="tag">nákupy</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card travel">
+    <div class="day-num">
+      <div class="num">✈</div>
+      <span class="date">11.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Odlet · Narita</div>
+      <div class="day-title">Domov</div>
+      <div class="day-desc">Narita Express → letisko. Sayōnara, Japonsko.</div>
+    </div>
+  </div>
+
+</div><!-- /itinerary -->
+
+
+<!-- ══════════════════════════════════════
+     TAB 2 — MIESTA
+═══════════════════════════════════════ -->
+<div id="tab-places" class="section">
+  <div class="section-intro" data-kanji="所">
+    <p>Miesta z Google Maps zoznamu, rozkategorizované. Klikni na filter pre zobrazenie kategórie.</p>
+  </div>
+
+  <div class="filter-row" id="placeFilters">
+    <button class="filter-btn active" data-filter="all">Všetko</button>
+    <button class="filter-btn" data-filter="kaviarne">☕ Kaviarne</button>
+    <button class="filter-btn" data-filter="jedlo">🍜 Jedlo</button>
+    <button class="filter-btn" data-filter="nakupy">🛍 Nákupy</button>
+    <button class="filter-btn" data-filter="aktivity">🏃 Aktivity</button>
+    <button class="filter-btn" data-filter="pamiatkya">🏯 Pamiatky</button>
+    <button class="filter-btn" data-filter="hotel">🏨 Hotel</button>
+  </div>
+
+  <div class="places-grid" id="placesGrid"></div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     TAB 3 — CHECKLIST
+═══════════════════════════════════════ -->
+<div id="tab-checklist" class="section">
+  <div class="section-intro" data-kanji="準">
+    <p>Čo treba vybaviť pred odletom. Klikni na položku pre odškrtnutie.</p>
+  </div>
+
+  <div class="progress-bar">
+    <span class="progress-label" id="progressLabel">0 / 0 hotovo</span>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div id="checklistContainer"></div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     TAB 4 — TIPY
+═══════════════════════════════════════ -->
+<div id="tab-tips" class="section">
+  <div class="section-intro" data-kanji="知">
+    <p>Praktické rady, cennosti z predošlej cesty a nové tipy pre apríl 2026.</p>
+  </div>
+  <div class="tips-grid" id="tipsGrid"></div>
+</div>
+
+</main>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────
+
+const places = [
+  // KAVIARNE
+  { cat:'kaviarne', name:'Little Nap Coffee Stand', zone:'Shibuya', note:'Jedna z najlepších káv v Tokiu — vlastná pražiareň priamo v kaviarni', rating:'4,5', priority:true },
+  { cat:'kaviarne', name:'Blue Bottle Coffee', zone:'Shibuya', note:'Odporúčaná filter káva v centre', rating:'4,6', priority:true },
+  { cat:'kaviarne', name:'Streamer Coffee Company', zone:'Shibuya', note:'Skvelá aj na prácu', rating:'4,2' },
+  { cat:'kaviarne', name:'Rec Coffee Shibuya East', zone:'Shibuya', note:'Zastávka na kávu', rating:'4,6' },
+  { cat:'kaviarne', name:'CAMELBACK sandwich&espresso', zone:'Harajuku', note:'Najlepšia matcha + tamago sandwich (z vlogov)', rating:'3,9', priority:true },
+  { cat:'kaviarne', name:'Better Together Coffee', zone:'Shonan', note:'Obľúbená kaviareň', rating:'4,5' },
+  { cat:'kaviarne', name:'Deus Ex Machina', zone:'Shibuya', note:'Krásny obchod s kaviarne', rating:'4,5' },
+  { cat:'kaviarne', name:"Ralph's Coffee", zone:'Omotesando', note:'Celý store stojí za návštevu', rating:'4,0' },
+  { cat:'kaviarne', name:'Gong Cha Shibuya Scramble Square', zone:'Shibuya', note:'Obľúbená matcha — vstup z ulice', rating:'3,7' },
+  { cat:'kaviarne', name:'Gong cha Shinjuku Southeast', zone:'Shinjuku', note:'Obľúbená matcha', rating:'3,8' },
+  { cat:'kaviarne', name:'Excelsior Caffé', zone:'Shinjuku', note:'Overená istota, viac pobočiek, dobrá na prácu', rating:'3,6' },
+  { cat:'kaviarne', name:'Starbucks Shibuya Tsutaya', zone:'Shibuya', note:'Super výhľad na križovatku (káva nič špeciálne)', rating:'4,1' },
+  { cat:'kaviarne', name:'BUY ME STAND', zone:'Harajuku', note:'Útulná kaviareň, sendviče', rating:'4,0' },
+  // JEDLO
+  { cat:'jedlo', name:'Yamashita Honki Udon (4 pobočky)', zone:'Shibuya / Shinjuku', note:'Carbonara udon alebo curry udon — must try!', rating:'3,6–3,9', priority:true },
+  { cat:'jedlo', name:'TsuruTonTan Udon Brasserie Shibuya', zone:'Shibuya', note:'Udon s výhľadom na Tokio', rating:'4,1' },
+  { cat:'jedlo', name:'Kaiten Sushi Numazuko', zone:'Shinjuku', note:'Najlepší pomer cena/výkon sushi', rating:'3,8' },
+  { cat:'jedlo', name:'PIZZA SLICE CAT STREET', zone:'Harajuku', note:'Svačina keď nechcete japonské', rating:'4,4' },
+  { cat:'jedlo', name:'WaraTako (takoyaki)', zone:'Harajuku', note:'Super svačina', rating:'3,6' },
+  { cat:'jedlo', name:'CoCo Ichiban-ya', zone:'Shibuya', note:'Fast food curry — vyber si pálivosť!', rating:'3,7' },
+  { cat:'jedlo', name:'Gourmet Curry Bon Goût NEWoMan', zone:'Shinjuku', note:'Curry pan to go — treba vyskúšať', rating:'4,0' },
+  { cat:'jedlo', name:'Gyoza no Ohsho', zone:'Hatsudai', note:'Super pomer cena/výkon gyoza', rating:'3,5' },
+  { cat:'jedlo', name:'Sukiya Shinjuku South', zone:'Shinjuku', note:'Gyudon — overená istota', rating:'3,5' },
+  // NAKUPY
+  { cat:'nakupy', name:'KOMEHYO (3× pobočky Shinjuku)', zone:'Shinjuku', note:'Top výberový second hand s luxusným tovarom', rating:'4,5–4,9', priority:true },
+  { cat:'nakupy', name:'BRAND COLLECT HARAJUKU', zone:'Harajuku', note:'Second hand s výberovým tovarom', rating:'5,0', priority:true },
+  { cat:'nakupy', name:'RAGTAG', zone:'Harajuku', note:'Výberový second hand', rating:'4,0' },
+  { cat:'nakupy', name:'2nd STREET Harajuku', zone:'Harajuku', note:'Second hand', rating:'3,3' },
+  { cat:'nakupy', name:'MOMOTARO JEANS Aoyama', zone:'Aoyama', note:'Japonské džínsy — úprava na mieru pri nákupe', rating:'4,3' },
+  { cat:'nakupy', name:'MOMOTARO JEANS Koenji', zone:'Koenji', note:'Japonské džínsy — úprava na mieru', rating:'4,6' },
+  { cat:'nakupy', name:'HUMAN MADE Shibuya PARCO', zone:'Shibuya', note:'Japonský street wear', rating:'4,3' },
+  { cat:'nakupy', name:'BEAMS JAPAN SHIBUYA', zone:'Shibuya', note:'Štýlové japonské oblečenie a veci do domu', rating:'4,4' },
+  { cat:'nakupy', name:'Onitsuka Tiger Omotesando', zone:'Omotesando', note:'Flagship store (z Kill Bill!)', rating:'3,5' },
+  { cat:'nakupy', name:'Map Camera', zone:'Shinjuku', note:'Neuveriteľný camera store, tax free', rating:'4,2', priority:true },
+  { cat:'nakupy', name:'Miyashita Park', zone:'Shibuya', note:'Nákupné centrum so strechou', rating:'4,2' },
+  { cat:'nakupy', name:'Keio Department Store Shinjuku', zone:'Shinjuku', note:'Podzemné jedlo + strecha — lokálny zážitok', rating:'3,8' },
+  // AKTIVITY
+  { cat:'aktivity', name:'teamLab Planets Toyosu', zone:'Toyosu', note:'Rezervovať MESIACE vopred! Must experience.', rating:'★★★★★', priority:true },
+  { cat:'aktivity', name:'Shibuya Sky', zone:'Shibuya', note:'Najlepší výhľad v Tokiu — západ slnka', rating:'4,6', priority:true },
+  { cat:'aktivity', name:'Yoyogi Park', zone:'Shibuya', note:'Park na beh alebo prechádzky', rating:'4,4' },
+  { cat:'aktivity', name:'Suica\'s Penguin Park', zone:'Shinjuku', note:'Výhľad, svačina, vlaky', rating:'—' },
+  { cat:'aktivity', name:'TAITO STATION GameWorld', zone:'Shinjuku', note:'Game station, niekoľko poschodí — na daždivý deň', rating:'3,7' },
+  // PAMIATKY
+  { cat:'pamiatkya', name:'Shibuya Crossing', zone:'Shibuya', note:'Klasika na fotku', rating:'4,5' },
+  { cat:'pamiatkya', name:'Cat Street', zone:'Harajuku', note:'Ulica s obchodmi — víkendy preplnené!', rating:'4,5' },
+  { cat:'pamiatkya', name:'Godzilla Road', zone:'Shinjuku', note:'Insta spot na fotky', rating:'4,5' },
+  { cat:'pamiatkya', name:'Hie Shrine', zone:'Akasaka', note:'Pekný chrám na fotky, pokojný', rating:'4,4' },
+  // HOTEL
+  { cat:'hotel', name:'lyf Shibuya Tokyo', zone:'Shibuya', note:'Obľúbený hotel — top lokácia. Izby sú japonská veľkosť!', rating:'4,5', priority:true },
+  { cat:'hotel', name:'ART HOTELS SHIBUYA', zone:'Hatsudai/Shibuya', note:'Priestrannejšie izby s práčkou a kuchynkou. <1km od Hatsudai st.', rating:'4,3' },
+];
+
+const checklistData = [
+  {
+    section: '🎟 Rezervácie — urobiť HNED',
+    items: [
+      { text: 'teamLab Planets Toyosu', note: 'Predáva sa mesiace vopred! planets.teamlab.art', priority: true },
+      { text: 'Ghibli Museum Mitaka', note: 'Lotéria cez Lawson alebo zahraničné portály — mesiac vopred na konkrétny čas', priority: true },
+      { text: 'Shibuya Sky', note: 'Rezervácia online — západ slnka slot', priority: true },
+      { text: 'teamLab Borderless Azabudai Hills', note: 'Ak chcete oba teamLab zážitky', priority: true },
+      { text: 'Hotel lyf Shibuya (20–25.4)', note: '5 nocí, začiatok cesty' },
+      { text: 'ART HOTELS SHIBUYA (6.5–11.5)', note: '5 nocí, záver cesty' },
+      { text: 'Hotel v Kyote (30.4–3.5)', note: '4 noci' },
+      { text: 'Hotel v Kanazawe (28–29.4)', note: '2 noci' },
+      { text: 'Hotel v Osaka/Hiroshima (4–6.5)', note: '2–3 noci' },
+    ]
+  },
+  {
+    section: '🗾 Dokumenty a karty',
+    items: [
+      { text: 'JR Pass objednať vopred', note: '21-dňový JR Pass — kúpiť pred cestou, aktivovať na letisku', priority: true },
+      { text: 'Suica alebo Pasmo karta', note: 'Načítateľná karta na metro/bus v Tokiu', priority: true },
+      { text: 'Cestovné poistenie', note: 'Vrátane krytia pre Japonsko' },
+      { text: 'Fotokópia pasu', note: 'Uložiť do cloudu aj fyzicky' },
+      { text: 'Medzinárodné vodičské oprávnenie', note: 'Ak plánujete auto (Nozawa)' },
+    ]
+  },
+  {
+    section: '💴 Peniaze a platby',
+    items: [
+      { text: 'Japonsko je stále cash spoločnosť', note: '7-Eleven ATM vyberá medzinárodnú kartu', priority: true },
+      { text: 'Vymeniť alebo vytiahnuť jeny na letisku', note: 'Prvý deň treba cash' },
+      { text: 'Visa/Mastercard bez poplatkov za zahraničné transakcie', note: 'Revolut, Wise...' },
+    ]
+  },
+  {
+    section: '📱 Aplikácie a tech',
+    items: [
+      { text: 'Google Maps — stiahnuť offline mapy Japonska', note: 'Funguje aj bez internetu', priority: true },
+      { text: 'Hyperdia alebo Japan Transit Planner', note: 'Vlakové spojenia s JR Pass' },
+      { text: 'Google Translate — stiahnuť japonský balíček', note: 'Offline preklad + camera translate' },
+      { text: 'eSIM alebo pocket WiFi', note: 'Airalo eSIM je najjednoduchší' },
+      { text: 'IC Card (iPhone Wallet)', note: 'Suica v Apple Wallet od iPhone 7' },
+    ]
+  },
+  {
+    section: '🧳 Balenie',
+    items: [
+      { text: 'Adaptér typ A (japonská zástrčka)', note: '100V, ale väčšina elektroniky funguje' },
+      { text: 'Prázdna taška na nákupy', note: 'Na Japonsko — zaberá nula miesta, využiješ max' },
+      { text: 'Pohodlná obuv na státisíce krokov', note: 'Denný priemer: 15–20k krokov' },
+      { text: 'Ľahká vrstviteľná bunda', note: 'Apríl/máj — ráno chladnejšie' },
+    ]
+  },
+  {
+    section: '☕ Káva a špeciality',
+    items: [
+      { text: 'Little Nap — navštíviť hneď deň 1', note: 'Otvára 9:00, radšej ráno' },
+      { text: 'Camelback tamago sandwich', note: 'Fronty — ísť skoro ráno' },
+      { text: 'Hiroshimský okonomiyaki', note: 'Na Miyajima — lokálna reštika, nie chain' },
+      { text: 'Nozawa Onsen oyaki', note: 'Plnené buchty — lokálna špecialita' },
+      { text: 'Single origin filter v Kanazawe', note: 'Coffee shop odporúčanie — zistit na mieste' },
+    ]
+  }
+];
+
+const tips = [
+  { icon:'🚆', title:'JR Pass je kľúč', text:'21-dňový pass pokryje Tokio↔Kyoto↔Osaka↔Hiroshima shinkansen aj bočné cesty. Kúpiť PRED cestou — v Japonsku je drahší.' },
+  { icon:'💴', title:'Cash je kráľ', text:'Japonsko je stále prevažne cash spoločnosť. 7-Eleven, Lawson a Japan Post ATM akceptujú medzinárodnú kartu. Prvé tiahnuť na letisku.' },
+  { icon:'🌸', title:'Apríl — čerešne', text:'20. apríl môže byť ešte hanami čas v niektorých oblastiach, ale väčšinou odkvitá. V Nozawa Onsen môže byť ešte sneh!' },
+  { icon:'👟', title:'Prezúvky', text:'V mnohých chrámoch, ryokanoch a niektorých reštauráciách sa vyzúva. Ľahká obuv bez šnúrok šetrí čas a nervy.' },
+  { icon:'🏯', title:'Ráno je zlaté', text:'Fushimi Inari, Arashiyama bambusový háj, Senso-ji — o 7:00 ráno takmer bez turistov. O 10:00 dav.' },
+  { icon:'🍜', title:'Z blogu 2013', text:'V Nare si v 2013 dal výborné raňajky v kaviarni pri stanici — baristi boli lokálni šampióni. Vacuum pot. Stojí za hľadanie.' },
+  { icon:'📦', title:'Yamato Transport', text:'Ťažkú batožinu pošli z hotela na hotel (takkyubin). Cestovanie bez kufra po Japonsku je zážitok sám osebe.' },
+  { icon:'🗾', title:'Nozawa Onsen — apríl', text:'Verejné onsen kúpele sú zadarmo (tip do urny). Ogama je najväčší. April = po sezóne, pokojné, málo turistov. Ideálne.' },
+  { icon:'🎨', title:'teamLab — REZERVOVAŤ HNED', text:'Planets aj Borderless sa predávajú mesiace vopred, najmä Golden Week (29.4–5.5). Bez rezervácie = bez vstupu.' },
+  { icon:'🛍', title:'Tax Free nákupy', text:'Pri nákupe nad 5000¥ v jednom obchode môžeš žiadať tax free (passport nutný). Map Camera, KOMEHYO, oblečenie.' },
+  { icon:'⚠️', title:'Golden Week!', text:'29. apríl – 5. máj je Golden Week — japonské sviatky. Hotely drahšie, vlaky plné, miesta preplnené. Rezervácie nutné!' },
+  { icon:'♨️', title:'Onsen etiketa', text:'Pred vstupom do onsen sa dôkladne umyť pri sprche. Tetovanie môže byť problém vo verejných kúpeľoch (Nozawa verejné bývajú tolerantnejšie).' },
+];
+
+// ── RENDER PLACES ─────────────────────────────────────────────
+function renderPlaces(filter) {
+  const grid = document.getElementById('placesGrid');
+  const filtered = filter === 'all' ? places : places.filter(p => p.cat === filter);
+  grid.innerHTML = filtered.map(p => `
+    <div class="place-card cat-${p.cat}" style="${p.priority ? 'box-shadow:0 0 0 1.5px var(--gold)' : ''}">
+      <div class="place-cat">${catLabel(p.cat)}</div>
+      <div class="place-name">${p.name}</div>
+      <div class="place-zone">◎ ${p.zone}</div>
+      <div class="place-note">${p.note}</div>
+      <div class="place-rating">★ ${p.rating}${p.priority ? ' &nbsp;⭐ odporúčané' : ''}</div>
+    </div>
+  `).join('');
+}
+
+function catLabel(cat) {
+  const m = { kaviarne:'☕ Kaviareň', jedlo:'🍜 Jedlo', nakupy:'🛍 Nákupy', aktivity:'🏃 Aktivita', pamiatkya:'🏯 Pamiatka', hotel:'🏨 Hotel' };
+  return m[cat] || cat;
+}
+
+document.getElementById('placeFilters').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('#placeFilters .filter-btn.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPlaces(btn.dataset.filter);
+});
+renderPlaces('all');
+
+// ── RENDER CHECKLIST ──────────────────────────────────────────
+const checkState = JSON.parse(localStorage.getItem('jp_check') || '{}');
+
+function updateProgress() {
+  const all = document.querySelectorAll('.check-item');
+  const done = document.querySelectorAll('.check-item.done');
+  const pct = all.length ? Math.round(done.length / all.length * 100) : 0;
+  document.getElementById('progressLabel').textContent = `${done.length} / ${all.length} hotovo`;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+function renderChecklist() {
+  const container = document.getElementById('checklistContainer');
+  let i = 0;
+  container.innerHTML = checklistData.map(section => `
+    <div class="checklist-section">
+      <h3>${section.section}</h3>
+      ${section.items.map(item => {
+        const id = 'c' + (i++);
+        const done = checkState[id];
+        return `
+          <div class="check-item ${done ? 'done' : ''} ${item.priority ? 'priority-high' : ''}" data-id="${id}" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div>
+              <div class="check-label">${item.text}</div>
+              ${item.note ? `<div class="check-note">${item.note}</div>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `).join('');
+  updateProgress();
+}
+
+function toggleCheck(el) {
+  el.classList.toggle('done');
+  const id = el.dataset.id;
+  checkState[id] = el.classList.contains('done');
+  localStorage.setItem('jp_check', JSON.stringify(checkState));
+  updateProgress();
+}
+
+renderChecklist();
+
+// ── RENDER TIPS ───────────────────────────────────────────────
+document.getElementById('tipsGrid').innerHTML = tips.map(t => `
+  <div class="tip-card">
+    <div class="tip-icon">${t.icon}</div>
+    <div class="tip-title">${t.title}</div>
+    <div class="tip-text">${t.text}</div>
+  </div>
+`).join('');
+
+// ── TAB NAVIGATION ────────────────────────────────────────────
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  document.querySelector(`[onclick="showTab('${id}')"]`).classList.add('active');
+}
+</script>
+</body>
+</html>
