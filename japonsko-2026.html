@@ -306,6 +306,20 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
   color: var(--gold);
   margin-top: 8px;
 }
+.place-book {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: opacity .15s;
+}
+.place-book:hover { opacity: 0.75; }
 
 /* category colors */
 .cat-kaviarne { border-left-color: var(--cat-kaviarne); }
@@ -962,16 +976,16 @@ const places = [
   { cat:'nakupy', name:'Miyashita Park', zone:'Shibuya', note:'Nákupné centrum so strechou', rating:'4,2' },
   { cat:'nakupy', name:'Keio Department Store Shinjuku', zone:'Shinjuku', note:'Podzemné jedlo + strecha — lokálny zážitok', rating:'3,8' },
   // AKTIVITY
-  { cat:'aktivity', name:'teamLab Planets Toyosu', zone:'Toyosu', note:'Rezervovať MESIACE vopred! Must experience.', rating:'★★★★★', priority:true },
-  { cat:'aktivity', name:'teamLab Borderless Azabudai Hills', zone:'Azabudai', note:'Nová verzia od 2024 — rezervovať vopred.', rating:'★★★★★', priority:true },
-  { cat:'aktivity', name:'Shibuya Sky', zone:'Shibuya', note:'Najlepší výhľad v Tokiu — západ slnka. Rezervovať slot vopred.', rating:'4,6', priority:true },
-  { cat:'aktivity', name:'Samurai Ninja Museum', zone:'Asakusa', note:'~¥3 000/os. basic (¥6 000 pre dvoch). 45–60 min. Denne 9–19h, tours každých 15 min. Blízko Senso-ji. Rezervovať vopred online.', rating:'4,5', priority:true },
-  { cat:'aktivity', name:'Maikoya — Čajový obrad + kimono (Shinjuku)', zone:'Shinjuku', note:'~¥6 000/os. (¥12 000 pre dvoch). 90–120 min. Pri Hanazono Shrine. Kimono, matcha, wagashi, anglický sprievodca. Rezervovať vopred.', rating:'4,7', priority:true },
-  { cat:'aktivity', name:'Maikoya — Čajový obrad + kimono (Asakusa)', zone:'Asakusa', note:'~¥6 000/os. (¥12 000 pre dvoch). ~90 min. Denne 9–18h každú hodinu. Alternatíva Shinjuku verzie — rovnaká kvalita, iná lokalita.', rating:'4,7' },
-  { cat:'aktivity', name:'Watashino Washi — výroba papiera', zone:'Asakusa', note:'¥4 400/os. (¥8 800 pre dvoch). 40–70 min. 4 pohľadnice z tradičného washi papiera. ⚠ IBA pracovné dni (Po–Pi)! Zatvoriť víkendy + sviatky. Plánovať na 8.5 (piatok).', rating:'4,8', priority:true },
-  { cat:'aktivity', name:'Mokubakan — Taishu Engeki show', zone:'Asakusa', note:'~¥1 600/os. (¥3 200 pre dvoch). ~3,5h tradičné ľudové divadlo. Denne okrem konca mesiaca. Autentický zážitok — žiadni turisti, len lokáli.', rating:'4,4' },
-  { cat:'aktivity', name:'Mokubakan — Show + kimono + Sword Lesson', zone:'Asakusa', note:'Prémiová verzia — cena vyššia (overiť na Klook). Zahŕňa kimono oblečenie a lekciu so samurajským mečom. Pre dvoch plánovať 3,5h+.', rating:'4,4' },
-  { cat:'aktivity', name:'Ghibli Museum', zone:'Mitaka', note:'Rezervácia nutná — lotéria cez Lawson alebo zahraničné portály, mesiac vopred. Malé, intímne, vstup po časových slotoch.', rating:'4,8', priority:true },
+  { cat:'aktivity', name:'teamLab Planets Toyosu', zone:'Toyosu', note:'Rezervovať MESIACE vopred! Must experience.', rating:'★★★★★', priority:true, url:'https://planets.teamlab.art/tokyo/' },
+  { cat:'aktivity', name:'teamLab Borderless Azabudai Hills', zone:'Azabudai', note:'Nová verzia od 2024 — rezervovať vopred.', rating:'★★★★★', priority:true, url:'https://borderless.teamlab.art/' },
+  { cat:'aktivity', name:'Shibuya Sky', zone:'Shibuya', note:'Najlepší výhľad v Tokiu — západ slnka. Rezervovať slot vopred.', rating:'4,6', priority:true, url:'https://www.shibuya-sky.com/en/' },
+  { cat:'aktivity', name:'Samurai Ninja Museum', zone:'Asakusa', note:'~¥3 000/os. basic (¥6 000 pre dvoch). 45–60 min. Denne 9–19h, tours každých 15 min. Blízko Senso-ji. Rezervovať vopred online.', rating:'4,5', priority:true, url:'https://samuraininjamuseum.com/' },
+  { cat:'aktivity', name:'Maikoya — Čajový obrad + kimono (Shinjuku)', zone:'Shinjuku', note:'~¥6 000/os. (¥12 000 pre dvoch). 90–120 min. Pri Hanazono Shrine. Kimono, matcha, wagashi, anglický sprievodca. Rezervovať vopred.', rating:'4,7', priority:true, url:'https://mai-ko.com/tour/tea-ceremony-and-kimono-experience-kyoto-maikoya-at-shinjuku/' },
+  { cat:'aktivity', name:'Maikoya — Čajový obrad + kimono (Asakusa)', zone:'Asakusa', note:'~¥6 000/os. (¥12 000 pre dvoch). ~90 min. Denne 9–18h každú hodinu. Alternatíva Shinjuku verzie — rovnaká kvalita, iná lokalita.', rating:'4,7', url:'https://mai-ko.com/tour/tea-ceremony-and-kimono-experience-tokyo/' },
+  { cat:'aktivity', name:'Watashino Washi — výroba papiera', zone:'Asakusa', note:'¥4 400/os. (¥8 800 pre dvoch). 40–70 min. 4 pohľadnice z tradičného washi papiera. ⚠ IBA pracovné dni (Po–Pi)! Zatvoriť víkendy + sviatky. Plánovať na 8.5 (piatok).', rating:'4,8', priority:true, url:'https://watashino.style/pages/papermaking' },
+  { cat:'aktivity', name:'Mokubakan — Taishu Engeki show', zone:'Asakusa', note:'~¥1 600/os. (¥3 200 pre dvoch). ~3,5h tradičné ľudové divadlo. Denne okrem konca mesiaca. Autentický zážitok — žiadni turisti, len lokáli.', rating:'4,4', url:'https://www.klook.com/activity/183603-asakusa-mokubakan-theatre-ticket-dance-show-only/' },
+  { cat:'aktivity', name:'Mokubakan — Show + kimono + Sword Lesson', zone:'Asakusa', note:'Prémiová verzia — cena vyššia (overiť na Klook). Zahŕňa kimono oblečenie a lekciu so samurajským mečom. Pre dvoch plánovať 3,5h+.', rating:'4,4', url:'https://www.klook.com/activity/182950-asakusa-local-theatre-show-with-kimono-and-sword-lesson/' },
+  { cat:'aktivity', name:'Ghibli Museum', zone:'Mitaka', note:'Rezervácia nutná — lotéria cez Lawson alebo zahraničné portály, mesiac vopred. Malé, intímne, vstup po časových slotoch.', rating:'4,8', priority:true, url:'https://www.ghibli-museum.jp/en/tickets/' },
   { cat:'aktivity', name:'Yoyogi Park', zone:'Shibuya', note:'Park na beh alebo prechádzky', rating:'4,4' },
   { cat:'aktivity', name:'Suica\'s Penguin Park', zone:'Shinjuku', note:'Výhľad, svačina, vlaky', rating:'—' },
   { cat:'aktivity', name:'TAITO STATION GameWorld', zone:'Shinjuku', note:'Game station, niekoľko poschodí — na daždivý deň', rating:'3,7' },
@@ -1082,6 +1096,7 @@ function renderPlaces(filter) {
       <div class="place-zone">◎ ${p.zone}</div>
       <div class="place-note">${p.note}</div>
       <div class="place-rating">★ ${p.rating}${p.priority ? ' &nbsp;⭐ odporúčané' : ''}</div>
+      ${p.url ? `<a class="place-book" href="${p.url}" target="_blank" rel="noopener">🔗 Rezervovať →</a>` : ''}
     </div>
   `).join('');
 }
