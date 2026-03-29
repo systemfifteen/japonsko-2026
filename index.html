@@ -523,6 +523,7 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
       <div class="day-title">Shinjuku — nákupy a nočný život</div>
       <div class="day-desc">KOMEHYO second hand (3 pobočky). Keio Department Store — podzemné jedlo. Godzilla Road na fotku. Večer Golden Gai alebo Kabukicho tower observation deck.</div>
       <div class="day-tags">
+        <span class="tag repeat">↻ bol si tu 2013</span>
         <span class="tag">second hand</span><span class="tag">fotky</span>
       </div>
     </div>
@@ -555,6 +556,7 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
       <div class="day-title">Skytree + historický východ Tokia</div>
       <div class="day-desc">Ráno: Senso-ji v Asakuse (pred 9:00 kým nie sú davy). Tokyo Skytree — 634m, druhá najvyššia stavba sveta, výhľad na celé Tokio vrátane Fuji za jasného počasia. Obed v Asakuse. Popoludní: Ueno Park a Národné múzeum (jedno z najlepších v Ázii). Späť cez Yanaka uličky.</div>
       <div class="day-tags">
+        <span class="tag repeat">↻ Asakusa — základňa 2013</span>
         <span class="tag new">✦ Skytree — nové oproti 2013</span>
         <span class="tag">múzeum</span><span class="tag">výhľad</span>
       </div>
@@ -588,7 +590,8 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
       <div class="day-title">Dizajn, móda, parky</div>
       <div class="day-desc">Yoyogi Park ráno (pekné v apríli). BEAMS Japan, HUMAN MADE, MOMOTARO Jeans Aoyama. Obed v Camelback (tamago sandwich). Popoludní Nezu Shrine (menej turistov ako Meiji). Deus Ex Machina kaviareň na záver.</div>
       <div class="day-tags">
-        <span class="tag new">✦ Nezu Shrine</span>
+        <span class="tag repeat">↻ Harajuku bol si tu 2013</span>
+        <span class="tag new">✦ Nezu Shrine — nové</span>
         <span class="tag">japonská móda</span>
       </div>
     </div>
@@ -718,7 +721,7 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
     <div class="day-content">
       <div class="day-location">Nara (výlet z Kyota)</div>
       <div class="day-title">Nara — jelene a Daibutsu</div>
-      <div class="day-desc">Rýchlovlak Kyoto→Nara (45 min). Nara Park — jelene. Tōdai-ji s obrovskou budhovou sochou. Obed v lokálnej reštaurácii (raňajky boli skvele v 2013 — nájdi znova kaviareň pri stanici). Späť do Kyota na večeru.</div>
+      <div class="day-desc">Rýchlovlak Kyoto→Nara (45 min). Nara Park — jelene. Tōdai-ji s obrovskou budhovou sochou. Obed v lokálnej reštaurácii (raňajky boli skvele v 2013 — nájdi znova kaviareň pri stanici). Späť do Kyota na večeru. Poznámka: v 2013 bol Fushimi Inari súčasťou tohto dňa — teraz ho máme na príchod do Kjóta (deň 11) pri západe slnka, čo je lepšie načasovanie.</div>
       <div class="day-tags">
         <span class="tag repeat">↻ znova — stojí za to</span>
         <span class="tag highlight">★ Daibutsu</span>
@@ -736,7 +739,8 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
       <div class="day-title">Nishiki market + Nijo Castle</div>
       <div class="day-desc">Nishiki market — "kuchyňa Kjóta". Nijo Castle (skrípajúce podlahy — bezpečnostný systém šógunátu!). Popoludní voľno alebo Kyoto National Museum. Večera v Pontocho alley.</div>
       <div class="day-tags">
-        <span class="tag new">✦ Nijo Castle</span><span class="tag">jedlo</span>
+        <span class="tag repeat">↻ Nishiki — bol si tu 2013</span>
+        <span class="tag new">✦ Nijo Castle — nové</span><span class="tag">jedlo</span>
       </div>
     </div>
   </div>
@@ -771,9 +775,9 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
     <div class="day-content">
       <div class="day-location">Hiroshima · Miyajima</div>
       <div class="day-title">Hiroshima — pamäť a Tori</div>
-      <div class="day-desc">Shinkansen Osaka→Hiroshima. Peace Memorial Park + Museum (silný zážitok). Obed: hiroshimský okonomiyaki! Odpoludnia loďka na Miyajima — Itsukushima Tori, jelene. Lanovka na horu Misen (výhľad). Späť do Hirošimy.</div>
+      <div class="day-desc">Shinkansen Osaka→Hiroshima. Peace Memorial Park + Museum (silný zážitok). Obed: hiroshimský okonomiyaki! Odpoludnia loďka na Miyajima — Itsukushima Tori, jelene. Lanovka na horu Misen (výhľad). Späť do Hirošimy. Poznámka: v 2013 si odtiaľto robil aj výlet do Iwakuni (Kintai Bridge) — tentoraz vynecháme, Miyajima má prednosť.</div>
       <div class="day-tags">
-        <span class="tag repeat">↻ znova — jednoznačne</span>
+        <span class="tag repeat">↻ Hirošima + Miyajima 2013</span>
         <span class="tag highlight">★ Okonomiyaki!</span>
       </div>
     </div>
@@ -1075,7 +1079,7 @@ function catLabel(cat) {
 document.getElementById('placeFilters').addEventListener('click', e => {
   const btn = e.target.closest('.filter-btn');
   if (!btn) return;
-  document.querySelectorAll('#placeFilters .filter-btn.forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#placeFilters .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderPlaces(btn.dataset.filter);
 });
