@@ -1072,11 +1072,39 @@ const places = [
   { cat:'aktivity', name:'Yoyogi Park', zone:'Shibuya', note:'Park na beh alebo prechádzky', rating:'4,4' },
   { cat:'aktivity', name:'Suica\'s Penguin Park', zone:'Shinjuku', note:'Výhľad, svačina, vlaky', rating:'—' },
   { cat:'aktivity', name:'TAITO STATION GameWorld', zone:'Shinjuku', note:'Game station, niekoľko poschodí — na daždivý deň', rating:'3,7' },
-  // PAMIATKY
+  // PAMIATKY — TOKIO
+  { cat:'pamiatkya', name:'Senso-ji', zone:'Asakusa', note:'↻ 2013 — základňa prvých dní. Nakamise shopping street, Kaminarimon brána. Ísť pred 9:00 — bez davov.', rating:'4,7' },
+  { cat:'pamiatkya', name:'Tokyo Skytree', zone:'Asakusa', note:'↻ 2013 — "najkrajší čas z celého dňa" (blog). 634m, vstup cca ¥2 000–3 600. Západ slnka odporúčaný. Pozor na rady!', rating:'4,6' },
+  { cat:'pamiatkya', name:'Meiji Shrine', zone:'Harajuku', note:'↻ 2013 — "tichý a pokojný". Lesná cesta s torii bránami. Vstup zadarmo. Ráno najlepší.', rating:'4,6' },
+  { cat:'pamiatkya', name:'Edo-Tokyo Museum', zone:'Ryogoku', note:'↻ 2013 — 7 poschodí, 1:1 repliky mostov, divadiel, celých štvrtí, stredostavovský dom. Veľmi zaujímavý podľa blogu.', rating:'4,5' },
+  { cat:'pamiatkya', name:'Tsukiji Fish Market (vonkajší)', zone:'Tsukiji', note:'↻ 2013 — prísť SKORO RÁNO (do 8:00), na obed už takmer prázdny. Vnútorný trh presťahovaný do Toyosu.', rating:'4,3' },
+  { cat:'pamiatkya', name:'Odaiba — Gundam + Rainbow Bridge', zone:'Odaiba', note:'↻ 2013 — Diver Tokyo + Gundam socha. Monorail zo Shimbashi (drahý ale atmosferický). Výhľad na záliv.', rating:'4,2' },
+  { cat:'pamiatkya', name:'Tokyo Tower', zone:'Shiba-Koen', note:'↻ 2013 — vidieť z okolia. Staršia a nižšia ako Skytree, ale ikonická. Vstup ¥900–1 600.', rating:'4,1' },
   { cat:'pamiatkya', name:'Shibuya Crossing', zone:'Shibuya', note:'Klasika na fotku', rating:'4,5' },
   { cat:'pamiatkya', name:'Cat Street', zone:'Harajuku', note:'Ulica s obchodmi — víkendy preplnené!', rating:'4,5' },
   { cat:'pamiatkya', name:'Godzilla Road', zone:'Shinjuku', note:'Insta spot na fotky', rating:'4,5' },
   { cat:'pamiatkya', name:'Hie Shrine', zone:'Akasaka', note:'Pekný chrám na fotky, pokojný', rating:'4,4' },
+  { cat:'pamiatkya', name:'Budokan Hall', zone:'Chiyoda', note:'↻ 2013 — ikonická aréna (Beatles hrali tu 1966). Exteriér + okolie stačí.', rating:'4,0' },
+  // PAMIATKY — KAMAKURA (výlet)
+  { cat:'pamiatkya', name:'Kotoku-in — Daibutsu', zone:'Kamakura', note:'↻ 2013 — bronzový budha 13m, ~800 rokov starý. Vstup ¥300. Záhrada, pokojné miesto. Must.', rating:'4,7', priority:true },
+  { cat:'pamiatkya', name:'Hase-dera Temple', zone:'Kamakura', note:'↻ 2013 — výhľad na more a Kamakuru. 11-hlavá Kannon socha, záhrada. Vstup ¥400.', rating:'4,5' },
+  // PAMIATKY — KYOTO
+  { cat:'pamiatkya', name:'Fushimi Inari Shrine', zone:'Kyoto', note:'↻ 2013 — tisíce oranžových torii brán na kopci. Ísť pri západe slnka — menej ľudí. Vstup zadarmo.', rating:'4,8', priority:true },
+  { cat:'pamiatkya', name:'Kinkaku-ji — Zlatý pavilón', zone:'Kyoto', note:'↻ 2013 — vstup ¥500. Turistické ale ikonické. Ísť ráno.', rating:'4,5' },
+  { cat:'pamiatkya', name:'Ryoan-ji — Zen záhrada', zone:'Kyoto', note:'↻ 2013 — "najznámejšia zenová záhrada v Japonsku". 15 kameňov, žiadne dva nevidíš naraz. Vstup ¥500.', rating:'4,5' },
+  { cat:'pamiatkya', name:'Nijo Castle', zone:'Kyoto', note:'↻ 2013 — "skrípajúce podlahy" (bezpečnostný systém šógunátu). Vstup ¥1 300.', rating:'4,4' },
+  { cat:'pamiatkya', name:'Arashiyama — bambusový háj', zone:'Kyoto', note:'Ísť SKORO RÁNO (pred 8:00) — bez turistov. Tenryu-ji záhrada vedľa. Vstup do háju zadarmo.', rating:'4,6', priority:true },
+  { cat:'pamiatkya', name:'Philosopher\'s Path', zone:'Kyoto', note:'2km kanálová prechádzka medzi chrámami. Ísť poobede alebo večer.', rating:'4,4' },
+  // PAMIATKY — NARA (výlet)
+  { cat:'pamiatkya', name:'Tōdai-ji + Nara Park', zone:'Nara', note:'↻ 2013 — "najväčšia drevená stavba sveta", obrovský Daibutsu. Jelene všade. Vstup ¥600. Raňajky v kaviarni pri stanici — lokálni baristi-šampióni (vacuum pot).', rating:'4,7', priority:true },
+  // PAMIATKY — HIROŠIMA + MIYAJIMA
+  { cat:'pamiatkya', name:'A-Bomb Dome + Peace Memorial Museum', zone:'Hiroshima', note:'↻ 2013 — "silný zážitok". Múzeum vstup ¥200. Povinná zastávka. Nechaj si čas.', rating:'4,9', priority:true },
+  { cat:'pamiatkya', name:'Hiroshima Castle', zone:'Hiroshima', note:'↻ 2013 — nočné fotky z blogu. Vstup ¥370. Kombinácia s Peace Parkom.', rating:'4,2' },
+  { cat:'pamiatkya', name:'Itsukushima Shrine + Torii', zone:'Miyajima', note:'↻ 2013 — plávajúca torii brána pri odlive dostupná pešo. Lanovka na horu Misen. Jelene na ostrove. Loďka z Hirošimy.', rating:'4,8', priority:true },
+  // PAMIATKY — IWAKUNI (výlet)
+  { cat:'pamiatkya', name:'Kintaikyo Bridge', zone:'Iwakuni', note:'↻ 2013 — historický drevený oblúkový most. Vstup ¥310. Kombinácia s Iwakuni Castle (lanovka).', rating:'4,3' },
+  // PAMIATKY — IWAMA (výlet)
+  { cat:'pamiatkya', name:'Aikikai Ibaraki Dojo', zone:'Iwama', note:'↻ 2013 — pôvodné aikido dojo O Sensei Ueshibu, viedol Saito sensei\'s son. Svätyňa + škola vedľa. Špeciálny záujem.', rating:'—' },
   // HOTEL
   { cat:'hotel', name:'lyf Shibuya Tokyo', zone:'Shibuya', note:'Obľúbený hotel — top lokácia. Izby sú japonská veľkosť!', rating:'4,5', priority:true },
   { cat:'hotel', name:'ART HOTELS SHIBUYA', zone:'Hatsudai/Shibuya', note:'Priestrannejšie izby s práčkou a kuchynkou. <1km od Hatsudai st.', rating:'4,3' },
