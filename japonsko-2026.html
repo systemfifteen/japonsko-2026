@@ -321,6 +321,89 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
 }
 .place-book:hover { opacity: 0.75; }
 
+/* ── CURRENCY WIDGET ── */
+#currency-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 200;
+  font-family: 'DM Sans', sans-serif;
+}
+#currency-badge {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 9px 16px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.22);
+  user-select: none;
+  white-space: nowrap;
+  transition: opacity .15s;
+}
+#currency-badge:hover { opacity: .85; }
+#currency-panel {
+  display: none;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.14);
+  min-width: 200px;
+}
+#currency-panel.open { display: block; }
+.cur-header {
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.cur-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.cur-row:last-of-type { border-bottom: none; }
+.cur-yen { color: var(--muted); }
+.cur-eur { font-weight: 600; color: var(--ink); }
+.cur-calc {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.cur-calc input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+.cur-calc input:focus { outline: 1px solid var(--gold); }
+#cur-result {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.cur-updated {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 8px;
+  text-align: right;
+}
+
 /* category colors */
 .cat-kaviarne { border-left-color: var(--cat-kaviarne); }
 .cat-kaviarne .place-cat { color: var(--cat-kaviarne); }
@@ -1176,6 +1259,80 @@ function showTab(id) {
   document.getElementById('tab-' + id).classList.add('active');
   document.querySelector(`[onclick="showTab('${id}')"]`).classList.add('active');
 }
+</script>
+
+<!-- ── CURRENCY WIDGET ── -->
+<div id="currency-widget">
+  <div id="currency-panel">
+    <div class="cur-header">💴 Kurz JPY → EUR</div>
+    <div class="cur-row"><span class="cur-yen">¥500</span><span class="cur-eur" id="c-500">…</span></div>
+    <div class="cur-row"><span class="cur-yen">¥1 000</span><span class="cur-eur" id="c-1000">…</span></div>
+    <div class="cur-row"><span class="cur-yen">¥2 000</span><span class="cur-eur" id="c-2000">…</span></div>
+    <div class="cur-row"><span class="cur-yen">¥5 000</span><span class="cur-eur" id="c-5000">…</span></div>
+    <div class="cur-row"><span class="cur-yen">¥10 000</span><span class="cur-eur" id="c-10000">…</span></div>
+    <div class="cur-row"><span class="cur-yen">¥50 000</span><span class="cur-eur" id="c-50000">…</span></div>
+    <div class="cur-calc">
+      <input id="cur-input" type="number" placeholder="¥ zadaj sumu" min="0">
+      <span id="cur-result">€ –</span>
+    </div>
+    <div class="cur-updated" id="cur-updated"></div>
+  </div>
+  <div id="currency-badge" onclick="toggleCurrency()">💴 <span id="cur-badge-rate">…</span></div>
+</div>
+
+<script>
+let curRate = null;
+
+async function loadCurrency() {
+  const cached     = sessionStorage.getItem('jpy_eur');
+  const cachedTime = sessionStorage.getItem('jpy_eur_t');
+  if (cached && cachedTime && Date.now() - cachedTime < 3600000) {
+    applyCurrencyRate(parseFloat(cached), true);
+    return;
+  }
+  try {
+    const r    = await fetch('https://api.frankfurter.app/latest?from=JPY&to=EUR');
+    const data = await r.json();
+    const rate = data.rates.EUR;
+    sessionStorage.setItem('jpy_eur',   rate);
+    sessionStorage.setItem('jpy_eur_t', Date.now());
+    applyCurrencyRate(rate, false);
+  } catch {
+    applyCurrencyRate(0.0062, false); // fallback ~aktuálny kurz
+  }
+}
+
+function applyCurrencyRate(rate, fromCache) {
+  curRate = rate;
+  const fmt = eur => '€' + eur.toFixed(2);
+  [500, 1000, 2000, 5000, 10000, 50000].forEach(y => {
+    const el = document.getElementById('c-' + y);
+    if (el) el.textContent = fmt(y * rate);
+  });
+  const per100 = (100 * rate).toFixed(2);
+  document.getElementById('cur-badge-rate').textContent = `¥100 ≈ €${per100}`;
+  const upd = document.getElementById('cur-updated');
+  if (upd) upd.textContent = fromCache ? 'z cache' : 'live kurz · frankfurter.app';
+}
+
+function toggleCurrency() {
+  document.getElementById('currency-panel').classList.toggle('open');
+}
+
+document.addEventListener('click', e => {
+  const w = document.getElementById('currency-widget');
+  if (!w.contains(e.target)) {
+    document.getElementById('currency-panel').classList.remove('open');
+  }
+});
+
+document.getElementById('cur-input').addEventListener('input', function() {
+  const yen = parseFloat(this.value);
+  const el  = document.getElementById('cur-result');
+  el.textContent = (yen > 0 && curRate) ? '€' + (yen * curRate).toFixed(2) : '€ –';
+});
+
+loadCurrency();
 </script>
 </body>
 </html>
