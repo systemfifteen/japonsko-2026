@@ -1036,6 +1036,7 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
   <div class="filter-row" id="placeFilters">
     <button class="filter-btn active" data-filter="all">Všetko</button>
     <button class="filter-btn" data-filter="kaviarne">☕ Kaviarne</button>
+    <button class="filter-btn" data-filter="praziarne">🫘 Pražiarne</button>
     <button class="filter-btn" data-filter="jedlo">🍜 Jedlo</button>
     <button class="filter-btn" data-filter="nakupy">🛍 Nákupy</button>
     <button class="filter-btn" data-filter="aktivity">🏃 Aktivity</button>
@@ -1083,6 +1084,16 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
 
 const places = [
   // KAVIARNE
+  // ── PRAŽIARNE ──────────────────────────────────────────────
+  { cat:'praziarne', name:'Glitch Coffee & Roasters', zone:'Tokio — Jimbocho + Ginza', note:'Najbližší japonský ekvivalent k The Barn / Friedhats. Vždy 10+ single origins, každý lot má vlastný roast profil. Founder Kiyokazu Suzuki — Japan Aeropress Champion 2014. Ginza location: single-origin only.', rating:'4,8', priority:true, url:'https://glitchcoffee.com' },
+  { cat:'praziarne', name:'Fuglen Coffee Roasters Tokyo', zone:'Tokio — Tomigaya (Shibuya)', note:'Priame prepojenie na Tim Wendelboe — zelenú nakupujú cez Nordic Approach (TW co-founder). Rovnaký supply chain ako Wendelboe. Pražia každú stredu, expedujú do týždňa. Kaviareň cez deň, koktaily večer.', rating:'4,7', priority:true, url:'https://fuglencoffee.jp/en' },
+  { cat:'praziarne', name:'Onibus Coffee', zone:'Tokio — Nakameguro (pražiareň + kaviareň)', note:'Jeden zo zakladateľov tretej vlny v Tokiu (2012). Nordický štýl, svetlé praženie, 5 rotujúcich single origins. Navštevujú každú farmu osobne. Nakameguro kaviareň je dizajnová ikona — viditeľný Diedrich roaster. Porovnateľné so Square Mile.', rating:'4,6', priority:true, url:'https://onibuscoffee.com' },
+  { cat:'praziarne', name:'LEAVES Coffee Roasters', zone:'Tokio — Kuramae (Sumida)', note:'⚠ Otvorené IBA Pi–Ne 10–17h! Najuznávanejšia japonská pražiareň posledných rokov — prvá ázijská nominácia Sprudge Notable Roaster Award (2021, 2022). Founder Yasuo Ishii: ex-boxer, samouk. Svetlé praženie, dôraz na sladkosť a arómu.', rating:'4,9', priority:true, url:'https://leavescoffee.jp/en' },
+  { cat:'praziarne', name:'Weekenders Coffee', zone:'Kyoto — Tominokoji (stand + pražiareň)', note:'Kanonická kyotská pražiareň. Founder Masahiro Kaneko inšpirovaný priamo Tim Wendelboe a Square Mile — objavenie svetlého praženia ho úplne zmenilo. Stánok v restored machiya (drevenom domčeku). Sprudge a The Coffeevine: "jedno z japonských svätých miest specialty kávy".', rating:'4,8', priority:true, url:'https://weekenderscoffee.com' },
+  { cat:'praziarne', name:'Kurasu Kyoto', zone:'Kyoto — pri Kyoto Station + Nishijin pražiareň', note:'Kyotská pražiareň s austráliou v DNA (founder vyrastal v kissaten rodine, trénoval v Sydney). Giesen W6A roaster v Nishijin. Aj najrešpektovanejší japonský roaster subscription program — partnerujú s Glitch, Leaves, Weekenders, Townsfolk.', rating:'4,7', priority:true, url:'https://kurasu.kyoto' },
+  { cat:'praziarne', name:'Townsfolk Coffee', zone:'Kanazawa', note:'Najlepšia pražiareň v Kanazawe. Founder Suzuki trénoval v Prolog Coffee (Kodaň) — explicitne nordická filozofia. Kurasu partner roaster. Počas pobytu v Kanazawe (27–28.4) — MUST visit.', rating:'4,8', priority:true, url:'https://townsfolkcoffee.com/en-global' },
+  { cat:'praziarne', name:'Mel Coffee Roasters', zone:'Osaka — Shinmachi (Nishi Ward)', note:'Melbourne → Osaka (Mel = Melbourne). Vintage 5kg Probat roaster. World Top 50 Roasters 2023. Tiny shop, maximálna koncentrácia — porovnateľné s DAK alebo Manhattan. Zatvorené v pondelok (praženie).', rating:'4,7', priority:true, url:'https://mel.coffee' },
+  { cat:'praziarne', name:'LiLo Coffee Roasters', zone:'Osaka — Nishishinsaibashi', note:'Jeden z prvých specialty roasters v Osake (2014). 20+ single origins naraz s plnou traceabilitou — model podobný Friedhats. Otvorené do 23:00 — ideálne na večerné zastavenie. Sister location: LiLo Coffee Kissa (kissaten štýl).', rating:'4,6', priority:true, url:'https://coffee.liloinveve.com' },
   { cat:'kaviarne', name:'Verve Coffee Roasters', zone:'Shinjuku (NEWoMan)', note:'Americká specialty pražiareň — jedna z najlepších. NEWoMan je priamo pri Shinjuku stanici.', rating:'4,5', priority:true, url:'https://maps.app.goo.gl/MzrPwmKB7QBvPBHm7' },
   { cat:'kaviarne', name:'Little Nap Coffee Stand', zone:'Shibuya', note:'Jedna z najlepších káv v Tokiu — vlastná pražiareň priamo v kaviarni', rating:'4,5', priority:true },
   { cat:'kaviarne', name:'Blue Bottle Coffee', zone:'Shibuya', note:'Odporúčaná filter káva v centre', rating:'4,6', priority:true },
