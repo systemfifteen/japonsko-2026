@@ -154,7 +154,7 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
   content: '';
   position: absolute;
   left: 27px;
-  top: 42px;
+  top: 68px;
   bottom: -2px;
   width: 1px;
   background: var(--border);
@@ -163,7 +163,11 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
 
 .day-num {
   text-align: center;
-  padding-top: 12px;
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
 .day-num .num {
   display: inline-flex;
@@ -177,12 +181,21 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
   font-size: 12px;
   font-weight: 500;
   color: var(--muted);
+  order: 3;
 }
 .day-num .date {
   font-size: 10px;
   color: var(--muted);
-  margin-top: 3px;
   display: block;
+  order: 1;
+  white-space: nowrap;
+}
+.day-num .dow {
+  font-size: 9px;
+  color: var(--muted);
+  opacity: 0.65;
+  display: block;
+  order: 2;
 }
 
 .day-content {
@@ -674,7 +687,7 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
     <div class="day-content">
       <div class="day-location">Toyosu · Odaiba</div>
       <div class="day-title">teamLab Planets + voľné popoludnie</div>
-      <div class="day-desc">Dopoludnia: teamLab Planets Toyosu (rezervácia nutná mesiace vopred — najmä Golden Week!). Jeden z najunikátnejších zážitkov v Japonsku, počítaj 2–3 hodiny. Potom: voľné popoludnie — Odaiba výhľad na Tokyo Bay, prechádzka, kaviareň. Žiadny ďalší program. Večer: Ginza alebo relax pred presunmi.</div>
+      <div class="day-desc">Dopoludnia: teamLab Planets Toyosu (rezervácia nutná mesiace vopred — najmä Golden Week!). Jeden z najunikátnejších zážitkov v Japonsku, počítaj 2–3 hodiny. Checkout z APA Hotel Hatchobori (batožinu odloži na recepcii). Obed v Toyosu alebo Ginze. Večer: Shinkansen Kagayaki zo Shinagawa do Kanazawy (~2h30min) — sedadlá rezervovať vopred! Príchod do Kanazawy.</div>
       <div class="day-tags">
         <span class="tag highlight">★ Must — rezervovať HNEĎ</span>
         <span class="tag new">✦ nové</span><span class="tag">umenie</span>
@@ -683,19 +696,26 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
     </div>
   </div>
 
+  <!-- FÁZA 3: KANAZAWA -->
+  <div class="phase-header">
+    <span class="phase-label">Fáza 3</span>
+    <span class="phase-title">Kanazawa — prekvapenie</span>
+    <span class="phase-nights">3 noci</span>
+  </div>
+
   <div class="day-card">
     <div class="day-num">
       <div class="num">6</div>
       <span class="date">27.4</span>
     </div>
     <div class="day-content">
-      <div class="day-location">Harajuku · Yoyogi · Aoyama</div>
-      <div class="day-title">Dizajn, móda, parky</div>
-      <div class="day-desc">Yoyogi Park ráno (pekné v apríli). BEAMS Japan, HUMAN MADE, MOMOTARO Jeans Aoyama. Obed v Camelback (tamago sandwich). Popoludní Nezu Shrine (menej turistov ako Meiji). Deus Ex Machina kaviareň na záver.</div>
+      <div class="day-location">Kanazawa</div>
+      <div class="day-title">Kenroku-en + kinpaku workshop</div>
+      <div class="day-desc">Kanazawa je jedno z najlepšie zachovaných historických miest Japonska. Dopoludnia: Kenroku-en záhrada (jedna z troch najkrajších v Japonsku) + Kanazawa hrad. Obed v centre. Popoludní: <strong>workshop zlatej fólie (kinpaku)</strong> — Kanazawa produkuje 99 % japonského zlatého lístkového zlata. Ateliéry priamo v centre (Hakuichi, Sakuda Gold Leaf): pozlátenie predmetov, paličiek alebo vlastnoručná aplikácia na lak. 30–45 min, walk-in alebo rezervácia vopred, ¥1 500–3 000/os. Večer: Higashi Chaya zlaté čajovne.</div>
       <div class="day-tags">
-        <span class="tag repeat">↻ Harajuku bol si tu 2013</span>
-        <span class="tag new">✦ Nezu Shrine — nové</span>
-        <span class="tag">japonská móda</span>
+        <span class="tag new">✦ nové — nebol si tu</span>
+        <span class="tag highlight">★ skryté klenoty</span>
+        <span class="tag craft">🎨 kinpaku workshop</span>
       </div>
     </div>
   </div>
@@ -706,66 +726,9 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
       <span class="date">28.4</span>
     </div>
     <div class="day-content">
-      <div class="day-location">Kamakura (výlet z Tokia)</div>
-      <div class="day-title">Kamakura — Daibutsu a more</div>
-      <div class="day-desc">Vlak zo Shinjuku cca 60 min (Shonan-Shinjuku line). Kotoku-in — bronzový Daibutsu (1252 n.l., 13m). Hase-dera chrám a záhrada s výhľadom na more. Obed pri mori. Kamakura-ko plážová promenáda. Enoshima výlet ak zostane energia. Späť do Tokia na večer.</div>
-      <div class="day-tags">
-        <span class="tag repeat">↻ bol si tu 2013</span>
-        <span class="tag">výlet</span><span class="tag">more</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="day-card">
-    <div class="day-num">
-      <div class="num">8</div>
-      <span class="date">29.4</span>
-    </div>
-    <div class="day-content">
-      <div class="day-location">Shimokitazawa · Nakameguro</div>
-      <div class="day-title">Alternatívne Tokio — posledný deň pred cestou</div>
-      <div class="day-desc">Shimokitazawa — vinyl obchody, second hand, malé kaviarne, živá scéna. Nakameguro pozdĺž kanála. Obed v niektorej z malých reštauračiek. Voľné poobednie — relax pred presunmi do Kanazawy. Pozor: 29.4 = Showa Day (japonský sviatok) — väčšina obchodov otvorená, ľudia vonku.</div>
-      <div class="day-tags">
-        <span class="tag">second hand</span><span class="tag">kaviarne</span>
-        <span class="tag" style="background:#2a1a0a;color:#d4a843;border-color:#6b4c1a">⚠ Golden Week — 1. deň</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- FÁZA 3: KANAZAWA -->
-  <div class="phase-header">
-    <span class="phase-label">Fáza 3</span>
-    <span class="phase-title">Kanazawa — prekvapenie</span>
-    <span class="phase-nights">2 noci</span>
-  </div>
-
-  <div class="day-card">
-    <div class="day-num">
-      <div class="num">9</div>
-      <span class="date">30.4</span>
-    </div>
-    <div class="day-content">
-      <div class="day-location">Tokio → Kanazawa</div>
-      <div class="day-title">Kanazawa — malé Kyoto bez turistov</div>
-      <div class="day-desc">Kanazawa je jedno z najlepšie zachovaných historických miest Japonska. Shinkansen Kagayaki Tokio → Kanazawa (~2h30min, priamy od marca 2024). Pozor: cestujeme 30. apríla = Golden Week, vlaky plné — rezervovať miesta! Odpoludnia: Kenroku-en záhrada (jedna z troch najkrajších v Japonsku) + Kanazawa hrad. Po záhrade: <strong>workshop zlatej fólie (kinpaku)</strong> — Kanazawa produkuje 99 % japonského zlatého lístkového zlata. Ateliéry priamo v centre (Hakuichi, Sakuda Gold Leaf): pozlátenie predmetov, paličiek alebo vlastnoručná aplikácia na lak. 30–45 min, walk-in alebo rezervácia vopred, ¥1 500–3 000/os.</div>
-      <div class="day-tags">
-        <span class="tag new">✦ nové — nebol si tu</span>
-        <span class="tag highlight">★ skryté klenoty</span>
-        <span class="tag craft">🎨 kinpaku workshop</span>
-        <span class="tag" style="background:#2a1a0a;color:#d4a843;border-color:#6b4c1a">⚠ Golden Week začína</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="day-card">
-    <div class="day-num">
-      <div class="num">10</div>
-      <span class="date">1.5</span>
-    </div>
-    <div class="day-content">
       <div class="day-location">Kanazawa</div>
-      <div class="day-title">21st Century Museum of Contemporary Art</div>
-      <div class="day-desc">Ráno: <strong>Nagamachi Yuzen Kan</strong> — tradičná dielňa Kaga Yuzen farbenia hodvábu v samurajskej štvrti. Pozri maľovanie na hodváb ručne podľa storočných vzorov, prípadne krátky workshop. Vstup ~¥500, workshop ~¥1 500–3 000 — <a href="https://www.kanazawa-tourism.com/spots/nagamachi-yuzen-kan" target="_blank">info</a>. Potom: 21st Century Museum — jedno z najlepších múzeí moderného umenia v Japonsku (bazén Leandro Erlica!). Higashi Chaya — zlaté čajovne. Obed: fresh sushi na Omicho markete (druhý najväčší fish market v Japonsku). Popoludní Ninja-dera chrám.</div>
+      <div class="day-title">21st Century Museum + Nagamachi Yuzen</div>
+      <div class="day-desc">Ráno: <strong>Nagamachi Yuzen Kan</strong> — tradičná dielňa Kaga Yuzen farbenia hodvábu v samurajskej štvrti. Vstup ~¥500, workshop ~¥1 500–3 000 — <a href="https://www.kanazawa-tourism.com/spots/nagamachi-yuzen-kan" target="_blank">info</a>. Potom: 21st Century Museum of Contemporary Art — bazén Leandro Erlica! Obed: fresh sushi na Omicho markete (druhý najväčší fish market v Japonsku). Popoludní Ninja-dera chrám.</div>
       <div class="day-tags">
         <span class="tag new">✦ nové</span>
         <span class="tag craft">🎨 Kaga Yuzen — hodváb</span>
@@ -778,21 +741,53 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
   <div class="phase-header">
     <span class="phase-label">Fáza 4</span>
     <span class="phase-title">Kyoto · Nara</span>
-    <span class="phase-nights">4 noci</span>
+    <span class="phase-nights">6 noci</span>
   </div>
 
-  <div class="day-card">
+  <div class="day-card travel">
     <div class="day-num">
-      <div class="num">11</div>
-      <span class="date">2.5</span>
+      <div class="num">8</div>
+      <span class="date">29.4</span>
     </div>
     <div class="day-content">
       <div class="day-location">Kanazawa → Kyoto</div>
       <div class="day-title">Kyoto — príchod a Fushimi Inari</div>
-      <div class="day-desc">Thunderbird express Kanazawa→Osaka→Kyoto. Check-in. Popoludní Gion prechádzka (večer krajšia). Fushimi Inari pri záchode slnka — menej ľudí. Dnes stačí len toto — Golden Week, Kyoto bude preplnené.</div>
+      <div class="day-desc">Thunderbird express Kanazawa→Osaka→Kyoto. Check-in. Popoludní Gion prechádzka (večer krajšia). Fushimi Inari pri záchode slnka — menej ľudí. Dnes stačí len toto. Pozor: 29.4 = Showa Day (japonský sviatok) — vlaky plné, sedadlá rezervovať vopred!</div>
       <div class="day-tags">
         <span class="tag repeat">↻ ako v 2013</span>
+        <span class="tag" style="background:#2a1a0a;color:#d4a843;border-color:#6b4c1a">⚠ Showa Day — sviatok, vlaky plné</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">9</div>
+      <span class="date">30.4</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Kyoto</div>
+      <div class="day-title">Arashiyama + Kinkaku-ji + Ryoan-ji</div>
+      <div class="day-desc">Arashiyama ráno (bambusový háj skoro ráno — bez turistov!). Tenryu-ji záhrada. Obed v oblasti. Popoludní: Kinkaku-ji (zlatý pavilón), Ryoan-ji (kamenná záhrada). Dusk walk Philosopher's Path. Pozor: 30.4 = Golden Week začína — davy.</div>
+      <div class="day-tags">
+        <span class="tag repeat">↻ klasika</span><span class="tag">príroda</span>
         <span class="tag" style="background:#2a1a0a;color:#d4a843;border-color:#6b4c1a">⚠ Golden Week — davy</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">
+      <div class="num">10</div>
+      <span class="date">1.5</span>
+    </div>
+    <div class="day-content">
+      <div class="day-location">Nara (výlet z Kyota)</div>
+      <div class="day-title">Nara — jelene a Daibutsu</div>
+      <div class="day-desc">Rýchlovlak Kyoto→Nara (45 min). Nara Park — jelene. Tōdai-ji s obrovskou budhovou sochou. Obed v lokálnej reštaurácii (raňajky boli skvele v 2013 — nájdi znova kaviareň pri stanici). Späť do Kyota na večeru. Poznámka: v 2013 bol Fushimi Inari súčasťou tohto dňa — teraz ho máme na príchod do Kjóta (deň 8) pri západe slnka, čo je lepšie načasovanie.</div>
+      <div class="day-tags">
+        <span class="tag repeat">↻ znova — stojí za to</span>
+        <span class="tag highlight">★ Daibutsu</span>
       </div>
     </div>
   </div>
@@ -804,10 +799,11 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
     </div>
     <div class="day-content">
       <div class="day-location">Kyoto</div>
-      <div class="day-title">Chrámy a záhrady</div>
-      <div class="day-desc">Arashiyama ráno (bambusový háj skoro ráno — bez turistov!). Tenryu-ji záhrada. Obed v oblasti. Popoludní: Kinkaku-ji (zlatý pavilón), Ryoan-ji (kamenná záhrada). Dusk walk Philosopher's Path.</div>
+      <div class="day-title">Nishiki market + Nijo Castle</div>
+      <div class="day-desc">Nishiki market — "kuchyňa Kjóta". Nijo Castle (skrípajúce podlahy — bezpečnostný systém šógunátu!). Popoludní voľno alebo Kyoto National Museum. Večera v Pontocho alley.</div>
       <div class="day-tags">
-        <span class="tag repeat">↻ klasika</span><span class="tag">príroda</span>
+        <span class="tag repeat">↻ Nishiki — bol si tu 2013</span>
+        <span class="tag new">✦ Nijo Castle — nové</span><span class="tag">jedlo</span>
       </div>
     </div>
   </div>
@@ -818,12 +814,12 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
       <span class="date">3.5</span>
     </div>
     <div class="day-content">
-      <div class="day-location">Nara (výlet z Kyota)</div>
-      <div class="day-title">Nara — jelene a Daibutsu</div>
-      <div class="day-desc">Rýchlovlak Kyoto→Nara (45 min). Nara Park — jelene. Tōdai-ji s obrovskou budhovou sochou. Obed v lokálnej reštaurácii (raňajky boli skvele v 2013 — nájdi znova kaviareň pri stanici). Späť do Kyota na večeru. Poznámka: v 2013 bol Fushimi Inari súčasťou tohto dňa — teraz ho máme na príchod do Kjóta (deň 11) pri západe slnka, čo je lepšie načasovanie.</div>
+      <div class="day-location">Kyoto</div>
+      <div class="day-title">Nishijin + ROKETSU workshop</div>
+      <div class="day-desc">Ráno: <strong>Nishijin Textile Center</strong> — živé ukážky tkania kimono hodvábu na historických stavoch, kimonova show, predaj tkanín. Vstup zadarmo — <a href="https://www.nishijin.or.jp" target="_blank">nishijin.or.jp</a>. Popoludní: <strong>ROKETSU</strong> workshop japonskej voskovej rezerváže (rōketsu-zome) — maľovanie roztaveným voskom na hodvábny šál alebo batiste. ~2 hod., ¥5 000–8 000/os. — <a href="https://roketsu.com" target="_blank">rezervovať online</a>. Večera v Pontocho alley.</div>
       <div class="day-tags">
-        <span class="tag repeat">↻ znova — stojí za to</span>
-        <span class="tag highlight">★ Daibutsu</span>
+        <span class="tag craft">🎨 Nishijin tkanie + ROKETSU wax dyeing</span>
+        <span class="tag">jedlo</span>
       </div>
     </div>
   </div>
@@ -834,14 +830,12 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
       <span class="date">4.5</span>
     </div>
     <div class="day-content">
-      <div class="day-location">Kyoto</div>
-      <div class="day-title">Nishiki market + Nijo Castle</div>
-      <div class="day-desc">Ráno: <strong>Nishijin Textile Center</strong> — živé ukážky tkania kimono hodvábu na historických stavoch, kimonova show, predaj tkanín. Vstup zadarmo, v centre Kyota — <a href="https://www.nishijin.or.jp" target="_blank">nishijin.or.jp</a>. Nishiki market — "kuchyňa Kjóta". Nijo Castle (skrípajúce podlahy — bezpečnostný systém šógunátu!). Popoludní: <strong>ROKETSU</strong> workshop japonskej voskovej rezerváže (rōketsu-zome) — maľovanie roztaveným voskom na hodvábny šál alebo batiste; autentická kyotská technika. Miesto pri Nishiki, ~2 hod., ¥5 000–8 000/os. — <a href="https://roketsu.com" target="_blank">rezervovať online</a>. Večera v Pontocho alley.</div>
+      <div class="day-location">Kyoto — posledné ráno</div>
+      <div class="day-title">Voľné ráno + presun do Osaky</div>
+      <div class="day-desc">Voľné ráno — nákupy v Gion, Philosopher's Path, alebo výlet do Uji (Byodo-in chrám — UNESCO, 20 min vlakom). Poobede presun do Osaky. Check-in. Ochiaicho alebo Dotonbori večer.</div>
       <div class="day-tags">
-        <span class="tag repeat">↻ Nishiki — bol si tu 2013</span>
-        <span class="tag new">✦ Nijo Castle — nové</span>
-        <span class="tag craft">🎨 Nishijin tkanie + ROKETSU wax dyeing</span>
-        <span class="tag">jedlo</span>
+        <span class="tag">voľno</span>
+        <span class="tag new">✦ Uji — voliteľné</span>
       </div>
     </div>
   </div>
@@ -1074,8 +1068,8 @@ const places = [
   { cat:'aktivity', name:'Mokuhankan — ukiyo-e workshop', zone:'Asakusa (pri Senso-ji)', note:'Workshop drevorezbovej tlače ukiyo-e autentickou edo technikou. Tlačíte vlastný výtlačok na washi papier. ¥2 000/os., ~1 hod. 2 min pešo od Senso-ji. Plánovať deň 4 (25.4.) o 10:30.', rating:'4,8', priority:true, url:'https://mokuhankan.com/parties/index.php' },
   { cat:'aktivity', name:'Kinpaku (zlatá fólia) — workshop', zone:'Kanazawa — centrum', note:'Kanazawa produkuje 99 % japonského zlatého lístkového zlata. Ateliéry Hakuichi alebo Sakuda Gold Leaf — pozlátenie predmetov, paličiek, aplikácia na lak. 30–45 min, walk-in alebo rezervácia, ¥1 500–3 000/os. Plánovať po Kenroku-en záhrade, deň 9 (30.4.).', rating:'4,6', priority:true, url:'https://www.hakuichi.co.jp/en/' },
   { cat:'aktivity', name:'Nagamachi Yuzen Kan — Kaga Yuzen hodváb', zone:'Kanazawa — Nagamachi', note:'Dielňa tradičného farbenia hodvábu Kaga Yuzen v samurajskej štvrti. Ukážky ručného maľovania na hodváb podľa storočných vzorov, voliteľný krátky workshop. Vstup ~¥500, workshop ~¥1 500–3 000/os. Plánovať ráno deň 10 (1.5.).', rating:'4,5', priority:true, url:'https://www.kanazawa-tourism.com/spots/nagamachi-yuzen-kan' },
-  { cat:'aktivity', name:'Nishijin Textile Center', zone:'Kyoto — Nishijin', note:'Živé ukážky tkania kimono hodvábu na historických stavoch, kimonova show, predaj tkanín. Vstup zadarmo. Plánovať ráno deň 13 (4.5.).', rating:'4,3', priority:true, url:'https://www.nishijin.or.jp' },
-  { cat:'aktivity', name:'ROKETSU — wax-resist dyeing workshop', zone:'Kyoto — pri Nishiki', note:'Japonská vosková rezerváž (rōketsu-zome) — maľovanie roztaveným voskom na hodvábny šál alebo batiste. Autentická kyotská technika. ~2 hod., ¥5 000–8 000/os. Plánovať popoludní deň 13 (4.5.).', rating:'4,7', priority:true, url:'https://roketsu.com' },
+  { cat:'aktivity', name:'Nishijin Textile Center', zone:'Kyoto — Nishijin', note:'Živé ukážky tkania kimono hodvábu na historických stavoch, kimonova show, predaj tkanín. Vstup zadarmo. Plánovať ráno deň 12 (3.5.).', rating:'4,3', priority:true, url:'https://www.nishijin.or.jp' },
+  { cat:'aktivity', name:'ROKETSU — wax-resist dyeing workshop', zone:'Kyoto — pri Nishiki', note:'Japonská vosková rezerváž (rōketsu-zome) — maľovanie roztaveným voskom na hodvábny šál alebo batiste. Autentická kyotská technika. ~2 hod., ¥5 000–8 000/os. Plánovať popoludní deň 12 (3.5.).', rating:'4,7', priority:true, url:'https://roketsu.com' },
   { cat:'aktivity', name:'Mokubakan — Taishu Engeki show', zone:'Asakusa', note:'~¥1 600/os. (¥3 200 pre dvoch). ~3,5h tradičné ľudové divadlo. Denne okrem konca mesiaca. Autentický zážitok — žiadni turisti, len lokáli.', rating:'4,4', url:'https://www.klook.com/activity/183603-asakusa-mokubakan-theatre-ticket-dance-show-only/' },
   { cat:'aktivity', name:'Mokubakan — Show + kimono + Sword Lesson', zone:'Asakusa', note:'Prémiová verzia — cena vyššia (overiť na Klook). Zahŕňa kimono oblečenie a lekciu so samurajským mečom. Pre dvoch plánovať 3,5h+.', rating:'4,4', url:'https://www.klook.com/activity/182950-asakusa-local-theatre-show-with-kimono-and-sword-lesson/' },
   { cat:'aktivity', name:'Ghibli Museum', zone:'Mitaka', note:'Rezervácia nutná — lotéria cez Lawson alebo zahraničné portály, mesiac vopred. Malé, intímne, vstup po časových slotoch.', rating:'4,8', priority:true, url:'https://www.ghibli-museum.jp/en/tickets/' },
@@ -1136,7 +1130,7 @@ const checklistData = [
       { text: 'Samurai Ninja Museum (Asakusa)', note: '~¥3 000/os. — samuraininjamuseum.com alebo Klook', priority: true },
       { text: 'Maikoya čajový obrad + kimono (Shinjuku, deň 2)', note: '~¥6 000/os. — mai-ko.com/shinjuku, 90–120 min', priority: true },
       { text: 'Mokuhankan — ukiyo-e workshop (25.4., Asakusa)', note: '¥2 000/os., ~1 hod. — mokuhankan.com/parties/index.php', priority: true },
-      { text: 'ROKETSU — wax-resist dyeing workshop (4.5., Kyoto)', note: '~¥5 000–8 000/os., ~2 hod. — roketsu.com', priority: true },
+      { text: 'ROKETSU — wax-resist dyeing workshop (3.5., Kyoto)', note: '~¥5 000–8 000/os., ~2 hod. — roketsu.com', priority: true },
       { text: 'Watashino Washi paper making (8.5 — piatok!)', note: '¥4 400/os. — watashino.style, IBA pracovné dni', priority: true },
       { text: 'APA Hotel Hatchobori Ekimae (21–26.4)', note: '✓ REZERVOVANÉ · 5 nocí · ¥105 600 vr. DPH · platba na mieste · zrušenie zadarmo do 19.4.' },
       { text: 'ART HOTELS SHIBUYA (8–11.5)', note: '5 nocí, záver cesty — rezervovať' },
@@ -1297,6 +1291,20 @@ document.getElementById('tipsGrid').innerHTML = tips.map(t => `
     <div class="tip-text">${t.text}</div>
   </div>
 `).join('');
+
+// ── DEŇ V TÝŽDNI ──────────────────────────────────────────────
+(function() {
+  const DOW = ['Ne','Po','Ut','St','Št','Pi','So'];
+  document.querySelectorAll('.day-num .date').forEach(el => {
+    const parts = el.textContent.trim().split('.');
+    if (parts.length < 2) return;
+    const d = new Date(2026, parseInt(parts[1]) - 1, parseInt(parts[0]));
+    const span = document.createElement('span');
+    span.className = 'dow';
+    span.textContent = DOW[d.getDay()];
+    el.insertAdjacentElement('afterend', span);
+  });
+})();
 
 // ── TAB NAVIGATION ────────────────────────────────────────────
 function showTab(id) {
