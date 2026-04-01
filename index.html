@@ -76,6 +76,46 @@ header h1 {
   color: rgba(245,240,232,0.6);
 }
 .header-meta span { display: flex; align-items: center; gap: 6px; }
+.clock-bar {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.clock-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.clock-flag {
+  font-size: 16px;
+  line-height: 1;
+}
+.clock-time {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--paper);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.clock-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.clock-date {
+  font-size: 11px;
+  color: rgba(245,240,232,0.5);
+  margin-left: 2px;
+}
+.clock-sep {
+  color: rgba(245,240,232,0.2);
+  font-size: 18px;
+  align-self: center;
+}
 
 /* ── NAV TABS ── */
 nav {
@@ -566,6 +606,29 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
     <span>✈ 21. apríl – 11. máj</span>
     <span>◎ 21 dní</span>
     <span>↔ Narita → Narita</span>
+  </div>
+  <div class="clock-bar">
+    <div class="clock-item">
+      <span class="clock-flag">🇯🇵</span>
+      <div>
+        <div class="clock-label">JST · Japonsko</div>
+        <div>
+          <span class="clock-time" id="clock-jst">--:--</span>
+          <span class="clock-date" id="date-jst"></span>
+        </div>
+      </div>
+    </div>
+    <div class="clock-sep">·</div>
+    <div class="clock-item">
+      <span class="clock-flag">🇸🇰</span>
+      <div>
+        <div class="clock-label">CEST · Slovensko</div>
+        <div>
+          <span class="clock-time" id="clock-sk">--:--</span>
+          <span class="clock-date" id="date-sk"></span>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -1304,6 +1367,26 @@ document.getElementById('tipsGrid').innerHTML = tips.map(t => `
     span.textContent = DOW[d.getDay()];
     el.insertAdjacentElement('afterend', span);
   });
+})();
+
+// ── HODINY JST / CEST ─────────────────────────────────────────
+(function() {
+  const fmtTime = tz => new Intl.DateTimeFormat('sk-SK', {
+    hour: '2-digit', minute: '2-digit', timeZone: tz
+  }).format(new Date());
+
+  const fmtDate = tz => new Intl.DateTimeFormat('sk-SK', {
+    weekday: 'short', day: 'numeric', month: 'short', timeZone: tz
+  }).format(new Date());
+
+  function tick() {
+    document.getElementById('clock-jst').textContent = fmtTime('Asia/Tokyo');
+    document.getElementById('date-jst').textContent  = fmtDate('Asia/Tokyo');
+    document.getElementById('clock-sk').textContent  = fmtTime('Europe/Bratislava');
+    document.getElementById('date-sk').textContent   = fmtDate('Europe/Bratislava');
+  }
+  tick();
+  setInterval(tick, 1000);
 })();
 
 // ── TAB NAVIGATION ────────────────────────────────────────────
