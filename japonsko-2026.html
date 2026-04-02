@@ -23,6 +23,7 @@
   --cat-aktivity: #3a6b4a;
   --cat-pamiatkya: #5a3a7c;
   --cat-hotel: #5a5a5a;
+  --cat-galerie: #7c4a6b;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -470,6 +471,8 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
 .cat-pamiatkya .place-cat { color: var(--cat-pamiatkya); }
 .cat-hotel { border-left-color: var(--cat-hotel); }
 .cat-hotel .place-cat { color: var(--cat-hotel); }
+.cat-galerie { border-left-color: var(--cat-galerie); }
+.cat-galerie .place-cat { color: var(--cat-galerie); }
 
 /* ── CHECKLIST ── */
 .checklist-section { margin-bottom: 28px; }
@@ -1042,6 +1045,7 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
     <button class="filter-btn" data-filter="aktivity">🏃 Aktivity</button>
     <button class="filter-btn" data-filter="pamiatkya">🏯 Pamiatky</button>
     <button class="filter-btn" data-filter="hotel">🏨 Hotel</button>
+    <button class="filter-btn" data-filter="galerie">🎨 Galérie</button>
   </div>
 
   <div class="places-grid" id="placesGrid"></div>
@@ -1160,6 +1164,25 @@ const places = [
   { cat:'aktivity', name:'Kabukiza — Kabuki divadlo', zone:'Ginza', note:'Turisticky najprístupnejšia forma tradičného jap. divadla. Vizuálne ohromujúce — prepychové kostýmy, líčidlá, paruky, dramatické gestá. Single act (hitomaku) ~¥2 000 — ideálne pre prvú návštevu, 30–60 min. Celé predstavenie ¥3 000–25 000. Anglický audio sprievodca. Denne. Ginza, 3 min od stanice Higashi-Ginza.', rating:'4,5', priority:true, url:'https://www.kabuki-za.co.jp/' },
   { cat:'aktivity', name:'Noh divadlo — National Noh Theatre', zone:'Sendagaya (Shibuya)', note:'Najstaršia forma japonského divadla (14. stor.). Extrémne pomalé a meditativné — masky z cyprusového dreva, vrstvené kostýmy, minimálne kulisy. Kyogen komické vsuvky medzi aktmi. Vstupenky ~¥3 000–12 500. Ťažšie pre turistov ako Kabuki (bez anglického sprievodu, historická japončina), ale autentickejšie. Sendagaya — zastávka JR.', rating:'4,3', url:'https://www.ntj.jac.go.jp/noh/en/' },
   { cat:'aktivity', name:'Noh divadlo — Cerulean Tower Noh Theatre', zone:'Shibuya', note:'Noh divadlo v luxusnom hoteli Cerulean Tower — modernejší setting, ľahšie dostupné pre turistov. 5 min od lyf Shibuya. Vstupenky od ~¥3 500. Program sezónne — skontrolovať web pred cestou.', rating:'4,3', url:'https://ceruleantower-noh.com/en/' },
+  // GALÉRIE — TOKIO
+  { cat:'galerie', name:'Sumida Hokusai Museum', zone:'Tokio — Sumida (rodná štvrť Hokusaia)', note:'Venované výlučne Katsushika Hokusaiovi (1760–1849) — autor Veľkej vlny. Budova od Kazuyo Sejima (SANAA) — zrkadlová hliníková fasáda. Stála zbierka + rotujúce výstavy, rekonštrukcia ateliéru, interaktívne expozície. Najkoncentrovanejšia Hokusai kolekcia na svete.', rating:'4,6', priority:true, url:'https://hokusai-museum.jp/en/' },
+  { cat:'galerie', name:'Ōta Memorial Museum of Art', zone:'Tokio — Harajuku/Omotesandō', note:'Súkromné múzeum špecializované výlučne na ukiyo-e. 14 000 grafík: Hokusai, Hiroshige, Utamaro, Sharaku. Výstavy sa každý mesiac menia — vždy okolo konkrétného umelca alebo témy. Malé, intímne, v tichej uličke za Harajuku. Skontrolovať program pre apríl/máj 2026 vopred — ⚠ zatvorené začiatok mesiaca (výmena výstavy ~1 týždeň).', rating:'4,5', priority:true, url:'https://www.ukiyoe-ota-muse.jp/en/' },
+  { cat:'galerie', name:'Tokyo National Museum', zone:'Tokio — Ueno Park', note:'Najväčšie múzeum v Japonsku (1872). 120 000 predmetov, 89 národných pokladov. Honkan: japonské umenie od prehistórie po 19. stor. Tōyōkan: umenie Ázie. Hōryūji Hōmotsukan: poklad z chrámu 7. stor. Ukiyo-e zbierka rozsiahla, no rotuje — nie vždy plne vystavená.', rating:'4,5', priority:true, url:'https://www.tnm.jp/en/' },
+  { cat:'galerie', name:'Mori Art Museum', zone:'Tokio — Roppongi Hills (54. poschodie)', note:'Vedúca galéria súčasného umenia v Japonsku. Dočasné výstavy (3–4/rok) — japonskí aj medzinárodní umelci. Vstupné zahŕňa Tokyo City View — výhľad na Tokio z výšky. Ideálne na záver dňa — výstava + západ slnka. St–Po 10:00–22:00, Ut do 17:00.', rating:'4,5', priority:true, url:'https://www.mori.art.museum/en/' },
+  { cat:'galerie', name:'The National Art Center Tokyo', zone:'Tokio — Roppongi', note:'Obrovská výstavná hala (14 000 m²) od Kisho Kurokawa (2007) — zvlnená sklenená fasáda je architektonická senzácia. Bez stálej zbierky, len dočasné výstavy veľkých japonských umeleckých spolkov. Kaviareň v obrátených kužeľoch vo vnútri. St–Po 10:00–18:00 (pi do 20:00).', rating:'4,4', url:'https://www.nact.jp/english/' },
+  // GALÉRIE — KJÓTO
+  { cat:'galerie', name:'Kyoto National Museum', zone:'Kjóto — pri Sanjusangendo', note:'Japonské umenie a artefakty z oblasti Kjóta — ikony budhizmu, keramika, textil, maľby (Yamato-e, Kanō škola). Historická budova Meiji Meikan (1895) + nová Heisei Chishinkan od Yoshio Taniguchi (2014). Ut–Ne 9:30–17:00, špeciálne výstavy ¥1 500–1 800.', rating:'4,5', priority:true, url:'https://www.kyohaku.go.jp/eng/' },
+  { cat:'galerie', name:'Hosomi Museum', zone:'Kjóto — Okazaki', note:'Súkromná zbierka — japonské umenie od Asuka po Edo. Najsilnejšia sekcia Rinpa školy (Ogata Kōrin, Tawaraya Sōtatsu) — dekoratívna tradícia ktorá ovplyvnila Art Nouveau na Západe. Menej turistov, vysoká kvalita. Vstup ¥1 300. Ut–Ne 10:00–18:00.', rating:'4,4', url:'https://www.emuseum.or.jp/hosomi/en/' },
+  { cat:'galerie', name:'Kyoto City KYOCERA Museum of Art', zone:'Kjóto — Okazaki', note:'Druhé najstaršie verejné múzeum umenia v Japonsku (1933), rekonštruované 2020. Japonské umenie Meiji/Taishō/Shōwa + medzinárodné súčasné umenie. Nová časť od Yuko Nagayama. Priamo vedľa Heian Shrine — krásna prechádzka. Ut–Ne 10:00–18:00.', rating:'4,4', url:'https://kyotocity-kyocera.museum/en/' },
+  // GALÉRIE — KANAZAWA
+  { cat:'galerie', name:'21st Century Museum of Contemporary Art', zone:'Kanazawa', note:'UŽ V ITINERÁRI. Architektonická ikona — kruhová presklená budova SANAA (Sejima + Nishizawa), 2004. "Swimming Pool" od Leandro Erlicha, diela Jamese Turrella, Olafura Eliassona. Časť múzea voľne prístupná. Stála zbierka ¥1 000. Ut–Ne 10:00–18:00 (pi/so do 20:00).', rating:'4,7', priority:true, url:'https://www.kanazawa21.jp/en/' },
+  { cat:'galerie', name:'Ishikawa Prefectural Museum of Art', zone:'Kanazawa', note:'Tradičné japonské umenie s dôrazom na región Kanazawa — Kutani keramika (Kaga Han), Kenzan textil, maľby, lacquerware. Jedna z najlepších zbierok regionálneho japonského umenia. Vstup ¥370.', rating:'4,3', url:'https://www.ishibi.pref.ishikawa.jp/english/' },
+  // GALÉRIE — OSAKA
+  { cat:'galerie', name:'National Museum of Art, Osaka', zone:'Osaka — Nakanoshima', note:'Celé múzeum je pod zemou — vstup cez ikonickú oceľovú konštrukciu nad zemou. Zbierka: Picasso, Cézanne, Warhol + japonskí súčasní umelci. Pokojná atmosféra, dostupná cena ¥430. Ut–Ne 10:00–17:00 (pi/so do 20:00).', rating:'4,4', url:'https://www.nmao.go.jp/en/' },
+  // UKIYO-E — KDE KÚPIŤ
+  { cat:'galerie', name:'Ōta Fine Arts', zone:'Tokio — Roppongi Hills', note:'Seriózna galéria s ukiyo-e grafikami — medzinárodná reputácia. Originálne historické grafiky (Edo/Meiji éra). Ceny: bežný Hiroshige od ¥30 000 (~€180), Hokusai 36 Views of Fuji (jednotlivé listy) od ¥200 000. Ukiyo-e treba kupovať len od dôveryhodného predajcu — pýtaj sa na provenance a stav (foxing, trimming, fading).', rating:'4,5', url:'https://www.otafinearts.com/' },
+  { cat:'galerie', name:'Antikvariáty v Jinbocho', zone:'Tokio — Jinbocho (神保町)', note:'Antikvárna/knižná štvrť Tokia — niekedy nájdeš ukiyo-e grafiky v papierových obchodoch a antikvariátoch, treba prelúskať. Výborné miesto na ukiyo-e za dostupnejšie ceny. Kombinovateľné s prechádzkou po štvrti.', rating:'4,3', url:'https://www.jimbou.info/' },
+  { cat:'galerie', name:'Múzejné obchody (ukiyo-e reprodukcie)', zone:'Tokio — Sumida / Harajuku', note:'Najlepšie reprodukcie ukiyo-e: obchody Sumida Hokusai Museum a Ōta Memorial Museum. Gicléetlač na japonskom washi papieri ¥2 000–8 000. Lepšia voľba ako lacné plagáty (ofsetová tlač). Ručne tlačená drevotlač (reprodukcia): ¥8 000–30 000.', rating:'4,5' },
   // PAMIATKY — TOKIO
   { cat:'pamiatkya', name:'Senso-ji', zone:'Asakusa', note:'↻ 2013 — základňa prvých dní. Nakamise shopping street, Kaminarimon brána. Ísť pred 9:00 — bez davov.', rating:'4,7' },
   { cat:'pamiatkya', name:'Tokyo Skytree', zone:'Asakusa', note:'↻ 2013 — "najkrajší čas z celého dňa" (blog). 634m, vstup cca ¥2 000–3 600. Západ slnka odporúčaný. Pozor na rady!', rating:'4,6' },
@@ -1308,7 +1331,7 @@ function renderPlaces(filter) {
 }
 
 function catLabel(cat) {
-  const m = { kaviarne:'☕ Kaviareň', jedlo:'🍜 Jedlo', nakupy:'🛍 Nákupy', aktivity:'🏃 Aktivita', pamiatkya:'🏯 Pamiatka', hotel:'🏨 Hotel' };
+  const m = { kaviarne:'☕ Kaviareň', jedlo:'🍜 Jedlo', nakupy:'🛍 Nákupy', aktivity:'🏃 Aktivita', pamiatkya:'🏯 Pamiatka', hotel:'🏨 Hotel', galerie:'🎨 Galéria' };
   return m[cat] || cat;
 }
 
