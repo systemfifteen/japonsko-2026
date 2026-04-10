@@ -1236,68 +1236,84 @@ const checklistData = [
     section: '🎟 Rezervácie — urobiť HNED',
     items: [
       { text: 'teamLab Planets Toyosu (22.4. · 11:00)', note: '✓ REZERVOVANÉ · 3× Adult · ¥16 800 · slot 11:00–11:30' },
-      { text: 'Ghibli Museum Mitaka', note: '⚠ Celý apríl vypredaný — skúsiť rezervovať MÁJ (predávajú mesiac vopred, sledovať Lawson alebo zahraničné portály)', priority: true },
+      { text: 'Ghibli Museum Mitaka', note: '⚠ Vypredané — sledujeme zrušenia na 8.–10.5. cez Tampermonkey skript + Telegram notifikáciu', priority: true },
       { text: 'Shibuya Sky', note: 'Rezervácia online — západ slnka slot', priority: true },
-      { text: 'teamLab Borderless Azabudai Hills', note: 'Ak chcete oba teamLab zážitky', priority: true },
       { text: 'Samurai Ninja Museum (Asakusa)', note: '~¥3 000/os. — samuraininjamuseum.com alebo Klook', priority: true },
       { text: 'Maikoya čajový obrad + kimono (Shinjuku, deň 2)', note: '~¥6 000/os. — mai-ko.com/shinjuku, 90–120 min', priority: true },
       { text: 'Mokuhankan — ukiyo-e workshop (25.4., Asakusa)', note: '¥2 000/os., ~1 hod. — mokuhankan.com/parties/index.php', priority: true },
       { text: 'ROKETSU — wax-resist dyeing workshop (3.5., Kyoto)', note: '~¥5 000–8 000/os., ~2 hod. — roketsu.com', priority: true },
-      { text: 'Watashino Washi paper making (8.5 — piatok!)', note: '¥4 400/os. — watashino.style, IBA pracovné dni', priority: true },
+      { text: 'Watashino Washi paper making (8.5 — piatok!)', note: '¥4 400/os. — watashino.style, IBA pracovné dni (Po–Pi)', priority: true },
       { text: 'APA Hotel Hatchobori Ekimae (21–26.4)', note: '✓ REZERVOVANÉ · 5 nocí · ¥105 600 vr. DPH · platba na mieste · zrušenie zadarmo do 19.4.' },
-      { text: 'ART HOTELS SHIBUYA (8–11.5)', note: '5 nocí, záver cesty — rezervovať' },
-      { text: 'Hotel v Kyote (30.4–3.5)', note: '4 noci' },
-      { text: 'Hotel v Kanazawe (30.4–1.5)', note: '2 noci' },
-      { text: 'Hotel v Osaka/Hiroshima (4–6.5)', note: '2–3 noci' },
+      { text: 'ART HOTELS SHIBUYA (7–11.5)', note: '4 noci, záver cesty — rezervovať', priority: true },
+      { text: 'Hotel v Kanazawe (26–29.4)', note: '3 noci — rezervovať' },
+      { text: 'Hotel v Kyote (29.4–4.5)', note: '5 nocí — rezervovať' },
+      { text: 'Hotel v Osake (4–6.5)', note: '2 noci — rezervovať' },
+      { text: 'Hotel v Hirošime (6–7.5)', note: '1 noc — rezervovať' },
     ]
   },
   {
-    section: '🗾 Dokumenty a karty',
+    section: '🚄 Vlaky — rezervovať vopred',
     items: [
-      { text: 'Smart EX registrácia (shinkansen rezervácie)', note: 'smart-ex.jp/en — web, app nie je pre EU. Kreditka + email, QR kód na telefóne. Pre Tokio↔Osaka↔Hirošima trasy.' },
-      { text: 'Rezervovať Kagayaki Tokio→Kanazawa (26.4)', note: 'JR West web alebo kiosk — Golden Week, vlaky plné!', priority: true },
-      { text: 'Rezervovať Thunderbird Kanazawa→Kyoto (29.4)', note: 'Showa Day sviatok — plné vlaky, čím skôr tým lepšie', priority: true },
-      { text: 'Suica alebo Pasmo karta', note: 'Načítateľná karta na metro/bus v Tokiu', priority: true },
-      { text: 'Cestovné poistenie', note: 'Vrátane krytia pre Japonsko' },
-      { text: 'Fotokópia pasu', note: 'Uložiť do cloudu aj fyzicky' },
-      { text: 'Medzinárodné vodičské oprávnenie', note: 'Ak plánujete auto' },
+      { text: 'Smart EX registrácia (shinkansen)', note: 'smart-ex.jp/en — web (app nie je pre EU). Kreditka + email, QR kód. Pre Tokio↔Osaka↔Hirošima trasy.', priority: true },
+      { text: 'Kagayaki: Tokio → Kanazawa (26.4)', note: 'JR West web — Golden Week, vlaky plné! Rezervovať čo najskôr.', priority: true },
+      { text: 'Thunderbird: Kanazawa → Kyoto (29.4)', note: 'Showa Day sviatok — plné vlaky. JR West web alebo kiosk.', priority: true },
+      { text: 'Shinkansen: Kyoto → Kanazawa → Osaka (4.5)', note: 'Thunderbird Kyoto→Osaka, potom Osaka check-in' },
+      { text: 'Shinkansen: Osaka → Hirošima (6.5)', note: 'Hikari/Sakura — stop Himeji Castle možný ak chceš' },
+      { text: 'Shinkansen: Hirošima → Himeji → Tokio (7.5)', note: 'Vystúpiť v Himeji (~45 min), hrad, potom ďalší Shinkansen do Tokia' },
+      { text: 'Narita Express — odlet (11.5 · 5:30 ráno)', note: 'N\'EX zo Shinjuku/Shibuya — zakúpiť vopred alebo Suica' },
     ]
   },
   {
-    section: '💴 Peniaze a platby',
+    section: '🗾 Dokumenty a peniaze',
     items: [
-      { text: 'Japonsko je stále cash spoločnosť', note: '7-Eleven ATM vyberá medzinárodnú kartu', priority: true },
-      { text: 'Vymeniť alebo vytiahnuť jeny na letisku', note: 'Prvý deň treba cash' },
-      { text: 'Visa/Mastercard bez poplatkov za zahraničné transakcie', note: 'Revolut, Wise...' },
+      { text: 'Cestovné poistenie', note: 'Vrátane krytia pre Japonsko — obaja' },
+      { text: 'Fotokópia pasu', note: 'Uložiť do cloudu aj fyzicky — obaja' },
+      { text: 'Japonsko je cash spoločnosť', note: '7-Eleven / Lawson / Japan Post ATM — medzinárodná karta funguje', priority: true },
+      { text: 'Vytiahnuť jeny na Narita letisku', note: 'Prvý deň treba cash — ATM pri prílete' },
+      { text: 'Kreditka bez poplatkov za zahraničné transakcie', note: 'Revolut alebo Wise — obaja' },
+      { text: 'Tax Free — pas pri nákupoch', note: 'Nad ¥5 000 v jednom obchode. Map Camera, KOMEHYO, oblečenie.' },
     ]
   },
   {
-    section: '📱 Aplikácie a tech',
+    section: '📱 Tech — spoločné',
     items: [
-      { text: 'Google Maps — stiahnuť offline mapy Japonska', note: 'Funguje aj bez internetu', priority: true },
-      { text: 'Hyperdia alebo Japan Transit Planner', note: 'Vlakové spojenia a časy — funguje aj bez JR Pass' },
-      { text: 'Google Translate — stiahnuť japonský balíček', note: 'Offline preklad + camera translate' },
-      { text: 'eSIM alebo pocket WiFi', note: 'Airalo eSIM je najjednoduchší' },
-      { text: 'IC Card (iPhone Wallet)', note: 'Suica v Apple Wallet od iPhone 7' },
+      { text: 'Ubigi eSIM — aktivovať pred odletom', note: 'Obaja — aktivovať doma, dáta spustiť až v Japonsku. Skontrolovať kompatibilitu telefónu.', priority: true },
+      { text: 'Google Maps — stiahnuť offline mapy Japonska', note: 'Obaja — funguje aj bez internetu', priority: true },
+      { text: 'Google Translate — stiahnuť japonský jazykový balíček', note: 'Obaja — offline preklad + camera translate (namierte na nápis → preloží)', priority: true },
+      { text: 'Hyperdia alebo Japan Transit Planner', note: 'Obaja — vlakové spojenia a časy v Japonsku' },
+      { text: 'Telegram — notifikácie zapnuté', note: 'Obaja — príde správa ak sa uvoľní Ghibli lístok' },
+    ]
+  },
+  {
+    section: '📱 Dadka — nastaviť na telefóne',
+    items: [
+      { text: 'Ubigi eSIM — nainštalovať a nastaviť', note: 'Stiahnuť app Ubigi → kúpiť Japan plán → nainštalovať eSIM profil. Dáta nezapínať doma!', priority: true },
+      { text: 'Suica (IC karta) do Apple Wallet', note: 'iPhone: Wallet app → + → Transit Card → Suica. Načítať kreditkou. Platí na metro, JR, bus aj v konbini.', priority: true },
+      { text: 'Apple Pay nastaviť', note: 'Pre Suica aj bežné platby — overiť že karta je pridaná a funkčná' },
+      { text: 'Google Maps offline Japonsko — stiahnuť', note: 'Maps → profil → Offline mapy → Stiahnuť oblasť → vybrať Japonsko (alebo konkrétne oblasti)' },
+      { text: 'Google Translate — offline balíček japončina', note: 'Translate → Japončina → šípka stiahnutia. Kamera preklad funguje offline.' },
+      { text: 'Automatická záloha fotiek zapnutá', note: 'iCloud Photos alebo Google Photos — skontrolovať dostatok miesta pred odletom' },
+      { text: 'Brightness + Battery Saver nastaviť', note: 'Dlhé dni vonku — Low Power Mode manuálne podľa potreby' },
     ]
   },
   {
     section: '🧳 Balenie',
     items: [
-      { text: 'Adaptér typ A (japonská zástrčka)', note: '100V, ale väčšina elektroniky funguje' },
-      { text: 'Prázdna taška na nákupy', note: 'Na Japonsko — zaberá nula miesta, využiješ max' },
-      { text: 'Pohodlná obuv na státisíce krokov', note: 'Denný priemer: 15–20k krokov' },
-      { text: 'Ľahká vrstviteľná bunda', note: 'Apríl/máj — ráno chladnejšie' },
+      { text: 'Adaptér typ A (japonská zástrčka)', note: '100V — väčšina elektroniky (telefóny, laptopy) funguje bez problémov' },
+      { text: 'Prázdna taška na nákupy', note: 'Zaberá nula miesta, využiješ maximum' },
+      { text: 'Pohodlná obuv na státisíce krokov', note: 'Denný priemer: 15–20k krokov. Obuv čo sa dá rýchlo vyzuť.' },
+      { text: 'Ľahká vrstviteľná bunda', note: 'Apríl/máj — ráno a večer chladnejšie, cez deň teplo' },
+      { text: 'Powerbank', note: 'Dlhé dni vonku — telefón ide naplno (GPS, fotky, mapy)' },
     ]
   },
   {
-    section: '☕ Káva a špeciality',
+    section: '☕ Nezabudnúť',
     items: [
-      { text: 'Little Nap — navštíviť hneď deň 1', note: 'Otvára 9:00, radšej ráno' },
-      { text: 'Camelback tamago sandwich', note: 'Fronty — ísť skoro ráno' },
-      { text: 'Hiroshimský okonomiyaki', note: 'Na Miyajima — lokálna reštika, nie chain' },
-
-      { text: 'Single origin filter v Kanazawe', note: 'Coffee shop odporúčanie — zistit na mieste' },
+      { text: 'Little Nap Coffee Stand — deň 1 ráno', note: 'Otvára 9:00 — ideálne pred teamLabom' },
+      { text: 'Camelback tamago sandwich (Harajuku)', note: 'Fronty — ísť skoro ráno' },
+      { text: 'Hirošimský okonomiyaki — deň 15', note: 'Lokálna reštika, nie chain — iná vrstva ako osakanský' },
+      { text: 'Townsfolk Coffee — Kanazawa', note: 'Najlepšia pražiareň v meste, nordická filozofia' },
+      { text: 'Oshino Hakkai — Fuji deň (9.5)', note: 'Stará dedinka s prameňmi Fuji — navštíviť ak čas dovolí' },
     ]
   }
 ];
