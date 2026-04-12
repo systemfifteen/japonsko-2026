@@ -785,6 +785,78 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
   color: #2a4a2a;
 }
 .pd-tip-box strong { display: block; margin-bottom: 6px; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+.pd-transit {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+.pd-transit-title {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.pd-transit-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.pd-transit-step {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0 10px;
+  position: relative;
+  padding-bottom: 12px;
+}
+.pd-transit-step:last-child { padding-bottom: 0; }
+.pd-transit-step::before {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 22px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+.pd-transit-step:last-child::before { display: none; }
+.pd-transit-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.pd-transit-text {
+  padding-top: 4px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.pd-transit-text strong { font-weight: 500; }
+.pd-transit-text .pd-transit-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.pd-transit-divider {
+  grid-column: 1/-1;
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 4px 0 12px;
+}
+.pd-transit-step.is-train .pd-transit-icon {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 6px;
+  font-size: 12px;
+}
 </style>
 </head>
 <body>
@@ -1277,6 +1349,111 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
 
   <div id="pd-map" style="height:320px;border-radius:8px;border:1px solid var(--border);margin-bottom:24px;"></div>
 
+  <div class="pd-transit">
+    <div class="pd-transit-title">🗺 Navrhovaná trasa · ~4 hodiny · ~5 km pešo</div>
+    <div class="pd-transit-steps">
+
+      <div class="pd-transit-step is-train">
+        <div class="pd-transit-icon">🚃</div>
+        <div class="pd-transit-text">
+          <strong>Štart: Hatagaya Station</strong>
+          <div class="pd-transit-note">Keio New Line · zo Shinjuku 4 min · ¥160 · Suica OK</div>
+        </div>
+      </div>
+
+      <div class="pd-transit-step">
+        <div class="pd-transit-icon">🚶</div>
+        <div class="pd-transit-text">
+          <strong>8 min pešo</strong>
+          <div class="pd-transit-note">→ Zastávka 1: Nishihara Itchome Park (Sakakura)</div>
+        </div>
+      </div>
+
+      <div class="pd-transit-step">
+        <div class="pd-transit-icon">🚶</div>
+        <div class="pd-transit-text">
+          <strong>15 min pešo</strong>
+          <div class="pd-transit-note">→ Zastávka 2: Yoyogi-Hachiman Tri huby (Toyo Ito)</div>
+        </div>
+      </div>
+
+      <div class="pd-transit-step">
+        <div class="pd-transit-icon">🚶</div>
+        <div class="pd-transit-text">
+          <strong>5 min pešo</strong>
+          <div class="pd-transit-note">→ Zastávka 3: Yoyogi Fukamachi Mini Park (Shigeru Ban)</div>
+        </div>
+      </div>
+
+      <div class="pd-transit-step">
+        <div class="pd-transit-icon">🚶</div>
+        <div class="pd-transit-text">
+          <strong>12 min pešo</strong>
+          <div class="pd-transit-note">→ Zastávka 4: Nabeshima Shoto Park (Kengo Kuma)</div>
+        </div>
+      </div>
+
+      <div class="pd-transit-step">
+        <div class="pd-transit-icon">🚶</div>
+        <div class="pd-transit-text">
+          <strong>15 min pešo smer východ</strong>
+          <div class="pd-transit-note">→ Zastávka 5: Jingu-Dori Park (Tadao Ando) · oblasť Omotesando</div>
+        </div>
+      </div>
+
+      <hr class="pd-transit-divider">
+
+      <div class="pd-transit-step">
+        <div class="pd-transit-icon">🚶</div>
+        <div class="pd-transit-text">
+          <strong>10 min pešo → Harajuku Station</strong>
+          <div class="pd-transit-note">JR Yamanote linka · smer Ōsaki</div>
+        </div>
+      </div>
+
+      <div class="pd-transit-step is-train">
+        <div class="pd-transit-icon">🚃</div>
+        <div class="pd-transit-text">
+          <strong>Harajuku → Shibuya</strong>
+          <div class="pd-transit-note">JR Yamanote · 1 zastávka · 2 min · ¥160 · Suica OK</div>
+        </div>
+      </div>
+
+      <div class="pd-transit-step">
+        <div class="pd-transit-icon">🚶</div>
+        <div class="pd-transit-text">
+          <strong>10 min pešo smer juh-východ</strong>
+          <div class="pd-transit-note">→ Zastávka 8: Shibuya Higashi 3-Chome (Nao Tamura)</div>
+        </div>
+      </div>
+
+      <div class="pd-transit-step">
+        <div class="pd-transit-icon">🚶</div>
+        <div class="pd-transit-text">
+          <strong>15 min pešo smer juh</strong>
+          <div class="pd-transit-note">→ Zastávka 7: Ebisu Park (Katayama)</div>
+        </div>
+      </div>
+
+      <div class="pd-transit-step">
+        <div class="pd-transit-icon">🚶</div>
+        <div class="pd-transit-text">
+          <strong>5 min pešo</strong>
+          <div class="pd-transit-note">→ Zastávka 6: Ebisu-higashi Park (Fumihiko Maki · Octopus Park)</div>
+        </div>
+      </div>
+
+      <div class="pd-transit-step is-train">
+        <div class="pd-transit-icon">🚃</div>
+        <div class="pd-transit-text">
+          <strong>Koniec: Ebisu Station</strong>
+          <div class="pd-transit-note">JR Yamanote linka alebo Hibiya Metro · späť do Shibuya 3 min</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <div class="pd-intro">
     <div class="pd-intro-poster">🚻</div>
     <div class="pd-intro-text">
@@ -1441,6 +1618,8 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
     Všetky záchodky sú otvorené 24 hodín, vstup zadarmo. Ideálne navštíviť ráno (menej ľudí) alebo večer (osvetlenie). Celú trasu zvládneš za 3–4 hodiny pešo. Ak chceš prejsť všetkých 17 záchodkov projektu Tokyo Toilet, pridaj ešte Haru-no-Ogawa Park (Sou Fujimoto), Hi Toilet v Nanago Dori Park (Kazoo Sato) a ďalšie — celý deň bicyklom.
     <br><br>
     Film si môžeš pustiť pred cestou — Wim Wenders ho nakrútil za 17 dní priamo na týchto miestach.
+    <br><br>
+    📎 Všetkých 17 záchodkov s mapou a popismi: <a href="https://tokyotoilet.jp/en/" target="_blank" style="color:#2a4a2a;font-weight:500;">tokyotoilet.jp/en</a>
   </div>
 
 </div>
