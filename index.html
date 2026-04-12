@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <style>
 :root {
   --ink: #1a1714;
@@ -1274,6 +1275,8 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
 
 <div id="tab-perfect-days" class="section">
 
+  <div id="pd-map" style="height:320px;border-radius:8px;border:1px solid var(--border);margin-bottom:24px;"></div>
+
   <div class="pd-intro">
     <div class="pd-intro-poster">🚻</div>
     <div class="pd-intro-text">
@@ -1822,6 +1825,50 @@ function showTab(id) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
   document.querySelector(`[onclick="showTab('${id}')"]`).classList.add('active');
+  if (id === 'perfect-days') initPdMap();
+}
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+let _pdMap = null;
+function initPdMap() {
+  if (_pdMap) { _pdMap.invalidateSize(); return; }
+
+  const stops = [
+    { n:1, name:'Nishihara Itchome Park',    arch:'Takenosuke Sakakura', lat:35.6732, lng:139.6848 },
+    { n:2, name:'Yoyogi-Hachiman — Tri huby', arch:'Toyo Ito',           lat:35.6758, lng:139.6930 },
+    { n:3, name:'Yoyogi Fukamachi Mini Park', arch:'Shigeru Ban',         lat:35.6698, lng:139.6924 },
+    { n:4, name:'Nabeshima Shoto Park',       arch:'Kengo Kuma',          lat:35.6656, lng:139.6990 },
+    { n:5, name:'Jingu-Dori Park',            arch:'Tadao Ando',          lat:35.6682, lng:139.7082 },
+    { n:6, name:'Ebisu-higashi Park',         arch:'Fumihiko Maki',       lat:35.6479, lng:139.7139 },
+    { n:7, name:'Ebisu Park',                 arch:'Masamichi Katayama',  lat:35.6470, lng:139.7096 },
+    { n:8, name:'Shibuya Higashi 3-Chome',    arch:'Nao Tamura',          lat:35.6575, lng:139.7103 },
+  ];
+
+  _pdMap = L.map('pd-map').setView([35.663, 139.700], 14);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap',
+    maxZoom: 19
+  }).addTo(_pdMap);
+
+  stops.forEach(s => {
+    const icon = L.divIcon({
+      className: '',
+      html: `<div style="
+        width:28px;height:28px;border-radius:50%;
+        background:#1a1612;color:#f5f0e8;
+        display:flex;align-items:center;justify-content:center;
+        font-size:12px;font-weight:600;font-family:sans-serif;
+        border:2px solid #f5f0e8;box-shadow:0 1px 4px rgba(0,0,0,.4);">${s.n}</div>`,
+      iconSize: [28, 28],
+      iconAnchor: [14, 14]
+    });
+    L.marker([s.lat, s.lng], { icon })
+      .addTo(_pdMap)
+      .bindPopup(`<strong>${s.n}. ${s.name}</strong><br><span style="font-size:11px;color:#888;">${s.arch}</span>`);
+  });
 }
 </script>
 
