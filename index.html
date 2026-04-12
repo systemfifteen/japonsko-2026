@@ -598,6 +598,192 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
   .day-card { grid-template-columns: 44px 1fr; gap: 0 10px; }
   .day-card::before { left: 21px; }
 }
+
+/* ── PERFECT DAYS ── */
+.pd-intro {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.pd-intro-poster {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 48px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.pd-intro-text h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.pd-intro-text p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.pd-intro-meta {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pd-meta-tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--paper2);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  letter-spacing: 0.05em;
+}
+
+.pd-route-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 28px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.pd-route-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.pd-route-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+.pd-route-note {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.pd-stop {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0 14px;
+  margin-bottom: 2px;
+  position: relative;
+}
+.pd-stop::before {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 56px;
+  bottom: -2px;
+  width: 1px;
+  background: var(--border);
+}
+.pd-stop:last-child::before { display: none; }
+
+.pd-stop-num {
+  text-align: center;
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.pd-stop-num .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 13px;
+  font-weight: 500;
+}
+.pd-stop-num .icon { font-size: 16px; }
+
+.pd-stop-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 6px;
+}
+.pd-stop-card:hover { border-color: #b4a8d4; }
+
+.pd-stop-architect {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 4px;
+}
+.pd-stop-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.pd-stop-address {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.pd-stop-desc {
+  font-size: 13px;
+  color: #3a3530;
+  line-height: 1.6;
+}
+.pd-film-note {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #f9f0d8;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 4px 4px 0;
+  font-size: 12px;
+  color: #5a4a1a;
+  font-style: italic;
+}
+.pd-stop-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 10px;
+}
+.pd-maps-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 20px;
+  transition: all .2s;
+}
+.pd-maps-link:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.pd-tip-box {
+  background: #f0f4f0;
+  border: 1px solid #b4d4b4;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 28px;
+  font-size: 13px;
+  color: #2a4a2a;
+}
+.pd-tip-box strong { display: block; margin-bottom: 6px; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
 </style>
 </head>
 <body>
@@ -641,6 +827,7 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
     <button class="tab-btn" onclick="showTab('places')">Miesta</button>
     <button class="tab-btn" onclick="showTab('checklist')">Checklist</button>
     <button class="tab-btn" onclick="showTab('tips')">Tipy</button>
+    <button class="tab-btn" onclick="showTab('perfect-days')">🚻 Perfect Days</button>
   </div>
 </nav>
 
@@ -1083,6 +1270,176 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
     <p>Praktické rady, cennosti z predošlej cesty a nové tipy pre apríl 2026.</p>
   </div>
   <div class="tips-grid" id="tipsGrid"></div>
+</div>
+
+<div id="tab-perfect-days" class="section">
+
+  <div class="pd-intro">
+    <div class="pd-intro-poster">🚻</div>
+    <div class="pd-intro-text">
+      <h3>Perfect Days — Wim Wenders (2023)</h3>
+      <p>Film sleduje Hirayamu, upratovača verejných záchodkov v tokijskej štvrti Shibuya. Každý záchodok je architektonickým dielom — súčasť projektu <strong>The Tokyo Toilet</strong>, 17 objektov navrhnutých slávnymi architektmi pre olympiádu 2020. Všetky sú voľne prístupné, otvorené 24h.</p>
+      <div class="pd-intro-meta">
+        <span class="pd-meta-tag">🏆 Cannes 2023 — Best Actor</span>
+        <span class="pd-meta-tag">📍 Shibuya, Tokio</span>
+        <span class="pd-meta-tag">🚶 pešo alebo bicykel</span>
+        <span class="pd-meta-tag">⏱ ~3–4h celá trasa</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- OKRUH 1 -->
+  <div class="pd-route-header">
+    <span class="pd-route-label">Okruh 1</span>
+    <span class="pd-route-title">Yoyogi · Tomigaya · Nishihara</span>
+    <span class="pd-route-note">západ Shibuya · 4 zastávky</span>
+  </div>
+
+  <div class="pd-stop">
+    <div class="pd-stop-num"><span class="num">1</span><span class="icon">🍄</span></div>
+    <div class="pd-stop-card">
+      <div class="pd-stop-architect">Takenosuke Sakakura</div>
+      <div class="pd-stop-name">Nishihara Itchome Park</div>
+      <div class="pd-stop-address">1-29-1 Nishihara, Shibuya-ku</div>
+      <div class="pd-stop-desc">Biely mrazený sklenený pavilón so zelenou drevenou lampa-inšpirovanou estetikou. Syn slávneho architekta Junza Sakakuru. Začni tu — je to najzápadnejšia zastávka, trasa pôjde smerom na juh.</div>
+      <div class="pd-film-note">🎬 Timekey: 32 min vo filme — charakteristický zelený vstup</div>
+      <div class="pd-stop-tags">
+        <span class="tag">Sakakura</span>
+        <span class="tag">mrazené sklo</span>
+      </div>
+      <a class="pd-maps-link" href="https://maps.google.com/?q=1-29-1+Nishihara+Shibuya+Tokyo+toilet" target="_blank">📍 Otvoriť v Mapách</a>
+    </div>
+  </div>
+
+  <div class="pd-stop">
+    <div class="pd-stop-num"><span class="num">2</span><span class="icon">🍄</span></div>
+    <div class="pd-stop-card">
+      <div class="pd-stop-architect">Toyo Ito — Pritzker Prize</div>
+      <div class="pd-stop-name">Yoyogi-Hachiman — Tri huby</div>
+      <div class="pd-stop-address">5-1-2 Yoyogi, Shibuya-ku</div>
+      <div class="pd-stop-desc">Tri pavilóny v tvare húb zasadené do lesa pri šintoistickej svätyni Yoyogi-Hachimangu. Ito ich navrhol aby evokovali bezpečnosť a pohodu — každý pavilón je samostatná miestnosť. Jeden z architektonicky najsilnejších v projekte.</div>
+      <div class="pd-film-note">🎬 14 min — Hirayama začína svoje ráno tu, medzi hubami a stromami</div>
+      <div class="pd-stop-tags">
+        <span class="tag">Toyo Ito</span>
+        <span class="tag highlight">★ top dizajn</span>
+      </div>
+      <a class="pd-maps-link" href="https://maps.google.com/?q=5-1-2+Yoyogi+Shibuya+Tokyo+Hachiman+toilet" target="_blank">📍 Otvoriť v Mapách</a>
+    </div>
+  </div>
+
+  <div class="pd-stop">
+    <div class="pd-stop-num"><span class="num">3</span><span class="icon">🟠</span></div>
+    <div class="pd-stop-card">
+      <div class="pd-stop-architect">Shigeru Ban</div>
+      <div class="pd-stop-name">Yoyogi Fukamachi Mini Park</div>
+      <div class="pd-stop-address">1-54-1 Tomigaya, Shibuya-ku</div>
+      <div class="pd-stop-desc">Ikonický transparentný záchod — sklenené steny sú priehľadné kým nezamkneš dvere, potom sa okamžite zmatnia. V noci svieti oranžovým a fialovým svetlom ako lampiónový dom. Technológia elektrochrómneho skla je stále fascinujúca.</div>
+      <div class="pd-film-note">🎬 17 min — žena sa pýta Hirayamu: "How the hell does this work?"</div>
+      <div class="pd-stop-tags">
+        <span class="tag">Shigeru Ban</span>
+        <span class="tag highlight">★ ikonický</span>
+        <span class="tag new">⚠ transparentnosť nefunguje pri chlade</span>
+      </div>
+      <a class="pd-maps-link" href="https://maps.google.com/?q=1-54-1+Tomigaya+Shibuya+Tokyo+toilet" target="_blank">📍 Otvoriť v Mapách</a>
+    </div>
+  </div>
+
+  <div class="pd-stop">
+    <div class="pd-stop-num"><span class="num">4</span><span class="icon">🪵</span></div>
+    <div class="pd-stop-card">
+      <div class="pd-stop-architect">Kengo Kuma</div>
+      <div class="pd-stop-name">Nabeshima Shoto Park</div>
+      <div class="pd-stop-address">2-10-7 Shoto, Shibuya-ku</div>
+      <div class="pd-stop-desc">Päť chatiek obložených cédrovou, čerešňovou a metasekvoidnou drevenou latovkou, schovaných v zeleni tichého rezidenčného parku s rybníčkom a mlynčekom. Typický Kuma — organické tvary, prírodné materiály.</div>
+      <div class="pd-film-note">🎬 12 min — prvý záchod kde sa niečo výrazné stane: Hirayama nájde stratené dieťa vo vnútri</div>
+      <div class="pd-stop-tags">
+        <span class="tag">Kengo Kuma</span>
+        <span class="tag">drevo · les</span>
+      </div>
+      <a class="pd-maps-link" href="https://maps.google.com/?q=2-10-7+Shoto+Shibuya+Tokyo+Nabeshima+park" target="_blank">📍 Otvoriť v Mapách</a>
+    </div>
+  </div>
+
+  <!-- OKRUH 2 -->
+  <div class="pd-route-header">
+    <span class="pd-route-label">Okruh 2</span>
+    <span class="pd-route-title">Jingu · Ebisu · Higashi</span>
+    <span class="pd-route-note">východ Shibuya · 4 zastávky</span>
+  </div>
+
+  <div class="pd-stop">
+    <div class="pd-stop-num"><span class="num">5</span><span class="icon">⛩</span></div>
+    <div class="pd-stop-card">
+      <div class="pd-stop-architect">Tadao Ando</div>
+      <div class="pd-stop-name">Jingu-Dori Park</div>
+      <div class="pd-stop-address">6-21-22 Jingumae, Shibuya-ku</div>
+      <div class="pd-stop-desc">Valcová betónová stavba s charakteristickými výrazne presahujúcimi strieškami — engawa, japonská veranda. Čistý, plný Andovský minimalizmus. Park je otvorený len do 19:00.</div>
+      <div class="pd-film-note">🎬 Tadao Ando — jeden z mála čo uzatvárajú filmovú vizuálnu skladbu</div>
+      <div class="pd-stop-tags">
+        <span class="tag">Tadao Ando</span>
+        <span class="tag">betón · engawa</span>
+        <span class="tag new">⚠ park do 19:00</span>
+      </div>
+      <a class="pd-maps-link" href="https://maps.google.com/?q=6-21-22+Jingumae+Shibuya+Tokyo+Jingu+Dori+park" target="_blank">📍 Otvoriť v Mapách</a>
+    </div>
+  </div>
+
+  <div class="pd-stop">
+    <div class="pd-stop-num"><span class="num">6</span><span class="icon">🐙</span></div>
+    <div class="pd-stop-card">
+      <div class="pd-stop-architect">Fumihiko Maki</div>
+      <div class="pd-stop-name">Ebisu-higashi Park</div>
+      <div class="pd-stop-address">1-2-16 Ebisu, Shibuya-ku</div>
+      <div class="pd-stop-desc">Park slávny červenou chobotnicovou šmykľavkou — ľudia ho volajú "Octopus Park". Makiho záchod je prvý ktorý vidíme vo filme — Hirayama tu začína svoju rannú trasu. Jednoduchý, bezprostredný dizajn blízko stanice Ebisu.</div>
+      <div class="pd-film-note">🎬 7 min — úplne prvý záchod vo filme, Hirayama tu zaparkovil a začína pracovný deň</div>
+      <div class="pd-stop-tags">
+        <span class="tag">Fumihiko Maki</span>
+        <span class="tag">prvý vo filme</span>
+      </div>
+      <a class="pd-maps-link" href="https://maps.google.com/?q=1-2-16+Ebisu+Shibuya+Tokyo+higashi+park" target="_blank">📍 Otvoriť v Mapách</a>
+    </div>
+  </div>
+
+  <div class="pd-stop">
+    <div class="pd-stop-num"><span class="num">7</span><span class="icon">🏠</span></div>
+    <div class="pd-stop-card">
+      <div class="pd-stop-architect">Masamichi Katayama / Wonderwall®</div>
+      <div class="pd-stop-name">Ebisu Park</div>
+      <div class="pd-stop-address">1-19-1 Ebisunishi, Shibuya-ku</div>
+      <div class="pd-stop-desc">Päť samostatných miestností bez rozdelenia podľa pohlavia — inkuzívny prístup ako hlavný dizajnový princíp. Betónová stavba pred stanicou Ebisu. Jedna z najčistejšie udržiavaných zastávok celého projektu.</div>
+      <div class="pd-film-note">🎬 31 min — súčasť Hirayamovej každodennej trasy, symbol jeho disciplíny</div>
+      <div class="pd-stop-tags">
+        <span class="tag">Katayama</span>
+        <span class="tag">unisex · inkluzívne</span>
+      </div>
+      <a class="pd-maps-link" href="https://maps.google.com/?q=1-19-1+Ebisunishi+Shibuya+Tokyo+Ebisu+park+toilet" target="_blank">📍 Otvoriť v Mapách</a>
+    </div>
+  </div>
+
+  <div class="pd-stop">
+    <div class="pd-stop-num"><span class="num">8</span><span class="icon">🔴</span></div>
+    <div class="pd-stop-card">
+      <div class="pd-stop-architect">Nao Tamura</div>
+      <div class="pd-stop-name">Shibuya Higashi 3-Chome</div>
+      <div class="pd-stop-address">3-27-1 Higashi, Shibuya-ku</div>
+      <div class="pd-stop-desc">Výrazná červená trojuholníková stavba inšpirovaná japonskou tradíciou zabaľovania darov — <em>origata</em>. Malá, ale vizuálne najsilnejšia zo série. Na trojuholníkovom pozemku medzi výškovými budovami. Na noc sa zosvieti inak.</div>
+      <div class="pd-film-note">🎬 Nao Tamura — dizajn chápe záchod ako dar meste jeho obyvateľom</div>
+      <div class="pd-stop-tags">
+        <span class="tag">Nao Tamura</span>
+        <span class="tag highlight">★ najvýraznejší dizajn</span>
+        <span class="tag">origata</span>
+      </div>
+      <a class="pd-maps-link" href="https://maps.google.com/?q=3-27-1+Higashi+Shibuya+Tokyo+toilet" target="_blank">📍 Otvoriť v Mapách</a>
+    </div>
+  </div>
+
+  <div class="pd-tip-box">
+    <strong>💡 Praktické tipy</strong>
+    Všetky záchodky sú otvorené 24 hodín, vstup zadarmo. Ideálne navštíviť ráno (menej ľudí) alebo večer (osvetlenie). Celú trasu zvládneš za 3–4 hodiny pešo. Ak chceš prejsť všetkých 17 záchodkov projektu Tokyo Toilet, pridaj ešte Haru-no-Ogawa Park (Sou Fujimoto), Hi Toilet v Nanago Dori Park (Kazoo Sato) a ďalšie — celý deň bicyklom.
+    <br><br>
+    Film si môžeš pustiť pred cestou — Wim Wenders ho nakrútil za 17 dní priamo na týchto miestach.
+  </div>
+
 </div>
 
 </main>
