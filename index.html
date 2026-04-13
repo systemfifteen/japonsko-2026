@@ -375,6 +375,22 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
   transition: opacity .15s;
 }
 .place-book:hover { opacity: 0.75; }
+.place-map {
+  display: inline-block;
+  margin-top: 8px;
+  margin-left: 6px;
+  padding: 4px 10px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--border);
+  transition: all .15s;
+}
+.place-map:hover { color: var(--ink); border-color: var(--ink); }
 
 /* ── CURRENCY WIDGET ── */
 #currency-widget {
@@ -1632,57 +1648,57 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
 const places = [
   // KAVIARNE
   // ── PRAŽIARNE ──────────────────────────────────────────────
-  { cat:'praziarne', name:'Glitch Coffee & Roasters', zone:'Tokio — Jimbocho + Ginza', note:'Najbližší japonský ekvivalent k The Barn / Friedhats. Vždy 10+ single origins, každý lot má vlastný roast profil. Founder Kiyokazu Suzuki — Japan Aeropress Champion 2014. Ginza location: single-origin only.', rating:'4,8', priority:true, url:'https://glitchcoffee.com' },
-  { cat:'praziarne', name:'Fuglen Coffee Roasters Tokyo', zone:'Tokio — Tomigaya (Shibuya)', note:'Priame prepojenie na Tim Wendelboe — zelenú nakupujú cez Nordic Approach (TW co-founder). Rovnaký supply chain ako Wendelboe. Pražia každú stredu, expedujú do týždňa. Kaviareň cez deň, koktaily večer.', rating:'4,7', priority:true, url:'https://fuglencoffee.jp/en' },
-  { cat:'praziarne', name:'Onibus Coffee', zone:'Tokio — Nakameguro (pražiareň + kaviareň)', note:'Jeden zo zakladateľov tretej vlny v Tokiu (2012). Nordický štýl, svetlé praženie, 5 rotujúcich single origins. Navštevujú každú farmu osobne. Nakameguro kaviareň je dizajnová ikona — viditeľný Diedrich roaster. Porovnateľné so Square Mile.', rating:'4,6', priority:true, url:'https://onibuscoffee.com' },
-  { cat:'praziarne', name:'LEAVES Coffee Roasters', zone:'Tokio — Kuramae (Sumida)', note:'⚠ Otvorené IBA Pi–Ne 10–17h! Najuznávanejšia japonská pražiareň posledných rokov — prvá ázijská nominácia Sprudge Notable Roaster Award (2021, 2022). Founder Yasuo Ishii: ex-boxer, samouk. Svetlé praženie, dôraz na sladkosť a arómu.', rating:'4,9', priority:true, url:'https://leavescoffee.jp/en' },
-  { cat:'praziarne', name:'Weekenders Coffee', zone:'Kyoto — Tominokoji (stand + pražiareň)', note:'Kanonická kyotská pražiareň. Founder Masahiro Kaneko inšpirovaný priamo Tim Wendelboe a Square Mile — objavenie svetlého praženia ho úplne zmenilo. Stánok v restored machiya (drevenom domčeku). Sprudge a The Coffeevine: "jedno z japonských svätých miest specialty kávy".', rating:'4,8', priority:true, url:'https://weekenderscoffee.com' },
-  { cat:'praziarne', name:'Kurasu Kyoto', zone:'Kyoto — pri Kyoto Station + Nishijin pražiareň', note:'Kyotská pražiareň s austráliou v DNA (founder vyrastal v kissaten rodine, trénoval v Sydney). Giesen W6A roaster v Nishijin. Aj najrešpektovanejší japonský roaster subscription program — partnerujú s Glitch, Leaves, Weekenders, Townsfolk.', rating:'4,7', priority:true, url:'https://kurasu.kyoto' },
-  { cat:'praziarne', name:'Townsfolk Coffee', zone:'Kanazawa', note:'Najlepšia pražiareň v Kanazawe. Founder Suzuki trénoval v Prolog Coffee (Kodaň) — explicitne nordická filozofia. Kurasu partner roaster. Počas pobytu v Kanazawe (27–28.4) — MUST visit.', rating:'4,8', priority:true, url:'https://townsfolkcoffee.com/en-global' },
-  { cat:'praziarne', name:'Mel Coffee Roasters', zone:'Osaka — Shinmachi (Nishi Ward)', note:'Melbourne → Osaka (Mel = Melbourne). Vintage 5kg Probat roaster. World Top 50 Roasters 2023. Tiny shop, maximálna koncentrácia — porovnateľné s DAK alebo Manhattan. Zatvorené v pondelok (praženie).', rating:'4,7', priority:true, url:'https://mel.coffee' },
-  { cat:'praziarne', name:'LiLo Coffee Roasters', zone:'Osaka — Nishishinsaibashi', note:'Jeden z prvých specialty roasters v Osake (2014). 20+ single origins naraz s plnou traceabilitou — model podobný Friedhats. Otvorené do 23:00 — ideálne na večerné zastavenie. Sister location: LiLo Coffee Kissa (kissaten štýl).', rating:'4,6', priority:true, url:'https://coffee.liloinveve.com' },
-  { cat:'kaviarne', name:'Koffee Mameya', zone:'Tokio — Omotesando', note:'Najrešpektovanejšia multi-roaster kaviareň v Japonsku. Žiadne vlastné praženie — čistý kurátor: 10–15 japonských pražiarní rotujúce (Glitch, Leaves, Weekenders...). Barista ti odporučí kávu podľa preferencií. Malý, minimalistický priestor — rad pred dverami bežný. Sitting bar verzia: Koffee Mameya Kakeru (rezervácia odporúčaná).', rating:'4,7', priority:true, url:'https://www.koffee-mameya.com' },
-  { cat:'kaviarne', name:'Koffee Mameya Kakeru', zone:'Tokio — Omotesando', note:'Prémiová sitting bar verzia Koffee Mameya — omakase kávový zážitok (barista rozhoduje čo dostaneš, postupne viacero káv). Rezervácia nutná vopred. Pre kávových nerds absolútny must.', rating:'4,8', priority:true, url:'https://www.koffee-mameya.com/kakeru' },
+  { cat:'praziarne', name:'Glitch Coffee & Roasters', zone:'Tokio — Jimbocho + Ginza', note:'Najbližší japonský ekvivalent k The Barn / Friedhats. Vždy 10+ single origins, každý lot má vlastný roast profil. Founder Kiyokazu Suzuki — Japan Aeropress Champion 2014. Ginza location: single-origin only.', rating:'4,8', priority:true, url:'https://glitchcoffee.com', maps:'https://www.google.com/maps/search/Glitch+Coffee+Roasters+Jimbocho/@35.6958,139.7585,18z' },
+  { cat:'praziarne', name:'Fuglen Coffee Roasters Tokyo', zone:'Tokio — Tomigaya (Shibuya)', note:'Priame prepojenie na Tim Wendelboe — zelenú nakupujú cez Nordic Approach (TW co-founder). Rovnaký supply chain ako Wendelboe. Pražia každú stredu, expedujú do týždňa. Kaviareň cez deň, koktaily večer.', rating:'4,7', priority:true, url:'https://fuglencoffee.jp/en', maps:'https://www.google.com/maps/search/Fuglen+Coffee+Roasters+Tokyo/@35.6702,139.6922,18z' },
+  { cat:'praziarne', name:'Onibus Coffee', zone:'Tokio — Nakameguro (pražiareň + kaviareň)', note:'Jeden zo zakladateľov tretej vlny v Tokiu (2012). Nordický štýl, svetlé praženie, 5 rotujúcich single origins. Navštevujú každú farmu osobne. Nakameguro kaviareň je dizajnová ikona — viditeľný Diedrich roaster. Porovnateľné so Square Mile.', rating:'4,6', priority:true, url:'https://onibuscoffee.com', maps:'https://www.google.com/maps/search/Onibus+Coffee+Nakameguro/@35.6465,139.6985,18z' },
+  { cat:'praziarne', name:'LEAVES Coffee Roasters', zone:'Tokio — Kuramae (Sumida)', note:'⚠ Otvorené IBA Pi–Ne 10–17h! Najuznávanejšia japonská pražiareň posledných rokov — prvá ázijská nominácia Sprudge Notable Roaster Award (2021, 2022). Founder Yasuo Ishii: ex-boxer, samouk. Svetlé praženie, dôraz na sladkosť a arómu.', rating:'4,9', priority:true, url:'https://leavescoffee.jp/en', maps:'https://www.google.com/maps/search/LEAVES+Coffee+Roasters+Kuramae/@35.7079,139.7938,18z' },
+  { cat:'praziarne', name:'Weekenders Coffee', zone:'Kyoto — Tominokoji (stand + pražiareň)', note:'Kanonická kyotská pražiareň. Founder Masahiro Kaneko inšpirovaný priamo Tim Wendelboe a Square Mile — objavenie svetlého praženia ho úplne zmenilo. Stánok v restored machiya (drevenom domčeku). Sprudge a The Coffeevine: "jedno z japonských svätých miest specialty kávy".', rating:'4,8', priority:true, url:'https://weekenderscoffee.com', maps:'https://www.google.com/maps/search/Weekenders+Coffee+Kyoto/@35.0077,135.7612,18z' },
+  { cat:'praziarne', name:'Kurasu Kyoto', zone:'Kyoto — pri Kyoto Station + Nishijin pražiareň', note:'Kyotská pražiareň s austráliou v DNA (founder vyrastal v kissaten rodine, trénoval v Sydney). Giesen W6A roaster v Nishijin. Aj najrešpektovanejší japonský roaster subscription program — partnerujú s Glitch, Leaves, Weekenders, Townsfolk.', rating:'4,7', priority:true, url:'https://kurasu.kyoto', maps:'https://www.google.com/maps/search/Kurasu+Kyoto/@34.9874,135.7576,18z' },
+  { cat:'praziarne', name:'Townsfolk Coffee', zone:'Kanazawa', note:'Najlepšia pražiareň v Kanazawe. Founder Suzuki trénoval v Prolog Coffee (Kodaň) — explicitne nordická filozofia. Kurasu partner roaster. Počas pobytu v Kanazawe (27–28.4) — MUST visit.', rating:'4,8', priority:true, url:'https://townsfolkcoffee.com/en-global', maps:'https://www.google.com/maps/search/Townsfolk+Coffee+Kanazawa/@36.5744,136.6557,18z' },
+  { cat:'praziarne', name:'Mel Coffee Roasters', zone:'Osaka — Shinmachi (Nishi Ward)', note:'Melbourne → Osaka (Mel = Melbourne). Vintage 5kg Probat roaster. World Top 50 Roasters 2023. Tiny shop, maximálna koncentrácia — porovnateľné s DAK alebo Manhattan. Zatvorené v pondelok (praženie).', rating:'4,7', priority:true, url:'https://mel.coffee', maps:'https://www.google.com/maps/search/Mel+Coffee+Roasters+Osaka/@34.6826,135.4930,18z' },
+  { cat:'praziarne', name:'LiLo Coffee Roasters', zone:'Osaka — Nishishinsaibashi', note:'Jeden z prvých specialty roasters v Osake (2014). 20+ single origins naraz s plnou traceabilitou — model podobný Friedhats. Otvorené do 23:00 — ideálne na večerné zastavenie. Sister location: LiLo Coffee Kissa (kissaten štýl).', rating:'4,6', priority:true, url:'https://coffee.liloinveve.com', maps:'https://www.google.com/maps/search/LiLo+Coffee+Roasters+Osaka/@34.6709,135.4988,18z' },
+  { cat:'kaviarne', name:'Koffee Mameya', zone:'Tokio — Omotesando', note:'Najrešpektovanejšia multi-roaster kaviareň v Japonsku. Žiadne vlastné praženie — čistý kurátor: 10–15 japonských pražiarní rotujúce (Glitch, Leaves, Weekenders...). Barista ti odporučí kávu podľa preferencií. Malý, minimalistický priestor — rad pred dverami bežný. Sitting bar verzia: Koffee Mameya Kakeru (rezervácia odporúčaná).', rating:'4,7', priority:true, url:'https://www.koffee-mameya.com', maps:'https://www.google.com/maps/search/Koffee+Mameya+Omotesando/@35.6651,139.7119,18z' },
+  { cat:'kaviarne', name:'Koffee Mameya Kakeru', zone:'Tokio — Omotesando', note:'Prémiová sitting bar verzia Koffee Mameya — omakase kávový zážitok (barista rozhoduje čo dostaneš, postupne viacero káv). Rezervácia nutná vopred. Pre kávových nerds absolútny must.', rating:'4,8', priority:true, url:'https://www.koffee-mameya.com/kakeru', maps:'https://www.google.com/maps/search/Koffee+Mameya+Kakeru+Omotesando/@35.6648,139.7116,18z' },
   { cat:'kaviarne', name:'Verve Coffee Roasters', zone:'Shinjuku (NEWoMan)', note:'Americká specialty pražiareň — jedna z najlepších. NEWoMan je priamo pri Shinjuku stanici.', rating:'4,5', priority:true, url:'https://maps.app.goo.gl/MzrPwmKB7QBvPBHm7' },
-  { cat:'kaviarne', name:'Little Nap Coffee Stand', zone:'Shibuya', note:'Jedna z najlepších káv v Tokiu — vlastná pražiareň priamo v kaviarni', rating:'4,5', priority:true },
-  { cat:'kaviarne', name:'Blue Bottle Coffee', zone:'Shibuya', note:'Odporúčaná filter káva v centre', rating:'4,6', priority:true },
-  { cat:'kaviarne', name:'Streamer Coffee Company', zone:'Shibuya', note:'Skvelá aj na prácu', rating:'4,2' },
-  { cat:'kaviarne', name:'Rec Coffee Shibuya East', zone:'Shibuya', note:'Zastávka na kávu', rating:'4,6' },
-  { cat:'kaviarne', name:'CAMELBACK sandwich&espresso', zone:'Harajuku', note:'Najlepšia matcha + tamago sandwich (z vlogov)', rating:'3,9', priority:true },
-  { cat:'kaviarne', name:'Better Together Coffee', zone:'Shonan', note:'Obľúbená kaviareň', rating:'4,5' },
-  { cat:'kaviarne', name:'Deus Ex Machina', zone:'Shibuya', note:'Krásny obchod s kaviarne', rating:'4,5' },
-  { cat:'kaviarne', name:"Ralph's Coffee", zone:'Omotesando', note:'Celý store stojí za návštevu', rating:'4,0' },
-  { cat:'kaviarne', name:'Gong Cha Shibuya Scramble Square', zone:'Shibuya', note:'Obľúbená matcha — vstup z ulice', rating:'3,7' },
-  { cat:'kaviarne', name:'Gong cha Shinjuku Southeast', zone:'Shinjuku', note:'Obľúbená matcha', rating:'3,8' },
-  { cat:'kaviarne', name:'Excelsior Caffé', zone:'Shinjuku', note:'Overená istota, viac pobočiek, dobrá na prácu', rating:'3,6' },
-  { cat:'kaviarne', name:'Starbucks Shibuya Tsutaya', zone:'Shibuya', note:'Super výhľad na križovatku (káva nič špeciálne)', rating:'4,1' },
-  { cat:'kaviarne', name:'BUY ME STAND', zone:'Harajuku', note:'Útulná kaviareň, sendviče', rating:'4,0' },
-  { cat:'kaviarne', name:'Café Bibliotic Hello!', zone:'Kyoto (Nakagyo)', note:'↻ 2013 — risotto + cappuccino, zápisky z cesty. Stará 130r. machiya (tradičný drevený dom), steny plné kníh o dizajne a architektúre. Ot. 11:30–23h, zatv. pondelky.', rating:'4,4' },
+  { cat:'kaviarne', name:'Little Nap Coffee Stand', zone:'Shibuya', note:'Jedna z najlepších káv v Tokiu — vlastná pražiareň priamo v kaviarni', rating:'4,5', priority:true, maps:'https://www.google.com/maps/search/Little+Nap+Coffee+Stand+Shibuya/@35.6647,139.6966,18z' },
+  { cat:'kaviarne', name:'Blue Bottle Coffee', zone:'Shibuya', note:'Odporúčaná filter káva v centre', rating:'4,6', priority:true, maps:'https://www.google.com/maps/search/Blue+Bottle+Coffee+Shibuya/@35.6628,139.7019,18z' },
+  { cat:'kaviarne', name:'Streamer Coffee Company', zone:'Shibuya', note:'Skvelá aj na prácu', rating:'4,2', maps:'https://www.google.com/maps/search/Streamer+Coffee+Company+Shibuya/@35.6605,139.7010,18z' },
+  { cat:'kaviarne', name:'Rec Coffee Shibuya East', zone:'Shibuya', note:'Zastávka na kávu', rating:'4,6', maps:'https://www.google.com/maps/search/Rec+Coffee+Shibuya/@35.6571,139.7048,18z' },
+  { cat:'kaviarne', name:'CAMELBACK sandwich&espresso', zone:'Harajuku', note:'Najlepšia matcha + tamago sandwich (z vlogov)', rating:'3,9', priority:true, maps:'https://www.google.com/maps/search/CAMELBACK+sandwich+espresso+Harajuku/@35.6650,139.7064,18z' },
+  { cat:'kaviarne', name:'Better Together Coffee', zone:'Shonan', note:'Obľúbená kaviareň', rating:'4,5', maps:'https://www.google.com/maps/search/Better+Together+Coffee+Shonan' },
+  { cat:'kaviarne', name:'Deus Ex Machina', zone:'Shibuya', note:'Krásny obchod s kaviarne', rating:'4,5', maps:'https://www.google.com/maps/search/Deus+Ex+Machina+Shibuya/@35.6627,139.6998,18z' },
+  { cat:'kaviarne', name:"Ralph's Coffee", zone:'Omotesando', note:'Celý store stojí za návštevu', rating:'4,0', maps:'https://www.google.com/maps/search/Ralph+Lauren+Coffee+Omotesando/@35.6677,139.7135,18z' },
+  { cat:'kaviarne', name:'Gong Cha Shibuya Scramble Square', zone:'Shibuya', note:'Obľúbená matcha — vstup z ulice', rating:'3,7', maps:'https://www.google.com/maps/search/Gong+Cha+Shibuya+Scramble+Square/@35.6586,139.7039,18z' },
+  { cat:'kaviarne', name:'Gong cha Shinjuku Southeast', zone:'Shinjuku', note:'Obľúbená matcha', rating:'3,8', maps:'https://www.google.com/maps/search/Gong+Cha+Shinjuku+Southeast/@35.6889,139.7025,18z' },
+  { cat:'kaviarne', name:'Excelsior Caffé', zone:'Shinjuku', note:'Overená istota, viac pobočiek, dobrá na prácu', rating:'3,6', maps:'https://www.google.com/maps/search/Excelsior+Caffe+Shinjuku/@35.6905,139.6999,18z' },
+  { cat:'kaviarne', name:'Starbucks Shibuya Tsutaya', zone:'Shibuya', note:'Super výhľad na križovatku (káva nič špeciálne)', rating:'4,1', maps:'https://www.google.com/maps/search/Starbucks+Shibuya+Tsutaya/@35.6617,139.6988,18z' },
+  { cat:'kaviarne', name:'BUY ME STAND', zone:'Harajuku', note:'Útulná kaviareň, sendviče', rating:'4,0', maps:'https://www.google.com/maps/search/BUY+ME+STAND+Harajuku/@35.6650,139.7070,18z' },
+  { cat:'kaviarne', name:'Café Bibliotic Hello!', zone:'Kyoto (Nakagyo)', note:'↻ 2013 — risotto + cappuccino, zápisky z cesty. Stará 130r. machiya (tradičný drevený dom), steny plné kníh o dizajne a architektúre. Ot. 11:30–23h, zatv. pondelky.', rating:'4,4', maps:'https://www.google.com/maps/search/Cafe+Bibliotic+Hello+Kyoto/@35.0107,135.7624,18z' },
   // JEDLO
   { cat:'jedlo', name:'Downtown B\'s Indian Kitchen', zone:'Minato (Shibuya área)', note:'Indická reštaurácia — odporúčaná ako tip.', rating:'—', priority:true, url:'https://maps.app.goo.gl/BK9wNBNiF389m1nQ7' },
   { cat:'jedlo', name:'Pilny Pijak Tokyo', zone:'Minato (Shibuya área)', note:'Bar — slovenský/český podnik v Tokiu! Stojí za návštevu.', rating:'—', priority:true, url:'https://maps.app.goo.gl/42hP5ffGniKGK68f9' },
-  { cat:'jedlo', name:'Yamashita Honki Udon (4 pobočky)', zone:'Shibuya / Shinjuku', note:'Carbonara udon alebo curry udon — must try!', rating:'3,6–3,9', priority:true },
-  { cat:'jedlo', name:'TsuruTonTan Udon Brasserie Shibuya', zone:'Shibuya', note:'Udon s výhľadom na Tokio', rating:'4,1' },
-  { cat:'jedlo', name:'Kaiten Sushi Numazuko', zone:'Shinjuku', note:'Najlepší pomer cena/výkon sushi', rating:'3,8' },
-  { cat:'jedlo', name:'PIZZA SLICE CAT STREET', zone:'Harajuku', note:'Svačina keď nechcete japonské', rating:'4,4' },
-  { cat:'jedlo', name:'WaraTako (takoyaki)', zone:'Harajuku', note:'Super svačina', rating:'3,6' },
-  { cat:'jedlo', name:'CoCo Ichiban-ya', zone:'Shibuya', note:'Fast food curry — vyber si pálivosť!', rating:'3,7' },
-  { cat:'jedlo', name:'Gourmet Curry Bon Goût NEWoMan', zone:'Shinjuku', note:'Curry pan to go — treba vyskúšať', rating:'4,0' },
-  { cat:'jedlo', name:'Gyoza no Ohsho', zone:'Hatsudai', note:'Super pomer cena/výkon gyoza', rating:'3,5' },
-  { cat:'jedlo', name:'Sukiya Shinjuku South', zone:'Shinjuku', note:'Gyudon — overená istota', rating:'3,5' },
+  { cat:'jedlo', name:'Yamashita Honki Udon (4 pobočky)', zone:'Shibuya / Shinjuku', note:'Carbonara udon alebo curry udon — must try!', rating:'3,6–3,9', priority:true, maps:'https://www.google.com/maps/search/Yamashita+Honki+Udon+Shibuya/@35.6584,139.7019,18z' },
+  { cat:'jedlo', name:'TsuruTonTan Udon Brasserie Shibuya', zone:'Shibuya', note:'Udon s výhľadom na Tokio', rating:'4,1', maps:'https://www.google.com/maps/search/TsuruTonTan+Udon+Shibuya/@35.6587,139.7037,18z' },
+  { cat:'jedlo', name:'Kaiten Sushi Numazuko', zone:'Shinjuku', note:'Najlepší pomer cena/výkon sushi', rating:'3,8', maps:'https://www.google.com/maps/search/Kaiten+Sushi+Numazuko+Shinjuku/@35.6900,139.6991,18z' },
+  { cat:'jedlo', name:'PIZZA SLICE CAT STREET', zone:'Harajuku', note:'Svačina keď nechcete japonské', rating:'4,4', maps:'https://www.google.com/maps/search/PIZZA+SLICE+CAT+STREET+Harajuku/@35.6672,139.7086,18z' },
+  { cat:'jedlo', name:'WaraTako (takoyaki)', zone:'Harajuku', note:'Super svačina', rating:'3,6', maps:'https://www.google.com/maps/search/WaraTako+Harajuku/@35.6710,139.7063,18z' },
+  { cat:'jedlo', name:'CoCo Ichiban-ya', zone:'Shibuya', note:'Fast food curry — vyber si pálivosť!', rating:'3,7', maps:'https://www.google.com/maps/search/CoCo+Ichibanya+Shibuya/@35.6584,139.7010,18z' },
+  { cat:'jedlo', name:'Gourmet Curry Bon Goût NEWoMan', zone:'Shinjuku', note:'Curry pan to go — treba vyskúšať', rating:'4,0', maps:'https://www.google.com/maps/search/Bon+Gout+NEWoMan+Shinjuku/@35.6895,139.7005,18z' },
+  { cat:'jedlo', name:'Gyoza no Ohsho', zone:'Hatsudai', note:'Super pomer cena/výkon gyoza', rating:'3,5', maps:'https://www.google.com/maps/search/Gyoza+no+Ohsho+Hatsudai/@35.6827,139.6969,18z' },
+  { cat:'jedlo', name:'Sukiya Shinjuku South', zone:'Shinjuku', note:'Gyudon — overená istota', rating:'3,5', maps:'https://www.google.com/maps/search/Sukiya+Shinjuku+South/@35.6880,139.7028,18z' },
   // NAKUPY
-  { cat:'nakupy', name:'KOMEHYO (3× pobočky Shinjuku)', zone:'Shinjuku', note:'Top výberový second hand s luxusným tovarom', rating:'4,5–4,9', priority:true },
-  { cat:'nakupy', name:'BRAND COLLECT HARAJUKU', zone:'Harajuku', note:'Second hand s výberovým tovarom', rating:'5,0', priority:true },
-  { cat:'nakupy', name:'RAGTAG', zone:'Harajuku', note:'Výberový second hand', rating:'4,0' },
-  { cat:'nakupy', name:'2nd STREET Harajuku', zone:'Harajuku', note:'Second hand', rating:'3,3' },
-  { cat:'nakupy', name:'MOMOTARO JEANS Aoyama', zone:'Aoyama', note:'Japonské džínsy — úprava na mieru pri nákupe', rating:'4,3' },
-  { cat:'nakupy', name:'MOMOTARO JEANS Koenji', zone:'Koenji', note:'Japonské džínsy — úprava na mieru', rating:'4,6' },
-  { cat:'nakupy', name:'HUMAN MADE Shibuya PARCO', zone:'Shibuya', note:'Japonský street wear', rating:'4,3' },
-  { cat:'nakupy', name:'BEAMS JAPAN SHIBUYA', zone:'Shibuya', note:'Štýlové japonské oblečenie a veci do domu', rating:'4,4' },
-  { cat:'nakupy', name:'Onitsuka Tiger Omotesando', zone:'Omotesando', note:'Flagship store (z Kill Bill!)', rating:'3,5' },
-  { cat:'nakupy', name:'Map Camera', zone:'Shinjuku', note:'Neuveriteľný camera store, tax free', rating:'4,2', priority:true },
-  { cat:'nakupy', name:'Miyashita Park', zone:'Shibuya', note:'Nákupné centrum so strechou', rating:'4,2' },
-  { cat:'nakupy', name:'Keio Department Store Shinjuku', zone:'Shinjuku', note:'Podzemné jedlo + strecha — lokálny zážitok', rating:'3,8' },
+  { cat:'nakupy', name:'KOMEHYO (3× pobočky Shinjuku)', zone:'Shinjuku', note:'Top výberový second hand s luxusným tovarom', rating:'4,5–4,9', priority:true, maps:'https://www.google.com/maps/search/KOMEHYO+Shinjuku/@35.6918,139.7030,18z' },
+  { cat:'nakupy', name:'BRAND COLLECT HARAJUKU', zone:'Harajuku', note:'Second hand s výberovým tovarom', rating:'5,0', priority:true, maps:'https://www.google.com/maps/search/BRAND+COLLECT+HARAJUKU/@35.6695,139.7083,18z' },
+  { cat:'nakupy', name:'RAGTAG', zone:'Harajuku', note:'Výberový second hand', rating:'4,0', maps:'https://www.google.com/maps/search/RAGTAG+Harajuku/@35.6697,139.7080,18z' },
+  { cat:'nakupy', name:'2nd STREET Harajuku', zone:'Harajuku', note:'Second hand', rating:'3,3', maps:'https://www.google.com/maps/search/2nd+Street+Harajuku/@35.6698,139.7082,18z' },
+  { cat:'nakupy', name:'MOMOTARO JEANS Aoyama', zone:'Aoyama', note:'Japonské džínsy — úprava na mieru pri nákupe', rating:'4,3', maps:'https://www.google.com/maps/search/Momotaro+Jeans+Aoyama/@35.6657,139.7149,18z' },
+  { cat:'nakupy', name:'MOMOTARO JEANS Koenji', zone:'Koenji', note:'Japonské džínsy — úprava na mieru', rating:'4,6', maps:'https://www.google.com/maps/search/Momotaro+Jeans+Koenji/@35.7073,139.6495,18z' },
+  { cat:'nakupy', name:'HUMAN MADE Shibuya PARCO', zone:'Shibuya', note:'Japonský street wear', rating:'4,3', maps:'https://www.google.com/maps/search/HUMAN+MADE+Shibuya+PARCO/@35.6601,139.6985,18z' },
+  { cat:'nakupy', name:'BEAMS JAPAN SHIBUYA', zone:'Shibuya', note:'Štýlové japonské oblečenie a veci do domu', rating:'4,4', maps:'https://www.google.com/maps/search/BEAMS+JAPAN+SHIBUYA/@35.6590,139.7005,18z' },
+  { cat:'nakupy', name:'Onitsuka Tiger Omotesando', zone:'Omotesando', note:'Flagship store (z Kill Bill!)', rating:'3,5', maps:'https://www.google.com/maps/search/Onitsuka+Tiger+Omotesando/@35.6650,139.7118,18z' },
+  { cat:'nakupy', name:'Map Camera', zone:'Shinjuku', note:'Neuveriteľný camera store, tax free', rating:'4,2', priority:true, maps:'https://www.google.com/maps/search/Map+Camera+Shinjuku/@35.6923,139.6990,18z' },
+  { cat:'nakupy', name:'Miyashita Park', zone:'Shibuya', note:'Nákupné centrum so strechou', rating:'4,2', maps:'https://www.google.com/maps/search/Miyashita+Park+Shibuya/@35.6605,139.7013,18z' },
+  { cat:'nakupy', name:'Keio Department Store Shinjuku', zone:'Shinjuku', note:'Podzemné jedlo + strecha — lokálny zážitok', rating:'3,8', maps:'https://www.google.com/maps/search/Keio+Department+Store+Shinjuku/@35.6892,139.6990,18z' },
   // AKTIVITY
   { cat:'aktivity', name:'teamLab Planets Toyosu', zone:'Toyosu', note:'Rezervovať MESIACE vopred! Must experience.', rating:'★★★★★', priority:true, url:'https://planets.teamlab.art/tokyo/' },
   { cat:'aktivity', name:'teamLab Borderless Azabudai Hills', zone:'Azabudai', note:'Nová verzia od 2024 — rezervovať vopred.', rating:'★★★★★', priority:true, url:'https://borderless.teamlab.art/' },
@@ -1700,11 +1716,11 @@ const places = [
   { cat:'aktivity', name:'Mokubakan — Show + kimono + Sword Lesson', zone:'Asakusa', note:'Prémiová verzia — cena vyššia (overiť na Klook). Zahŕňa kimono oblečenie a lekciu so samurajským mečom. Pre dvoch plánovať 3,5h+.', rating:'4,4', url:'https://www.klook.com/activity/182950-asakusa-local-theatre-show-with-kimono-and-sword-lesson/' },
   { cat:'aktivity', name:'Ghibli Museum', zone:'Mitaka', note:'Rezervácia nutná — lotéria cez Lawson alebo zahraničné portály, mesiac vopred. Malé, intímne, vstup po časových slotoch.', rating:'4,8', priority:true, url:'https://www.ghibli-museum.jp/en/tickets/' },
   { cat:'aktivity', name:'Chureito Pagoda — Arakurayama Sengen Park', zone:'Fujiyoshida (Fuji Five Lakes)', note:'Najfotografovanejší záber Japonska — červená pagoda s Fuji v pozadí. 400 schodov hore z parkoviska, stojí to za to. Ideálne dopoludnia (Fuji sa zaoblačuje). Bus zo Shinjuku Expressway Bus Terminal ~90 min, ¥2 200. Plánovať celý deň 18 (9.5). Kombinovať s Kawaguchiko.', rating:'4,8', priority:true, url:'https://japanuncharted.com/yamanashi/mt-fuji/mt-fuji-pagoda-chureito' },
-  { cat:'aktivity', name:'Kawaguchiko — Oishi Park + jazero', zone:'Kawaguchiko (Fuji Five Lakes)', note:'Severný breh jazera Kawaguchi — klasický odraz Fuji v jazere. Oishi Park: výhľadová terasa, lavender field (začiatok jún). Kombinácia s Chureito Pagodou v rovnaký deň. Z Fujiyoshida 15 min busom alebo Fujikyu Railway.', rating:'4,6', priority:true },
-  { cat:'aktivity', name:'Oshino Hakkai', zone:'Oshino (Fuji Five Lakes)', note:'Stará dedinka s 8 prameňmi napájanými topiacim sa snehom Fuji — UNESCO. Krištáľovo čistá voda, tradičné farmárske domy (minka), Fuji v pozadí. Menej turistov ako Chureito. Z Kawaguchiko ~20 min busom. Skrytý klenot dňa 18.', rating:'4,5' },
-  { cat:'aktivity', name:'Yoyogi Park', zone:'Shibuya', note:'Park na beh alebo prechádzky', rating:'4,4' },
-  { cat:'aktivity', name:'Suica\'s Penguin Park', zone:'Shinjuku', note:'Výhľad, svačina, vlaky', rating:'—' },
-  { cat:'aktivity', name:'TAITO STATION GameWorld', zone:'Shinjuku', note:'Game station, niekoľko poschodí — na daždivý deň', rating:'3,7' },
+  { cat:'aktivity', name:'Kawaguchiko — Oishi Park + jazero', zone:'Kawaguchiko (Fuji Five Lakes)', note:'Severný breh jazera Kawaguchi — klasický odraz Fuji v jazere. Oishi Park: výhľadová terasa, lavender field (začiatok jún). Kombinácia s Chureito Pagodou v rovnaký deň. Z Fujiyoshida 15 min busom alebo Fujikyu Railway.', rating:'4,6', priority:true, maps:'https://www.google.com/maps/search/Kawaguchiko+Oishi+Park/@35.5108,138.7756,16z' },
+  { cat:'aktivity', name:'Oshino Hakkai', zone:'Oshino (Fuji Five Lakes)', note:'Stará dedinka s 8 prameňmi napájanými topiacim sa snehom Fuji — UNESCO. Krištáľovo čistá voda, tradičné farmárske domy (minka), Fuji v pozadí. Menej turistov ako Chureito. Z Kawaguchiko ~20 min busom. Skrytý klenot dňa 18.', rating:'4,5', maps:'https://www.google.com/maps/search/Oshino+Hakkai/@35.4738,138.8163,16z' },
+  { cat:'aktivity', name:'Yoyogi Park', zone:'Shibuya', note:'Park na beh alebo prechádzky', rating:'4,4', maps:'https://www.google.com/maps/search/Yoyogi+Park+Tokyo/@35.6713,139.6938,16z' },
+  { cat:'aktivity', name:'Suica\'s Penguin Park', zone:'Shinjuku', note:'Výhľad, svačina, vlaky', rating:'—', maps:'https://www.google.com/maps/search/Penguin+Square+Shinjuku+Station/@35.6895,139.7006,18z' },
+  { cat:'aktivity', name:'TAITO STATION GameWorld', zone:'Shinjuku', note:'Game station, niekoľko poschodí — na daždivý deň', rating:'3,7', maps:'https://www.google.com/maps/search/TAITO+STATION+GameWorld+Shinjuku/@35.6915,139.7010,18z' },
   // UDALOSTI + TRADIČNÉ DIVADLO
   { cat:'aktivity', name:'Tokyo Coffee Festival', zone:'Omotesandō (Shibuya)', note:'⚠ Tento výlet nestihneme — festival je 2.–4.5.2026 a my sme vtedy v Kyote. Jesenná edícia cca okt/nov. Zadarmo. UNU courtyard, 5-53-70 Jingumae, Shibuya. Degustačné sety na predkúpenie vopred. Jedna z najväčších kávových udalostí v Tokiu.', rating:'—', url:'https://tokyocoffeefestival.co/' },
   { cat:'aktivity', name:'Kabukiza — Kabuki divadlo', zone:'Ginza', note:'Turisticky najprístupnejšia forma tradičného jap. divadla. Vizuálne ohromujúce — prepychové kostýmy, líčidlá, paruky, dramatické gestá. Single act (hitomaku) ~¥2 000 — ideálne pre prvú návštevu, 30–60 min. Celé predstavenie ¥3 000–25 000. Anglický audio sprievodca. Denne. Ginza, 3 min od stanice Higashi-Ginza.', rating:'4,5', priority:true, url:'https://www.kabuki-za.co.jp/' },
@@ -1730,44 +1746,44 @@ const places = [
   { cat:'galerie', name:'Antikvariáty v Jinbocho', zone:'Tokio — Jinbocho (神保町)', note:'Antikvárna/knižná štvrť Tokia — niekedy nájdeš ukiyo-e grafiky v papierových obchodoch a antikvariátoch, treba prelúskať. Výborné miesto na ukiyo-e za dostupnejšie ceny. Kombinovateľné s prechádzkou po štvrti.', rating:'4,3', url:'https://www.jimbou.info/' },
   { cat:'galerie', name:'Múzejné obchody (ukiyo-e reprodukcie)', zone:'Tokio — Sumida / Harajuku', note:'Najlepšie reprodukcie ukiyo-e: obchody Sumida Hokusai Museum a Ōta Memorial Museum. Gicléetlač na japonskom washi papieri ¥2 000–8 000. Lepšia voľba ako lacné plagáty (ofsetová tlač). Ručne tlačená drevotlač (reprodukcia): ¥8 000–30 000.', rating:'4,5' },
   // PAMIATKY — TOKIO
-  { cat:'pamiatkya', name:'Senso-ji', zone:'Asakusa', note:'↻ 2013 — základňa prvých dní. Nakamise shopping street, Kaminarimon brána. Ísť pred 9:00 — bez davov.', rating:'4,7' },
-  { cat:'pamiatkya', name:'Tokyo Skytree', zone:'Asakusa', note:'↻ 2013 — "najkrajší čas z celého dňa" (blog). 634m, vstup cca ¥2 000–3 600. Západ slnka odporúčaný. Pozor na rady!', rating:'4,6' },
-  { cat:'pamiatkya', name:'Meiji Shrine', zone:'Harajuku', note:'↻ 2013 — "tichý a pokojný". Lesná cesta s torii bránami. Vstup zadarmo. Ráno najlepší.', rating:'4,6' },
-  { cat:'pamiatkya', name:'Edo-Tokyo Museum', zone:'Ryogoku', note:'↻ 2013 — 7 poschodí, 1:1 repliky mostov, divadiel, celých štvrtí. Veľmi zaujímavý (blog). ✨ NOVÉ: Zatvorený 4 roky na rekonštrukciu, otvára 31. marca 2026 — stihnete to!', rating:'4,5', priority:true },
-  { cat:'pamiatkya', name:'Tsukiji — vonkajší trh', zone:'Tsukiji', note:'↻ 2013 — prísť SKORO RÁNO (do 8:00), na obed už prázdny. Pozor: vnútorný trh sa presťahoval do Toyosu 2018. Vonkajší trh (sushi stánky, reštaurácie) funguje ďalej. Zatvorené nedele + sviatky.', rating:'4,3' },
-  { cat:'pamiatkya', name:'Odaiba — Unicorn Gundam + Rainbow Bridge', zone:'Odaiba', note:'↻ 2013 — vtedy RX-78, teraz Unicorn Gundam (19,7m, od 2017). DiverCity Tokyo Plaza. Večerné light show + transformácia každých 30 min od 19:00. Yurikamome line zo Shimbashi.', rating:'4,2' },
-  { cat:'pamiatkya', name:'Tokyo Tower', zone:'Shiba-Koen', note:'↻ 2013 — vidieť z okolia. Staršia a nižšia ako Skytree, ale ikonická. Vstup ¥900–1 600.', rating:'4,1' },
-  { cat:'pamiatkya', name:'Shibuya Crossing', zone:'Shibuya', note:'Klasika na fotku', rating:'4,5' },
-  { cat:'pamiatkya', name:'Cat Street', zone:'Harajuku', note:'Ulica s obchodmi — víkendy preplnené!', rating:'4,5' },
-  { cat:'pamiatkya', name:'Godzilla Road', zone:'Shinjuku', note:'Insta spot na fotky', rating:'4,5' },
-  { cat:'pamiatkya', name:'Hie Shrine', zone:'Akasaka', note:'Pekný chrám na fotky, pokojný', rating:'4,4' },
-  { cat:'pamiatkya', name:'Budokan Hall', zone:'Chiyoda', note:'↻ 2013 — ikonická aréna (Beatles hrali tu 1966). Exteriér + okolie stačí.', rating:'4,0' },
+  { cat:'pamiatkya', name:'Senso-ji', zone:'Asakusa', note:'↻ 2013 — základňa prvých dní. Nakamise shopping street, Kaminarimon brána. Ísť pred 9:00 — bez davov.', rating:'4,7', maps:'https://www.google.com/maps/search/Senso-ji+Asakusa/@35.7148,139.7967,17z' },
+  { cat:'pamiatkya', name:'Tokyo Skytree', zone:'Asakusa', note:'↻ 2013 — "najkrajší čas z celého dňa" (blog). 634m, vstup cca ¥2 000–3 600. Západ slnka odporúčaný. Pozor na rady!', rating:'4,6', maps:'https://www.google.com/maps/search/Tokyo+Skytree/@35.7101,139.8107,17z' },
+  { cat:'pamiatkya', name:'Meiji Shrine', zone:'Harajuku', note:'↻ 2013 — "tichý a pokojný". Lesná cesta s torii bránami. Vstup zadarmo. Ráno najlepší.', rating:'4,6', maps:'https://www.google.com/maps/search/Meiji+Shrine+Harajuku/@35.6763,139.6993,17z' },
+  { cat:'pamiatkya', name:'Edo-Tokyo Museum', zone:'Ryogoku', note:'↻ 2013 — 7 poschodí, 1:1 repliky mostov, divadiel, celých štvrtí. Veľmi zaujímavý (blog). ✨ NOVÉ: Zatvorený 4 roky na rekonštrukciu, otvára 31. marca 2026 — stihnete to!', rating:'4,5', priority:true, maps:'https://www.google.com/maps/search/Edo+Tokyo+Museum+Ryogoku/@35.6963,139.7950,17z' },
+  { cat:'pamiatkya', name:'Tsukiji — vonkajší trh', zone:'Tsukiji', note:'↻ 2013 — prísť SKORO RÁNO (do 8:00), na obed už prázdny. Pozor: vnútorný trh sa presťahoval do Toyosu 2018. Vonkajší trh (sushi stánky, reštaurácie) funguje ďalej. Zatvorené nedele + sviatky.', rating:'4,3', maps:'https://www.google.com/maps/search/Tsukiji+Outer+Market/@35.6654,139.7707,17z' },
+  { cat:'pamiatkya', name:'Odaiba — Unicorn Gundam + Rainbow Bridge', zone:'Odaiba', note:'↻ 2013 — vtedy RX-78, teraz Unicorn Gundam (19,7m, od 2017). DiverCity Tokyo Plaza. Večerné light show + transformácia každých 30 min od 19:00. Yurikamome line zo Shimbashi.', rating:'4,2', maps:'https://www.google.com/maps/search/Unicorn+Gundam+DiverCity+Odaiba/@35.6253,139.7764,17z' },
+  { cat:'pamiatkya', name:'Tokyo Tower', zone:'Shiba-Koen', note:'↻ 2013 — vidieť z okolia. Staršia a nižšia ako Skytree, ale ikonická. Vstup ¥900–1 600.', rating:'4,1', maps:'https://www.google.com/maps/search/Tokyo+Tower/@35.6586,139.7454,17z' },
+  { cat:'pamiatkya', name:'Shibuya Crossing', zone:'Shibuya', note:'Klasika na fotku', rating:'4,5', maps:'https://www.google.com/maps/search/Shibuya+Crossing/@35.6595,139.7004,18z' },
+  { cat:'pamiatkya', name:'Cat Street', zone:'Harajuku', note:'Ulica s obchodmi — víkendy preplnené!', rating:'4,5', maps:'https://www.google.com/maps/search/Cat+Street+Harajuku/@35.6659,139.7086,17z' },
+  { cat:'pamiatkya', name:'Godzilla Road', zone:'Shinjuku', note:'Insta spot na fotky', rating:'4,5', maps:'https://www.google.com/maps/search/Godzilla+Head+Shinjuku/@35.6941,139.7028,18z' },
+  { cat:'pamiatkya', name:'Hie Shrine', zone:'Akasaka', note:'Pekný chrám na fotky, pokojný', rating:'4,4', maps:'https://www.google.com/maps/search/Hie+Shrine+Akasaka/@35.6737,139.7376,17z' },
+  { cat:'pamiatkya', name:'Budokan Hall', zone:'Chiyoda', note:'↻ 2013 — ikonická aréna (Beatles hrali tu 1966). Exteriér + okolie stačí.', rating:'4,0', maps:'https://www.google.com/maps/search/Nippon+Budokan+Chiyoda/@35.6937,139.7495,17z' },
   // PAMIATKY — KAMAKURA (výlet)
-  { cat:'pamiatkya', name:'Kotoku-in — Daibutsu', zone:'Kamakura', note:'↻ 2013 — bronzový budha 13m, ~800 rokov starý. Vstup ¥300. Záhrada, pokojné miesto. Must.', rating:'4,7', priority:true },
-  { cat:'pamiatkya', name:'Hase-dera Temple', zone:'Kamakura', note:'↻ 2013 — výhľad na more a Kamakuru. 11-hlavá Kannon socha, záhrada. Vstup ¥400.', rating:'4,5' },
+  { cat:'pamiatkya', name:'Kotoku-in — Daibutsu', zone:'Kamakura', note:'↻ 2013 — bronzový budha 13m, ~800 rokov starý. Vstup ¥300. Záhrada, pokojné miesto. Must.', rating:'4,7', priority:true, maps:'https://www.google.com/maps/search/Kotoku-in+Daibutsu+Kamakura/@35.3167,139.5348,17z' },
+  { cat:'pamiatkya', name:'Hase-dera Temple', zone:'Kamakura', note:'↻ 2013 — výhľad na more a Kamakuru. 11-hlavá Kannon socha, záhrada. Vstup ¥400.', rating:'4,5', maps:'https://www.google.com/maps/search/Hase-dera+Temple+Kamakura/@35.3197,139.5341,17z' },
   // PAMIATKY — KYOTO
-  { cat:'pamiatkya', name:'Fushimi Inari Shrine', zone:'Kyoto', note:'↻ 2013 — tisíce oranžových torii brán na kopci. Ísť pri západe slnka — menej ľudí. Vstup zadarmo.', rating:'4,8', priority:true },
-  { cat:'pamiatkya', name:'Kinkaku-ji — Zlatý pavilón', zone:'Kyoto', note:'↻ 2013 — vstup ¥500. Turistické ale ikonické. Ísť ráno.', rating:'4,5' },
-  { cat:'pamiatkya', name:'Ryoan-ji — Zen záhrada', zone:'Kyoto', note:'↻ 2013 — "najznámejšia zenová záhrada v Japonsku". 15 kameňov, žiadne dva nevidíš naraz. Vstup ¥500.', rating:'4,5' },
-  { cat:'pamiatkya', name:'Nijo Castle', zone:'Kyoto', note:'↻ 2013 — "skrípajúce podlahy" (bezpečnostný systém šógunátu). Vstup ¥1 300.', rating:'4,4' },
-  { cat:'pamiatkya', name:'Arashiyama — bambusový háj', zone:'Kyoto', note:'Ísť SKORO RÁNO (pred 8:00) — bez turistov. Tenryu-ji záhrada vedľa. Vstup do háju zadarmo.', rating:'4,6', priority:true },
-  { cat:'pamiatkya', name:'Philosopher\'s Path', zone:'Kyoto', note:'2km kanálová prechádzka medzi chrámami. Ísť poobede alebo večer.', rating:'4,4' },
+  { cat:'pamiatkya', name:'Fushimi Inari Shrine', zone:'Kyoto', note:'↻ 2013 — tisíce oranžových torii brán na kopci. Ísť pri západe slnka — menej ľudí. Vstup zadarmo.', rating:'4,8', priority:true, maps:'https://www.google.com/maps/search/Fushimi+Inari+Shrine+Kyoto/@34.9671,135.7727,17z' },
+  { cat:'pamiatkya', name:'Kinkaku-ji — Zlatý pavilón', zone:'Kyoto', note:'↻ 2013 — vstup ¥500. Turistické ale ikonické. Ísť ráno.', rating:'4,5', maps:'https://www.google.com/maps/search/Kinkakuji+Kyoto/@35.0394,135.7292,17z' },
+  { cat:'pamiatkya', name:'Ryoan-ji — Zen záhrada', zone:'Kyoto', note:'↻ 2013 — "najznámejšia zenová záhrada v Japonsku". 15 kameňov, žiadne dva nevidíš naraz. Vstup ¥500.', rating:'4,5', maps:'https://www.google.com/maps/search/Ryoanji+Kyoto/@35.0345,135.7180,17z' },
+  { cat:'pamiatkya', name:'Nijo Castle', zone:'Kyoto', note:'↻ 2013 — "skrípajúce podlahy" (bezpečnostný systém šógunátu). Vstup ¥1 300.', rating:'4,4', maps:'https://www.google.com/maps/search/Nijo+Castle+Kyoto/@35.0142,135.7480,17z' },
+  { cat:'pamiatkya', name:'Arashiyama — bambusový háj', zone:'Kyoto', note:'Ísť SKORO RÁNO (pred 8:00) — bez turistov. Tenryu-ji záhrada vedľa. Vstup do háju zadarmo.', rating:'4,6', priority:true, maps:'https://www.google.com/maps/search/Arashiyama+Bamboo+Grove+Kyoto/@35.0170,135.6717,18z' },
+  { cat:'pamiatkya', name:'Philosopher\'s Path', zone:'Kyoto', note:'2km kanálová prechádzka medzi chrámami. Ísť poobede alebo večer.', rating:'4,4', maps:'https://www.google.com/maps/search/Philosopher+Path+Kyoto/@35.0225,135.7940,17z' },
   // PAMIATKY — NARA (výlet)
-  { cat:'pamiatkya', name:'Tōdai-ji + Nara Park', zone:'Nara', note:'↻ 2013 — "najväčšia drevená stavba sveta", obrovský Daibutsu. Jelene všade. Vstup ¥600. Raňajky v kaviarni pri stanici — lokálni baristi-šampióni (vacuum pot).', rating:'4,7', priority:true },
+  { cat:'pamiatkya', name:'Tōdai-ji + Nara Park', zone:'Nara', note:'↻ 2013 — "najväčšia drevená stavba sveta", obrovský Daibutsu. Jelene všade. Vstup ¥600. Raňajky v kaviarni pri stanici — lokálni baristi-šampióni (vacuum pot).', rating:'4,7', priority:true, maps:'https://www.google.com/maps/search/Todai-ji+Nara/@34.6888,135.8399,17z' },
   // PAMIATKY — HIROŠIMA + MIYAJIMA
-  { cat:'pamiatkya', name:'A-Bomb Dome + Peace Memorial Museum', zone:'Hiroshima', note:'↻ 2013 — "silný zážitok". Múzeum vstup ¥200. Povinná zastávka. Nechaj si čas.', rating:'4,9', priority:true },
-  { cat:'pamiatkya', name:'Hiroshima Castle', zone:'Hiroshima', note:'↻ 2013 — nočné fotky z blogu. Vstup ¥370. Kombinácia s Peace Parkom.', rating:'4,2' },
-  { cat:'pamiatkya', name:'Itsukushima Shrine + Torii', zone:'Miyajima', note:'↻ 2013 — plávajúca torii brána pri odlive dostupná pešo. Lanovka na horu Misen. Jelene na ostrove. Loďka z Hirošimy.', rating:'4,8', priority:true },
+  { cat:'pamiatkya', name:'A-Bomb Dome + Peace Memorial Museum', zone:'Hiroshima', note:'↻ 2013 — "silný zážitok". Múzeum vstup ¥200. Povinná zastávka. Nechaj si čas.', rating:'4,9', priority:true, maps:'https://www.google.com/maps/search/Hiroshima+Peace+Memorial+Museum/@34.3955,132.4530,17z' },
+  { cat:'pamiatkya', name:'Hiroshima Castle', zone:'Hiroshima', note:'↻ 2013 — nočné fotky z blogu. Vstup ¥370. Kombinácia s Peace Parkom.', rating:'4,2', maps:'https://www.google.com/maps/search/Hiroshima+Castle/@34.4016,132.4582,17z' },
+  { cat:'pamiatkya', name:'Itsukushima Shrine + Torii', zone:'Miyajima', note:'↻ 2013 — plávajúca torii brána pri odlive dostupná pešo. Lanovka na horu Misen. Jelene na ostrove. Loďka z Hirošimy.', rating:'4,8', priority:true, maps:'https://www.google.com/maps/search/Itsukushima+Shrine+Miyajima/@34.2959,132.3197,17z' },
   // PAMIATKY — HIMEJI
-  { cat:'pamiatkya', name:'Himeji Castle', zone:'Himeji (stopover deň 16 · 7.5)', note:'Najkrajšie zachovaný japonský hrad — UNESCO, prezývaný "Biela volavka" (Shirasagi-jo). Na rozdiel od väčšiny japonských hradov nikdy nezhorený ani nezničený — autentický interiér. 7 poschodí, úzke schody, výhľad na mesto. Vstup ~¥1 500, otvára 9:00. Odporúčaný príchod 9:00 (pred turistickými skupinami). 15 min pešo od Himeji stanice.', rating:'4,8', priority:true, url:'https://www.himejicastle.jp/en/' },
-  { cat:'pamiatkya', name:'Koko-en záhrada', zone:'Himeji (pri hrade)', note:'9 prepojených tradičných záhradných zón priamo vedľa Himeji Castle. Rybníky, bambusové háje, čajový dom. Vstup ~¥400 — kombinovaný lístok s hradom so zľavou. 45–60 min. Ideálne po prehliadke hradu pred návratom na stanicu.', rating:'4,4', url:'https://www.himeji-machishin.jp/ryokka/kokoen/' },
+  { cat:'pamiatkya', name:'Himeji Castle', zone:'Himeji (stopover deň 16 · 7.5)', note:'Najkrajšie zachovaný japonský hrad — UNESCO, prezývaný "Biela volavka" (Shirasagi-jo). Na rozdiel od väčšiny japonských hradov nikdy nezhorený ani nezničený — autentický interiér. 7 poschodí, úzke schody, výhľad na mesto. Vstup ~¥1 500, otvára 9:00. Odporúčaný príchod 9:00 (pred turistickými skupinami). 15 min pešo od Himeji stanice.', rating:'4,8', priority:true, url:'https://www.himejicastle.jp/en/', maps:'https://www.google.com/maps/search/Himeji+Castle/@34.8394,134.6939,17z' },
+  { cat:'pamiatkya', name:'Koko-en záhrada', zone:'Himeji (pri hrade)', note:'9 prepojených tradičných záhradných zón priamo vedľa Himeji Castle. Rybníky, bambusové háje, čajový dom. Vstup ~¥400 — kombinovaný lístok s hradom so zľavou. 45–60 min. Ideálne po prehliadke hradu pred návratom na stanicu.', rating:'4,4', url:'https://www.himeji-machishin.jp/ryokka/kokoen/', maps:'https://www.google.com/maps/search/Koko-en+Garden+Himeji/@34.8381,134.6910,17z' },
   // PAMIATKY — IWAKUNI (výlet)
-  { cat:'pamiatkya', name:'Kintaikyo Bridge', zone:'Iwakuni', note:'↻ 2013 — historický drevený oblúkový most. Vstup ¥310. Kombinácia s Iwakuni Castle (lanovka).', rating:'4,3' },
+  { cat:'pamiatkya', name:'Kintaikyo Bridge', zone:'Iwakuni', note:'↻ 2013 — historický drevený oblúkový most. Vstup ¥310. Kombinácia s Iwakuni Castle (lanovka).', rating:'4,3', maps:'https://www.google.com/maps/search/Kintaikyo+Bridge+Iwakuni/@34.1497,132.1756,17z' },
   // PAMIATKY — IWAMA (výlet)
-  { cat:'pamiatkya', name:'Aikikai Ibaraki Dojo', zone:'Iwama', note:'↻ 2013 — pôvodné aikido dojo O Sensei Ueshibu, viedol Saito sensei\'s son. Svätyňa + škola vedľa. Špeciálny záujem.', rating:'—' },
+  { cat:'pamiatkya', name:'Aikikai Ibaraki Dojo', zone:'Iwama', note:'↻ 2013 — pôvodné aikido dojo O Sensei Ueshibu, viedol Saito sensei\'s son. Svätyňa + škola vedľa. Špeciálny záujem.', rating:'—', maps:'https://www.google.com/maps/search/Ibaraki+Aikido+Dojo+Iwama/@36.3750,140.2047,17z' },
   // HOTEL
-  { cat:'hotel', name:'APA Hotel Hatchobori Ekimae', zone:'Chuo-ku / Hatchobori', note:'✓ REZERVOVANÉ 21–26.4. · ¥105 600 · platba na mieste · Hacchobori 2-26-3, pri Hatchobori st. (Keiyo line)', rating:'—', priority:true },
-  { cat:'hotel', name:'ART HOTELS SHIBUYA', zone:'Hatsudai/Shibuya', note:'Záver cesty 8–11.5 — rezervovať. Priestrannejšie izby s práčkou a kuchynkou.', rating:'4,3' },
+  { cat:'hotel', name:'APA Hotel Hatchobori Ekimae', zone:'Chuo-ku / Hatchobori', note:'✓ REZERVOVANÉ 21–26.4. · ¥105 600 · platba na mieste · Hacchobori 2-26-3, pri Hatchobori st. (Keiyo line)', rating:'—', priority:true, maps:'https://www.google.com/maps/search/APA+Hotel+Hatchobori+Ekimae/@35.6742,139.7745,18z' },
+  { cat:'hotel', name:'ART HOTELS SHIBUYA', zone:'Hatsudai/Shibuya', note:'Záver cesty 8–11.5 — rezervovať. Priestrannejšie izby s práčkou a kuchynkou.', rating:'4,3', maps:'https://www.google.com/maps/search/ART+HOTELS+SHIBUYA+Hatsudai/@35.6826,139.6929,18z' },
 ];
 
 const checklistData = [
@@ -1892,6 +1908,7 @@ function renderPlaces(filter) {
       <div class="place-note">${p.note}</div>
       <div class="place-rating">★ ${p.rating}${p.priority ? ' &nbsp;⭐ odporúčané' : ''}</div>
       ${p.url ? `<a class="place-book" href="${p.url}" target="_blank" rel="noopener">🔗 Rezervovať →</a>` : ''}
+      ${p.maps ? `<a class="place-map" href="${p.maps}" target="_blank" rel="noopener">📍 Mapa</a>` : ''}
     </div>
   `).join('');
 }
