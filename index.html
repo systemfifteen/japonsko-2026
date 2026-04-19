@@ -564,6 +564,31 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
 .tip-text { font-size: 12px; color: #4a4540; line-height: 1.6; }
 
 /* ── PHRASES ── */
+/* ── SOS ── */
+.sos-section { margin-bottom: 28px; }
+.sos-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.sos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-bottom: 12px; }
+.sos-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid #c0392b;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.sos-card.info { border-left-color: #2980b9; }
+.sos-number { font-size: 26px; font-weight: 700; color: #c0392b; letter-spacing: 1px; }
+.sos-card.info .sos-number { font-size: 14px; color: #2980b9; letter-spacing: 0; }
+.sos-label { font-size: 12px; color: #4a4540; margin-top: 2px; }
+.sos-note { font-size: 11px; color: #888; line-height: 1.5; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+
 .phrases-section { margin-bottom: 28px; }
 .phrases-title {
   font-family: 'Shippori Mincho', serif;
@@ -1396,6 +1421,33 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
 <div id="tab-tips" class="section">
   <div class="section-intro" data-kanji="知">
     <p>Praktické rady, cennosti z predošlej cesty a nové tipy pre apríl 2026.</p>
+  </div>
+
+  <div class="sos-section">
+    <div class="sos-title">🆘 Núdz &amp; Zdravie</div>
+    <div class="sos-grid">
+      <div class="sos-card">
+        <div class="sos-number">119</div>
+        <div class="sos-label">Záchranná služba &amp; Požiari</div>
+      </div>
+      <div class="sos-card">
+        <div class="sos-number">110</div>
+        <div class="sos-label">Polícia</div>
+      </div>
+      <div class="sos-card info">
+        <div class="sos-number">050-3816-2787</div>
+        <div class="sos-label">JNTO Tourist Hotline — 24/7, po slovensky / anglicky / 13 jazykov</div>
+      </div>
+      <div class="sos-card info">
+        <div class="sos-number">03-5285-8088</div>
+        <div class="sos-label">AMDA International Medical (Tokyo) — anglicky, odkaz na kliniky</div>
+      </div>
+    </div>
+    <div class="sos-note">
+      💊 <strong>Lekárne (薬局 Yakkyoku)</strong> — v každom 7-Eleven, Lawson, FamilyMart. Základné lieky (ibuprofén, antihistaminika, náplaste) bez receptu. Pre silnejšie lieky hľadaj veľkú lekáreň (Matsumoto Kiyoshi, Tsuruha).<br>
+      🏥 <strong>Anglicky hovoriaci lekár</strong> — Google: <em>"international clinic [mesto]"</em> alebo zavolaj JNTO linku — nasmerujú ťa na najbližšie zariadenie s anglickým personálom.<br>
+      🪪 <strong>Cestovné poistenie</strong> — číslo poisťovne maj uložené v telefóne aj na papieri v peňaženke.
+    </div>
   </div>
 
   <div class="phrases-section">
