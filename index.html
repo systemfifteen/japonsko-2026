@@ -563,6 +563,42 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
 }
 .tip-text { font-size: 12px; color: #4a4540; line-height: 1.6; }
 
+/* ── PHRASES ── */
+.phrases-section { margin-bottom: 28px; }
+.phrases-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.phrases-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.phrases-table th {
+  text-align: left;
+  padding: 6px 8px;
+  color: #888;
+  font-weight: 400;
+  font-size: 11px;
+  border-bottom: 1px solid var(--border);
+}
+.phrases-table td { padding: 7px 8px; border-bottom: 1px solid rgba(0,0,0,0.04); vertical-align: middle; }
+.phrases-table tr:last-child td { border-bottom: none; }
+.phrases-table tr:hover td { background: rgba(0,0,0,0.02); }
+.phrases-jp { font-size: 15px; color: var(--ink); }
+.phrases-romaji { color: #7a6a5a; font-style: italic; }
+.phrases-sk { color: #3a3028; }
+.phrases-cat {
+  display: inline-block;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--bg);
+  color: #888;
+  margin-bottom: 4px;
+}
+
 /* ── PROGRESS BAR ── */
 .progress-bar {
   background: var(--paper2);
@@ -934,7 +970,7 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
   <div class="phase-header">
     <span class="phase-label">Fáza 1</span>
     <span class="phase-title">Tokio — západ</span>
-    <span class="phase-nights">5 nocí · APA Hotel Hatchobori · Barborka prvé dni</span>
+    <span class="phase-nights">5 nocí · APA Hotel Hatchobori · Barborka 22.–23.4.</span>
   </div>
 
   <div class="day-card travel">
@@ -978,9 +1014,9 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
     <div class="day-content">
       <div class="day-location">Shinjuku</div>
       <div class="day-title">Shinjuku — čajový obrad a atmosféra</div>
-      <div class="day-desc">Dopoludnia: Maikoya čajový obrad + kimono (pri Hanazono Shrine, 90–120 min — rezervovať vopred! ~¥6 000/os.). Obed v okolí. Poobede: Godzilla Road na fotku. Suica's Penguin Park. Večer Golden Gai alebo Kabukicho tower observation deck. Nákupy (KOMEHYO, Map Camera) presunúté na záver výletu — nechceme ťahať veci po celom Japonsku.</div>
+      <div class="day-desc">Dopoludnia: Maikoya čajový obrad + kimono (pri Hanazono Shrine, 90–120 min — rezervovať vopred! ~¥6 000/os.). Obed v okolí. Poobede: Godzilla Road na fotku. Suica's Penguin Park. Večer Golden Gai alebo Kabukicho tower observation deck. Nákupy (KOMEHYO, Map Camera) presunúté na záver výletu — nechceme ťahať veci po celom Japonsku. <strong>Barborka dnes odchádza</strong> — rozlúčka večer.</div>
       <div class="day-tags">
-        <span class="tag barborka">♡ s Barborkou</span>
+        <span class="tag barborka">♡ s Barborkou · odchod večer</span>
         <span class="tag highlight">★ Maikoya čajový obrad + kimono</span>
         <span class="tag repeat">↻ bol si tu 2013</span>
         <span class="tag">fotky</span><span class="tag">nočný život</span>
@@ -1361,6 +1397,44 @@ main { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
   <div class="section-intro" data-kanji="知">
     <p>Praktické rady, cennosti z predošlej cesty a nové tipy pre apríl 2026.</p>
   </div>
+
+  <div class="phrases-section">
+    <div class="phrases-title">🗣 Základné japonské frázy</div>
+    <table class="phrases-table">
+      <thead>
+        <tr>
+          <th>Slovensky</th>
+          <th>Japonsky</th>
+          <th>Výslovnosť</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="phrases-sk">Dobrý deň</td><td class="phrases-jp">こんにちは</td><td class="phrases-romaji">Konnichiwa</td></tr>
+        <tr><td class="phrases-sk">Dobré ráno</td><td class="phrases-jp">おはようございます</td><td class="phrases-romaji">Ohayō gozaimasu</td></tr>
+        <tr><td class="phrases-sk">Dobrú noc</td><td class="phrases-jp">おやすみなさい</td><td class="phrases-romaji">Oyasumi nasai</td></tr>
+        <tr><td class="phrases-sk">Ďakujem</td><td class="phrases-jp">ありがとうございます</td><td class="phrases-romaji">Arigatō gozaimasu</td></tr>
+        <tr><td class="phrases-sk">Prepáčte / Pardon</td><td class="phrases-jp">すみません</td><td class="phrases-romaji">Sumimasen</td></tr>
+        <tr><td class="phrases-sk">Prepáčte (ospravedlnenie)</td><td class="phrases-jp">ごめんなさい</td><td class="phrases-romaji">Gomen nasai</td></tr>
+        <tr><td class="phrases-sk">Prosím (podávam niečo)</td><td class="phrases-jp">どうぞ</td><td class="phrases-romaji">Dōzo</td></tr>
+        <tr><td class="phrases-sk">Áno</td><td class="phrases-jp">はい</td><td class="phrases-romaji">Hai</td></tr>
+        <tr><td class="phrases-sk">Nie</td><td class="phrases-jp">いいえ</td><td class="phrases-romaji">Iie</td></tr>
+        <tr><td class="phrases-sk">Nerozumiem</td><td class="phrases-jp">わかりません</td><td class="phrases-romaji">Wakarimasen</td></tr>
+        <tr><td class="phrases-sk">Hovoríte po anglicky?</td><td class="phrases-jp">英語を話せますか？</td><td class="phrases-romaji">Eigo o hanasemasu ka?</td></tr>
+        <tr><td class="phrases-sk">Kde je…?</td><td class="phrases-jp">…はどこですか？</td><td class="phrases-romaji">… wa doko desu ka?</td></tr>
+        <tr><td class="phrases-sk">Koľko to stojí?</td><td class="phrases-jp">いくらですか？</td><td class="phrases-romaji">Ikura desu ka?</td></tr>
+        <tr><td class="phrases-sk">Jeden lístok do…</td><td class="phrases-jp">…まで一枚</td><td class="phrases-romaji">… made ichimai</td></tr>
+        <tr><td class="phrases-sk">Stanica</td><td class="phrases-jp">駅</td><td class="phrases-romaji">Eki</td></tr>
+        <tr><td class="phrases-sk">Záchod</td><td class="phrases-jp">トイレ</td><td class="phrases-romaji">Toire</td></tr>
+        <tr><td class="phrases-sk">Chutí mi!</td><td class="phrases-jp">おいしい！</td><td class="phrases-romaji">Oishii!</td></tr>
+        <tr><td class="phrases-sk">Účet, prosím</td><td class="phrases-jp">お会計お願いします</td><td class="phrases-romaji">Okaikei onegaishimasu</td></tr>
+        <tr><td class="phrases-sk">Bez mäsa</td><td class="phrases-jp">肉なしで</td><td class="phrases-romaji">Niku nashi de</td></tr>
+        <tr><td class="phrases-sk">Mám alergiu na…</td><td class="phrases-jp">…アレルギーがあります</td><td class="phrases-romaji">… arerugii ga arimasu</td></tr>
+        <tr><td class="phrases-sk">Pomoc!</td><td class="phrases-jp">助けて！</td><td class="phrases-romaji">Tasukete!</td></tr>
+        <tr><td class="phrases-sk">Zavolajte záchranku!</td><td class="phrases-jp">救急車を呼んでください！</td><td class="phrases-romaji">Kyūkyūsha o yonde kudasai!</td></tr>
+      </tbody>
+    </table>
+  </div>
+
   <div class="tips-grid" id="tipsGrid"></div>
 </div>
 
@@ -1796,7 +1870,7 @@ const places = [
   // Kanazawa
   { cat:'praziarne', name:'Higashide Coffee', zone:'Kanazawa — Jikkenmachi (centrum)', note:'Skromná, výnimočná pražiareň — 20+ jednodruhových zŕn, pour-over pri pulte. Pre skutočných kávových nerds. Ot. Po–So 8:00–18:00, zatv. nedeľa. ⚠ Iba hotovosť! Žiadna online prítomnosť.', rating:'4,7', priority:true, maps:'https://maps.google.com/?q=Higashide+Coffee+Kanazawa+Jikkenmachi' },
   { cat:'kaviarne', name:'Blue Monday', zone:'Kanazawa — priamo v stanici', note:'Praktická specialty kávovňa priamo v staničnej hale Porte Kanazawa. Sezónne espresso zmesi (Etiópia, Brazília, Nikaragua). Ot. 8:15 (zatv. nedeľa a streda). Ideálne pri príchode/odchode vlakom.', rating:'4,4', url:'https://blue-monday.coffee', maps:'https://maps.google.com/?q=Blue+Monday+Coffee+Kanazawa+Station' },
-  { cat:'kaviarne', name:'Kanazawaya Coffee Shop', zone:'Kanazawa — pri hrade', note:'Tradičná japonská kávovňa od roku 1980 s nel drip (flanelový filter) — pomalá, romantická metóda. 5 zmesí + 5 jednodruhov. ⚠ Ot. IBA Pi–Ne + sviatky 9:00–17:00, Po–Štvr zatvorené. Blízko Higashi Chaya.', rating:'4,3', url:'https://krf.co.jp', maps:'https://maps.google.com/?q=Kanazawaya+Coffee+Shop+Kanazawa' },
+  { cat:'kaviarne', name:'Kanazawaya Coffee Shop', zone:'Kanazawa — pri hrade', note:'Tradičná japonská kávovňa od roku 1980 s nel drip (flanelový filter) — pomalá, romantická metóda. 5 zmesí + 5 jednodruhov. ⚠ Ot. IBA Pi–Ne + sviatky 9:00–17:00, Po–Štvr zatvorené. Blízko Higashi Chaya. ⛔ VÁŠ POBYT: 27–29.4. (Po–St) = ZATVORENÉ počas celého pobytu v Kanazawe.', rating:'4,3', url:'https://krf.co.jp', maps:'https://maps.google.com/?q=Kanazawaya+Coffee+Shop+Kanazawa' },
   { cat:'kaviarne', name:'Nonstop Coffee Stand', zone:'Kanazawa — Higashiyama (geisha štvrť)', note:'Malá pražiareň priamo v Higashi Chaya. Pour-over podávaný vo vínovom pohári — unikátny servís. Vstup cez malé posuvné dvere. Hodiny nestále — overiť na IG @nonstop_coffee_stand pred návštevou.', rating:'4,5', maps:'https://maps.google.com/?q=Nonstop+Coffee+Stand+Kanazawa+Higashiyama' },
   // Kyoto
   { cat:'kaviarne', name:'% Arabica Arashiyama', zone:'Kyoto — Arashiyama', note:'Ikona japonskej specialty kávy na brehu rieky Ooi s výhľadom na most Togetsukyo. Espresso a pour-over. Ot. 8:00–18:00 denne. Výborné pred bambusovým lesom. Možný dlhý rad — ísť skoro.', rating:'4,7', priority:true, url:'https://arabica.coffee/', maps:'https://maps.google.com/?q=Arabica+Arashiyama+Kyoto' },
